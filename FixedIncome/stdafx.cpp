@@ -4,5 +4,6 @@
 
 #include "stdafx.h"
 
-// TODO: reference any additional headers you need in STDAFX.H
-// and not in this file
+#define ASSERT_WITH_MSG(cond, msg) do \
+{ if (!(cond)) { std::ostringstream str; str << msg; std::cerr << str.str(); std::abort(); } \
+} while(0)

@@ -1,15 +1,15 @@
 #pragma once
 
-#define ASSERT_WITH_MSG(cond, msg) do \
-{ if (!(cond)) { std::ostringstream str; str << msg; std::cerr << str.str(); std::abort(); } \
-} while(0)
-
 namespace NumericalMethods {
 
 	class BinomialPricer
 	{
 	public:
+
 		BinomialPricer();
+
+		BinomialPricer &operator= ( const BinomialPricer &p );
+
 		~BinomialPricer();
 
 		// Compute the risk-neutral probability

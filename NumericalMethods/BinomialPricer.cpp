@@ -1,12 +1,25 @@
 #include "stdafx.h"
 #include "BinomialPricer.h"
 
-
 using namespace std;
 
 namespace NumericalMethods
 {
 	BinomialPricer::BinomialPricer() { }
+	
+	BinomialPricer &BinomialPricer::operator=( const BinomialPricer &p )
+	{
+		if( &p != this )
+		{
+			this->m_price = p.m_price;
+			this->m_up = p.m_up;
+			this->m_down = p.m_down;
+			this->m_rate = p.m_rate;
+		}
+
+		return *this;
+	}
+
 	BinomialPricer::~BinomialPricer() { }
 
 	double BinomialPricer::RiskNeutProb()
