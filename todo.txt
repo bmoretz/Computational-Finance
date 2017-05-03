@@ -1,0 +1,3 @@
+clean up and consolidate tests projects
+generate a clean interface for injecting members into the calculator harnesses and interacting via console
+standardize a calculator -> user / test execution model
