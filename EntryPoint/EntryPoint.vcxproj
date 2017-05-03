@@ -153,6 +153,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FixedIncome\FixedIncome.vcxproj">
+      <Project>{5adf863e-0daf-41d1-8f32-08f35830cec4}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\NumericalMethods\NumericalMethods.vcxproj">
       <Project>{a1a9dbd5-26c2-432b-b42c-b3211b014245}</Project>
     </ProjectReference>
