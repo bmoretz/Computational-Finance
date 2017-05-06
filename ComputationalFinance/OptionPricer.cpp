@@ -20,8 +20,8 @@ namespace NumericalMethods
 
 		vector<double> price( m_steps + 1 );
 
-		for( auto index = 0; index <= m_steps; index++ ) {
-			price.at( index ) = CallPayoff( S( m_price, m_up, m_down, index, m_strike ) );
+		for( int index = 0; index <= m_steps; index++ ) {
+			price.at( index ) = CallPayoff( S( m_price, m_up, m_down, m_steps, index ) );
 		}
 
 		for( auto n = m_steps - 1; n >= 0; n-- ) {

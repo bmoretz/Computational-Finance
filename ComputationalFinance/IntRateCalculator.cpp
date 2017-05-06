@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "IntRateCalculator.h"
 
+using namespace std;
+
 namespace FixedIncome {
 
 	IntRateCalculator::IntRateCalculator( double rate )
@@ -22,14 +24,5 @@ namespace FixedIncome {
 		return *this;
 	}
 
-	IntRateCalculator::~IntRateCalculator()
-	{ }
-
-
-	inline double IntRateCalculator::singlePeriod( double value )
-	{
-		double f = value * ( 1 + this->m_rate );
-
-		return f;
-	}
+	IntRateCalculator::~IntRateCalculator() { }
 }

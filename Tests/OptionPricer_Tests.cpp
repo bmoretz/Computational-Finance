@@ -18,8 +18,10 @@ namespace NumericalMethodsTests
 
 		TEST_METHOD( Test_OptionPricer )
 		{
+			int steps = 30;
+
 			double
-				assetPrice = 60, up = 10, down = 15, rate = 0.1, steps = 30, strikePrice = 60,
+				assetPrice = 60, up = 10, down = 15, rate = 0.1, strikePrice = 60,
 				Expected = 2.98;
 
 			{
