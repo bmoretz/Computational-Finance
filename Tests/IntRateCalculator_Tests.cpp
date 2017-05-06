@@ -70,5 +70,27 @@ namespace FixedIncomeTets
 				Assert::AreEqual( expected_fv, round_digits( actual_fv, 2 ) );
 			}
 		}
+
+		// $10,000 face, 4 periods, 5% rate:
+		TEST_METHOD( Test_IntRate_Logical_Methodology )
+		{
+			int periods = 4;
+			double rate = 0.05, face = 10000;
+
+			{
+				IntRateCalculator irCalc( rate );
+
+				auto single_fv = irCalc.singlePeriod( face );
+				auto multiple_fv = irCalc.mulitplePeriod( face, periods );
+				auto continious_fv = irCalc.continuousCompounding( face, periods );
+
+				Assert::AreNotEqual( Zero, single_fv );
+				Assert::AreNotEqual( Zero, multiple_fv );
+				Assert::AreNotEqual( Zero, continious_fv );
+
+				// Should always hold true
+				Assert::IsTrue( single_fv < multiple_fv < continious_fv );
+			}
+		}
 	};
 }
