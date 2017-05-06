@@ -34,15 +34,15 @@ namespace FixedIncome
 		auto total = 0.0;
 
 		for( auto payment : m_payments ) {
-			total += presentValue( payment.Value(), payment.Period() );
+			total += presentValue( payment );
 		}
 
 		return total;
 	}
 
-	double CashFlowCalculator::presentValue( double futureValue, int timePeriod )
+	double CashFlowCalculator::presentValue( const CashPayment& p )
 	{
-		auto pv = futureValue / pow( 1 + m_rate , timePeriod );
+		double pv = p.Value() / pow( 1 + m_rate , p.Period() );
 
 		DBOUT( "present value: " << pv );
 

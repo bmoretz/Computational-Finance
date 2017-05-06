@@ -1,3 +1,11 @@
-clean up and consolidate tests projects
-generate a clean interface for injecting members into the calculator harnesses and interacting via console
-standardize a calculator -> user / test execution model
+4/30/17
+
+clean up and consolidate tests projects: done
+generate a clean interface for injecting members into the calculator harnesses and interacting via console: done, uses TDD
+standardize a calculator -> user / test execution model: done, TDD
+
+5/2/17
+refactor cashflow calculator: clean-up the internals, create more test senarios, done
+
+5/3/17
+finish option pricer for both sides of the model
