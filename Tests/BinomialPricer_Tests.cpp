@@ -16,7 +16,7 @@ namespace NumericalMethodsTests
 	{
 	public:
 		
-		TEST_METHOD( Test_RiskNeutralProb_1 )
+		TEST_METHOD( Test_RiskNeutralProb )
 		{
 			double 
 				price = 45, up = 10, down = 15, rate = 0.05, 
