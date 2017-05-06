@@ -3,7 +3,7 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace FixedIncomeTests
+namespace Tests
 {		
 	TEST_CLASS(UnitTest1)
 	{

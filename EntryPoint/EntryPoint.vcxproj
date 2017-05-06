@@ -75,7 +75,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(BOOST_INC);$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)ComputationalFinance;$(BOOST_INC);$(IncludePath)</IncludePath>
     <LibraryPath>$(BOOST_LIB);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -153,11 +153,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FixedIncome\FixedIncome.vcxproj">
-      <Project>{5adf863e-0daf-41d1-8f32-08f35830cec4}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\NumericalMethods\NumericalMethods.vcxproj">
-      <Project>{a1a9dbd5-26c2-432b-b42c-b3211b014245}</Project>
+    <ProjectReference Include="..\ComputationalFinance\ComputationalFinance.vcxproj">
+      <Project>{928e4d91-7de8-492d-9581-14bf02bd5aca}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

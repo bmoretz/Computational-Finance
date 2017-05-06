@@ -1,12 +1,13 @@
 #pragma once
 
-namespace NumericalMethods {
+namespace NumericalMethods
+{
 
 	class BinomialPricer
 	{
 	public:
 
-		BinomialPricer();
+		BinomialPricer( double price, double up, double down, double rate );
 
 		BinomialPricer &operator= ( const BinomialPricer &p );
 
@@ -17,8 +18,6 @@ namespace NumericalMethods {
 
 		// computing the stock price at node n, i
 		double S( double S0, double U, double D, int n, int i );
-
-		int Initialize( std::istream& input );
 
 	private:
 
