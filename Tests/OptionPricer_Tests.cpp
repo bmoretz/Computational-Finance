@@ -2,7 +2,7 @@
 #include "CppUnitTest.h"
 
 #include "common.h"
-#include "BinomialPricer.h"
+#include "OptionPricer.h"
 
 using namespace std;
 using namespace ComputationalFinance;
@@ -12,17 +12,18 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace NumericalMethodsTests
 {
-	TEST_CLASS( BinomialPricerTests )
+	TEST_CLASS( OptionPricerTests )
 	{
 	public:
-		
-		TEST_METHOD( Test_RiskNeutralProb_1 )
+
+		TEST_METHOD( Test_OptionPricer )
 		{
-			double 
-				price = 45, up = 10, down = 15, rate = 0.05, 
-				Expected = 1.995;
-			{	
-				BinomialPricer pricer( 45, 10, 20, .05 );
+			double
+				assetPrice = 60, up = 10, down = 15, rate = 0.1, steps = 30, strikePrice = 60,
+				Expected = 2.98;
+
+			{
+				OptionPricer pricer( assetPrice, up, down, rate, steps, strikePrice );
 
 				auto rnProb = pricer.RiskNeutProb();
 
