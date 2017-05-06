@@ -35,5 +35,8 @@
     <ClCompile Include="IntRateCalculator_Tests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CashFlowCalculator_Tests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

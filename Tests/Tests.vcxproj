@@ -153,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BinomialPricer_Tests.cpp" />
+    <ClCompile Include="CashFlowCalculator_Tests.cpp" />
     <ClCompile Include="IntRateCalculator_Tests.cpp" />
     <ClCompile Include="OptionPricer_Tests.cpp" />
     <ClCompile Include="stdafx.cpp">

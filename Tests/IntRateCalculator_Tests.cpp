@@ -89,7 +89,9 @@ namespace FixedIncomeTets
 				Assert::AreNotEqual( Zero, continious_fv );
 
 				// Should always hold true
-				Assert::IsTrue( single_fv < multiple_fv < continious_fv );
+				Assert::IsTrue( multiple_fv < continious_fv );
+				Assert::IsTrue( single_fv < multiple_fv );
+				Assert::IsTrue( Zero < single_fv );
 			}
 		}
 	};

@@ -16,7 +16,7 @@ namespace FixedIncome {
 
 	IntRateCalculator &IntRateCalculator::operator=( const IntRateCalculator &v )
 	{
-		if( &v != this )
+		if( this != &v )
 		{
 			this->m_rate = v.m_rate;
 		}
