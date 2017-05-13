@@ -150,8 +150,8 @@
   <ItemGroup>
     <ClCompile Include="BinomialPricer_tests.cpp" />
     <ClCompile Include="BondCalculator_tests.cpp" />
-    <ClCompile Include="cashflow_calculator.cpp" />
-    <ClCompile Include="common.cpp" />
+    <ClCompile Include="CashFlowCalculator_tests.cpp" />
+    <ClCompile Include="common_tests.cpp" />
     <ClCompile Include="intrate_calculator.cpp" />
     <ClCompile Include="option_pricer.cpp" />
     <ClCompile Include="stdafx.cpp" />

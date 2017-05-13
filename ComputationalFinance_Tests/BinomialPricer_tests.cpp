@@ -24,13 +24,13 @@ namespace NumericalMethodsTests
 
 		double 
 			price = 45, up = 10, down = 15, rate = 0.05, 
-			expected = 1.995;
+			expected = 2.99;
 
 		BinomialPricer pricer( price, up, down, rate );
 
-		auto actual = round_digits( pricer.RiskNeutProb(), 3 );
+		auto actual = pricer.RiskNeutProb();
 
 		EXPECT_NE( Zero, actual);
-		EXPECT_EQ( expected, actual );
+		EXPECT_FLOAT_EQ( expected, actual );
 	}
 }
