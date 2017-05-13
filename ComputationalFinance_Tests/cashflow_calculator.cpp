@@ -7,58 +7,55 @@ using namespace std;
 using namespace ComputationalFinance;
 using namespace FixedIncome;
 
-//using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-
 namespace FixedIncomeTets
 {
-	/*
-	TEST_CLASS( CashFlowCalculator_Tests )
+	class CashFlowCalculatorTests :
+		public ::testing::Test
 	{
-	public:
-
-		// rate: 5%, values: 200, 300, 500, -1000
-		TEST_METHOD( Test_CashFlowCalculator_BookExample )
-		{
-			double rate = 0.05, // Book erratum, example displays 5% rate, however example actually uses 8%
-				expected_pv = 71.8014; // Correct EV
-
-			{
-				CashFlowCalculator cfc( rate );
-
-				cfc.addCashPayment( 200, 1 );
-				cfc.addCashPayment( 300, 2 );
-				cfc.addCashPayment( 500, 3 );
-
-				cfc.addCashPayment( -1000, 4 );
-
-				auto actual_pv = cfc.presentValue();
-
-				//Assert::AreEqual( expected_pv, round_digits( actual_pv, 4 ) );
-			}
-		}
-
-		// rate: 8%, values: $200.00 $300.00 $500.00 $1,500.00 $600.00 ($3,100.00)
-		TEST_METHOD( Test_CashFlowCalculator_Example_2 )
-		{
-			double rate = 0.08,
-				expected_pv = 396.6718; // Correct EV
-
-			{
-				CashFlowCalculator cfc( rate );
-
-				cfc.addCashPayment( 200, 1 );
-				cfc.addCashPayment( 300, 2 );
-				cfc.addCashPayment( 500, 3 );
-				cfc.addCashPayment( 1500, 4 );
-				cfc.addCashPayment( 600, 5 );
-
-				cfc.addCashPayment( -3100, 6 );
-
-				auto actual_pv = cfc.presentValue();
-
-				//Assert::AreEqual( expected_pv, round_digits( actual_pv, 4 ) );
-			}
-		}
+	protected:
+		void SetUp() override {}
+		void TearDown() override { }
 	};
-	*/
+
+	// rate: 5%, values: 200, 300, 500, -1000
+	TEST_F(CashFlowCalculatorTests, BookExample)
+	{
+		auto rate = 0.05, // Book erratum, example displays 5% rate, however example actually uses 8%
+			expected = 71.801361; // Correct EV
+
+		CashFlowCalculator cfc(rate);
+
+		cfc.addCashPayment(200, 1);
+		cfc.addCashPayment(300, 2);
+		cfc.addCashPayment(500, 3);
+
+		cfc.addCashPayment(-1000, 4);
+
+		auto actual = cfc.presentValue();
+
+		EXPECT_NE(Zero, actual);
+		EXPECT_FLOAT_EQ(expected, actual);
+	}
+
+	// rate: 8%, values: $200.00 $300.00 $500.00 $1,500.00 $600.00 ($3,100.00)
+	TEST_F(CashFlowCalculatorTests, Example_2)
+	{
+		auto rate = 0.08,
+			expected = 396.6718; // Correct EV
+
+		CashFlowCalculator cfc(rate);
+
+		cfc.addCashPayment(200, 1);
+		cfc.addCashPayment(300, 2);
+		cfc.addCashPayment(500, 3);
+		cfc.addCashPayment(1500, 4);
+		cfc.addCashPayment(600, 5);
+
+		cfc.addCashPayment(-3100, 6);
+
+		auto actual = cfc.presentValue();
+
+		EXPECT_NE(Zero, actual);
+		EXPECT_FLOAT_EQ(expected, actual);
+	}
 }

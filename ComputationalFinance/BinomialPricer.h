@@ -2,7 +2,6 @@
 
 namespace NumericalMethods
 {
-
 	class BinomialPricer
 	{
 	public:
