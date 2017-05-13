@@ -9,6 +9,11 @@
    OutputDebugStringW( os_.str().c_str() );  \
 }
 
+inline int square(const int value)
+{
+	return value * value;
+}
+
 namespace ComputationalFinance
 {
 	const double Zero = 0.0;

@@ -12,10 +12,10 @@ namespace NumericalMethods
 		~BinomialPricer();
 
 		// Compute the risk-neutral probability
-		double RiskNeutProb();
+		double RiskNeutProb() const;
 
 		// computing the stock price at node n, i
-		double S( double S0, double U, double D, int n, int i );
+		double S( double S0, double U, double D, int n, int i ) const;
 
 	protected:
 

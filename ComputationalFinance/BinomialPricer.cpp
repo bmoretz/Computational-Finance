@@ -29,12 +29,12 @@ namespace NumericalMethods
 
 	BinomialPricer::~BinomialPricer() { }
 
-	double BinomialPricer::RiskNeutProb()
+	double BinomialPricer::RiskNeutProb() const
 	{
 		return ( m_rate - m_down ) / ( m_up - m_down );
 	}
 
-	double BinomialPricer::S( double S0, double U, double D, int n, int i )
+	double BinomialPricer::S( double S0, double U, double D, int n, int i ) const
 	{
 		return S0 * pow( 1 + U, i ) * pow( 1 + D, n - i );
 	}

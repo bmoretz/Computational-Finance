@@ -35,6 +35,12 @@
     <ClInclude Include="CashFlowCalculator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BondCalculator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MACalculator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -51,6 +57,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CashFlowCalculator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BondCalculator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MACalculator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

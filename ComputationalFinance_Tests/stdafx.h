@@ -7,8 +7,7 @@
 
 #include "targetver.h"
 
-// Headers for CppUnitTest
-#include "CppUnitTest.h"
+#include <stdio.h>
+#include <tchar.h>
 
-#include <sstream>
-#include <string>
+#include <gtest/gtest.h>
