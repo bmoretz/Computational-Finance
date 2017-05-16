@@ -152,7 +152,7 @@
     <ClCompile Include="BondCalculator_tests.cpp" />
     <ClCompile Include="CashFlowCalculator_tests.cpp" />
     <ClCompile Include="common_tests.cpp" />
-    <ClCompile Include="intrate_calculator.cpp" />
+    <ClCompile Include="IntRateCalculator_Tests.cpp" />
     <ClCompile Include="option_pricer.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>

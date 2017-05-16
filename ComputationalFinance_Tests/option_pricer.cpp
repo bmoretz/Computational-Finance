@@ -9,28 +9,33 @@ using namespace NumericalMethods;
 
 namespace NumericalMethodsTests
 {
-	/*
-	TEST_CLASS( OptionPricerTests )
+	class OptionPricerTests :
+		public ::testing::Test
 	{
-	public:
-
-		TEST_METHOD( Test_OptionPricer )
+	protected:
+		void SetUp() override
 		{
-			auto steps = 30;
+		}
 
-			double
-				assetPrice = 60, up = 10, down = 15, rate = 0.1, strikePrice = 60,
-				Expected = 2.98;
-
-			{
-				OptionPricer pricer( assetPrice, up, down, rate, steps, strikePrice );
-
-				auto rnProb = pricer.RiskNeutProb();
-
-				//Assert::AreNotEqual( Zero, pricer.RiskNeutProb() );
-				//Assert::AreEqual( Expected, round_digits( rnProb, 3 ) );
-			}
+		void TearDown() override
+		{
 		}
 	};
-	*/
+
+	// rate: 5%, values: 200, 300, 500, -1000
+	TEST_F(OptionPricerTests, BookExample)
+	{
+		auto steps = 30;
+
+		double
+			assetPrice = 60, up = 10, down = 15, rate = 0.1, strikePrice = 60,
+			expected = 2.98;
+
+		OptionPricer pricer(assetPrice, up, down, rate, steps, strikePrice);
+
+		auto actual = round_digits( pricer.RiskNeutProb(), 3 );
+
+		EXPECT_NE( Zero, actual);
+		EXPECT_FLOAT_EQ( expected, actual);
+	}
 }
