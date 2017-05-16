@@ -9,87 +9,67 @@ using namespace FixedIncome;
 
 namespace FixedIncomeTets
 {
-
-	/*
-	TEST_CLASS( IntRateCalculator_Tests )
+	class IntRateCalculatorTests :
+		public ::testing::Test
 	{
-	public:
-
-		// 10,000 face, 1 period at 8%
-		TEST_METHOD( Test_SinglePeriodIntRate )
+	protected:
+		void SetUp() override
 		{
-			double rate = 0.08, face = 10000,
-				expected_fv = 10800;
-
-			{
-				IntRateCalculator irCalc( rate );
-
-				auto actual_fv = irCalc.singlePeriod( face );
-
-				//Assert::AreNotEqual( Zero, actual_fv );
-				//Assert::AreEqual( expected_fv, actual_fv );
-			}
 		}
 
-		// $10,000 face, 4 periods, 5% rate:
-		TEST_METHOD( Test_MultiplePeriodIntRate )
+		void TearDown() override
 		{
-			auto periods = 4;
-
-			double rate = 0.05, face = 10000,
-				expected_fv = 12155.06;
-
-			{
-				IntRateCalculator irCalc( rate );
-
-				auto actual_fv = irCalc.mulitplePeriod( face, periods );
-
-				//Assert::AreNotEqual( Zero, actual_fv );
-				//Assert::AreEqual( expected_fv, round_digits( actual_fv, 2 ) );
-			}
 		}
+	};
 
-		// $10,000 face, 4 periods, 5% rate:
-		TEST_METHOD( Test_ContiniousPeriodIntRate )
-		{
-			auto periods = 4;
+	// 10,000 face, 1 period at 8%
+	TEST_F(IntRateCalculatorTests, BookExample)
+	{
+		double rate = 0.08, face = 10000,
+			expected_fv = 10800;
 
-			double rate = 0.05, face = 10000,
-				expected_fv = 12214.03;
+		IntRateCalculator irCalc( rate );
 
-			{
-				IntRateCalculator irCalc( rate );
+		auto actual_fv = irCalc.singlePeriod(face);
 
-				auto actual_fv = irCalc.continuousCompounding( face, periods );
+		EXPECT_NE( Zero, actual_fv);
+		EXPECT_FLOAT_EQ( expected_fv, actual_fv);
+	}
 
-				//Assert::AreNotEqual( Zero, actual_fv );
-				//Assert::AreEqual( expected_fv, round_digits( actual_fv, 2 ) );
-			}
-		}
+	// $10,000 face, 4 periods, 5% rate:
+	TEST_F(IntRateCalculatorTests, MultiplePeriodIntRate)
+	{
+		auto periods = 4;
 
-		// $10,000 face, 4 periods, 5% rate:
-		TEST_METHOD( Test_IntRate_Logical_Methodology )
-		{
-			auto periods = 4;
-			double rate = 0.05, face = 10000;
+		double rate = 0.05, face = 10000,
+			expected_fv = 12155.06;
 
-			{
-				IntRateCalculator irCalc( rate );
+			IntRateCalculator irCalc(rate);
 
-				auto single_fv = irCalc.singlePeriod( face );
-				auto multiple_fv = irCalc.mulitplePeriod( face, periods );
-				auto continious_fv = irCalc.continuousCompounding( face, periods );
+			auto actual_fv = irCalc.mulitplePeriod(face, periods);
 
-	
-				Assert::AreNotEqual( Zero, single_fv );
-				Assert::AreNotEqual( Zero, multiple_fv );
-				Assert::AreNotEqual( Zero, continious_fv );
+		EXPECT_NE(Zero, actual_fv);
+		EXPECT_FLOAT_EQ(expected_fv, actual_fv);
+	}
 
-				// Should always hold true
-				Assert::IsTrue( multiple_fv < continious_fv );
-				Assert::IsTrue( single_fv < multiple_fv );
-				Assert::IsTrue( Zero < single_fv );.
+	// $10,000 face, 4 periods, 5% rate:
+	TEST_F(IntRateCalculatorTests, ContiniousPeriodIntRate)
+	{
+		auto periods = 4;
+		double rate = 0.05, face = 10000;
 
-			}
-		} */
+		IntRateCalculator irCalc(rate);
+
+		auto single_fv = irCalc.singlePeriod(face);
+		auto multiple_fv = irCalc.mulitplePeriod(face, periods);
+		auto continious_fv = irCalc.continuousCompounding(face, periods);
+
+		EXPECT_NE( Zero, single_fv );
+		EXPECT_NE( Zero, multiple_fv);
+		EXPECT_NE( Zero, continious_fv);
+
+		EXPECT_TRUE( multiple_fv < continious_fv );
+		EXPECT_TRUE(single_fv < multiple_fv );
+		EXPECT_TRUE( Zero < single_fv );
+	}
 }
