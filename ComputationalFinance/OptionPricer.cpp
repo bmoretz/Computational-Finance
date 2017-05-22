@@ -2,25 +2,28 @@
 #include "OptionPricer.h"
 
 using namespace std;
-using namespace ComputationalFinance;
+using namespace Common;
 
 // Validation Source: 
 // http://www.hoadley.net/options/binomialtree.aspx?tree=B
 namespace NumericalMethods 
 {
 	OptionPricer::OptionPricer( double price, double up, double down, double rate, int steps, double strike )
-		: BinomialPricer( price, up, down, rate )
-	{ }
+		: BinomialPricer( price, up, down, rate ),
+		  m_steps( 0 ),
+		  m_strike( 0 )
+	{
+	}
 
 	OptionPricer::~OptionPricer() { }
 
-	double OptionPricer::PriceByCRR()
+	double OptionPricer::PriceByCRR() const
 	{
-		double prob = RiskNeutProb();
+		auto prob = RiskNeutProb();
 
 		vector<double> price( m_steps + 1 );
 
-		for( int index = 0; index <= m_steps; index++ ) {
+		for( auto index = 0; index <= m_steps; index++ ) {
 			price.at( index ) = CallPayoff( S( m_price, m_up, m_down, m_steps, index ) );
 		}
 
@@ -33,7 +36,7 @@ namespace NumericalMethods
 		return price.at( 0 );
 	}
 
-	double OptionPricer::CallPayoff( double z )
+	double OptionPricer::CallPayoff( double z ) const
 	{
 		return z > m_strike ? z - m_strike : Zero;
 	}

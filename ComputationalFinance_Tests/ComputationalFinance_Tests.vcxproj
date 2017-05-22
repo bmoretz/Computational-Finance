@@ -73,7 +73,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(GTEST_INC);$(SolutionDir)ComputationalFinance;$(IncludePath)</IncludePath>
+    <IncludePath>$(GTEST_INC);$(SolutionDir)ComputationalFinance;$(GMOCK_INC);$(GMOCK);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -153,6 +153,7 @@
     <ClCompile Include="CashFlowCalculator_tests.cpp" />
     <ClCompile Include="common_tests.cpp" />
     <ClCompile Include="IntRateCalculator_Tests.cpp" />
+    <ClCompile Include="MACalculator_Tests.cpp" />
     <ClCompile Include="option_pricer.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>

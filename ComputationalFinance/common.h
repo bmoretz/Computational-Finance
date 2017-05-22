@@ -1,6 +1,7 @@
 #pragma once
 
 #include "stdafx.h"
+#include <algorithm>
 
 #define DBOUT( s )            \
 {                             \
@@ -9,17 +10,30 @@
    OutputDebugStringW( os_.str().c_str() );  \
 }
 
-inline int square(const int value)
-{
-	return value * value;
-}
+using namespace std;
 
-namespace ComputationalFinance
+namespace Common
 {
-	const double Zero = 0.0;
+    inline int square( const int value )
+    {
+        return value * value;
+    }
 
-	inline double round_digits( double n, int digits )
-	{
-		return round( n * pow( 10.0, digits ) ) / pow( 10.0, digits );
-	}
+    const double Zero = 0.0;
+
+    inline double round_digits( double n, int digits )
+    {
+        return round( n * pow( 10.0, digits ) ) / pow( 10.0, digits );
+    }
+
+    inline vector<double> round_digits( const vector<double> & in, const int digits )
+    {
+        vector<double> out;
+
+        out.reserve( in.size() );
+
+        transform( in.begin(), in.end(), back_inserter( out ), [digits]( double v ) -> double { return round_digits(v, digits); } );
+        
+        return out;
+    }
 }

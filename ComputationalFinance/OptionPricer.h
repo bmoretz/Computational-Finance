@@ -14,8 +14,8 @@ namespace NumericalMethods {
 
 		~OptionPricer();
 
-		double PriceByCRR();
-		double CallPayoff( double z );
+		double PriceByCRR() const;
+		double CallPayoff( double z ) const;
 
 	private:
 		int m_steps;

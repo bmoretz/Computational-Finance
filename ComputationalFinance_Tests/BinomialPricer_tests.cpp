@@ -6,7 +6,7 @@
 #include <gtest/gtest.h>
 
 using namespace std;
-using namespace ComputationalFinance;
+using namespace Common;
 using namespace NumericalMethods;
 
 namespace NumericalMethodsTests

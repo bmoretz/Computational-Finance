@@ -52,6 +52,6 @@ namespace FixedIncome
 		vector<CashPayment> m_payments;
 		
 		double m_rate;
-		double presentValue( const CashPayment& p );
+		double presentValue( const CashPayment& p ) const;
 	};
 }

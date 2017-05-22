@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(GTEST);$(GTEST_INC);$(IncludePath)</IncludePath>
+    <IncludePath>$(GTEST);$(GTEST_INC);$(GMOCK);$(GMOCK_INC);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -133,6 +133,8 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="D:\GitHub\googlemock\googlemock\src\gmock-all.cc" />
+    <ClCompile Include="D:\GitHub\googlemock\googlemock\src\gmock_main.cc" />
     <ClCompile Include="D:\GitHub\googletest\googletest\src\gtest-all.cc" />
     <ClCompile Include="D:\GitHub\googletest\googletest\src\gtest_main.cc" />
   </ItemGroup>

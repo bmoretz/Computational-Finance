@@ -3,7 +3,7 @@
 #include "CashFlowCalculator.h"
 
 using namespace std;
-using namespace ComputationalFinance;
+using namespace Common;
 
 namespace FixedIncome
 {
@@ -40,7 +40,7 @@ namespace FixedIncome
 		return total;
 	}
 
-	double CashFlowCalculator::presentValue( const CashPayment& p )
+	double CashFlowCalculator::presentValue( const CashPayment& p ) const
 	{
 		double pv = p.Value() / pow( 1 + m_rate , p.Period() );
 

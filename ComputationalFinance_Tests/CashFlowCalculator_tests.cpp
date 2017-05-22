@@ -4,7 +4,7 @@
 #include "CashflowCalculator.h"
 
 using namespace std;
-using namespace ComputationalFinance;
+using namespace Common;
 using namespace FixedIncome;
 
 namespace FixedIncomeTests
@@ -23,7 +23,7 @@ namespace FixedIncomeTests
     };
 
     // rate: 5%, values: 200, 300, 500, -1000
-    TEST_F(CashFlowCalculatorTests, BookExample)
+    TEST_F( CashFlowCalculatorTests, BookExample )
     {
         auto rate = 0.05, // Book erratum, example displays 5% rate, however example actually uses 8%
             expected = 71.801361; // Correct EV
@@ -38,12 +38,12 @@ namespace FixedIncomeTests
 
         auto actual = cfc.presentValue();
 
-        EXPECT_NE(Zero, actual);
-        EXPECT_FLOAT_EQ(expected, actual);
+        EXPECT_NE( Zero, actual );
+        EXPECT_FLOAT_EQ( expected, actual );
     }
 
     // rate: 8%, values: $200.00 $300.00 $500.00 $1,500.00 $600.00 ($3,100.00)
-    TEST_F(CashFlowCalculatorTests, Example_2)
+    TEST_F( CashFlowCalculatorTests, Example_2 )
     {
         auto rate = 0.08,
             expected = 396.6718; // Correct EV
@@ -60,7 +60,7 @@ namespace FixedIncomeTests
 
         auto actual = cfc.presentValue();
 
-        EXPECT_NE(Zero, actual);
-        EXPECT_FLOAT_EQ(expected, actual);
+        EXPECT_NE( Zero, actual );
+        EXPECT_FLOAT_EQ( expected, actual );
     }
 }
