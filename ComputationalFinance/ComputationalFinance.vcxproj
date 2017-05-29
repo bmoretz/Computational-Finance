@@ -23,7 +23,7 @@
     <ProjectGuid>{928E4D91-7DE8-492D-9581-14BF02BD5ACA}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>ComputationalFinance</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

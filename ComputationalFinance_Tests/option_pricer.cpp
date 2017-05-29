@@ -36,6 +36,6 @@ namespace NumericalMethodsTests
 		auto actual = round_digits( pricer.RiskNeutProb(), 3 );
 
 		EXPECT_NE( Zero, actual );
-		EXPECT_FLOAT_EQ( expected, actual );
+		EXPECT_DOUBLE_EQ( expected, actual );
 	}
 }

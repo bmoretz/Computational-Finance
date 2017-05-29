@@ -31,6 +31,6 @@ namespace NumericalMethodsTests
 		auto actual = pricer.RiskNeutProb();
 
 		EXPECT_NE( Zero, actual);
-		EXPECT_FLOAT_EQ( expected, actual );
+		EXPECT_DOUBLE_EQ( expected, actual );
 	}
 }

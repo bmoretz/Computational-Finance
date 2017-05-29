@@ -36,10 +36,10 @@ namespace FixedIncomeTests
 
         cfc.addCashPayment( -1000, 4 );
 
-        auto actual = cfc.presentValue();
+        auto actual = round_digits( cfc.presentValue(), 6 );
 
         EXPECT_NE( Zero, actual );
-        EXPECT_FLOAT_EQ( expected, actual );
+        EXPECT_DOUBLE_EQ( expected, actual );
     }
 
     // rate: 8%, values: $200.00 $300.00 $500.00 $1,500.00 $600.00 ($3,100.00)
@@ -58,9 +58,9 @@ namespace FixedIncomeTests
 
         cfc.addCashPayment( -3100, 6 );
 
-        auto actual = cfc.presentValue();
+        auto actual = round_digits( cfc.presentValue(), 4 );
 
         EXPECT_NE( Zero, actual );
-        EXPECT_FLOAT_EQ( expected, actual );
+        EXPECT_DOUBLE_EQ( expected, actual );
     }
 }

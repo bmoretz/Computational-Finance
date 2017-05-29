@@ -33,7 +33,7 @@ namespace FixedIncomeTets
         auto actual_fv = irCalc.singlePeriod( face );
 
         EXPECT_NE( Zero, actual_fv);
-        EXPECT_FLOAT_EQ( expected_fv, actual_fv);
+        EXPECT_DOUBLE_EQ( expected_fv, actual_fv);
     }
 
     // $10,000 face, 4 periods, 5% rate:
@@ -49,7 +49,7 @@ namespace FixedIncomeTets
         auto actual_fv = irCalc.mulitplePeriod( face, periods );
 
         EXPECT_NE(Zero, actual_fv);
-        EXPECT_FLOAT_EQ(expected_fv, actual_fv);
+        EXPECT_DOUBLE_EQ(expected_fv, actual_fv);
     }
 
     // $10,000 face, 4 periods, 5% rate:

@@ -4,7 +4,8 @@
 namespace Common
 {
     MACalculator::MACalculator( int periods, double emaFactor ) :
-        m_numPeriods( periods ), m_emaFactor( emaFactor )
+        m_numPeriods( periods ),
+        m_emaFactor( emaFactor )
     {
     }
 
@@ -40,7 +41,7 @@ namespace Common
         {
             sum += m_prices[ index ];
 
-            if( index >= m_numPeriods)
+            if( index >= m_numPeriods )
             {
                 ma.push_back( sum / m_numPeriods );
                 sum -= m_prices[ index - m_numPeriods ];
@@ -53,10 +54,25 @@ namespace Common
     vector<double> MACalculator::calculateEMA()
     {
         vector<double> ema;
-        auto multiplier = m_emaFactor / (m_numPeriods + 1);
+        auto multiplier = m_emaFactor / ( m_numPeriods + 1 );
+        auto sum = 0.0;
 
-        auto ma = calculateMA();
+        for( auto index = 0; index < m_prices.size(); index++ )
+        {
+            sum += m_prices[ index ];
 
-        return ma;
+            if( index == m_numPeriods )
+            {
+                ema.push_back( sum / m_numPeriods );
+                sum -= m_prices[ index - m_numPeriods ];
+            }
+            else if( index > m_numPeriods )
+            {
+                auto val = ( 1 - multiplier ) * ema.back() + multiplier * m_prices[ index ];
+                ema.push_back( val );
+            }
+        }
+
+        return ema;
     }
 }
