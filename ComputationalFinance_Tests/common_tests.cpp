@@ -3,7 +3,6 @@
 #include <gmock/gmock-matchers.h>
 
 using namespace testing;
-
 using namespace Common;
 
 namespace CommonTests
@@ -23,5 +22,15 @@ namespace CommonTests
         auto actual = round_digits( input, 1 );
 
         EXPECT_THAT( expected, ContainerEq( actual ) );
+    }
+
+    TEST(MeanVectorDouble, mean)
+    {
+        vector<double> input = { 3, 3.5, 5, 4.48, 5.2, 6, 6.1, 5.5, 5.2, 5.7 };
+        auto expected = 4.968;
+
+        auto actual = mean( input );
+
+        EXPECT_DOUBLE_EQ( expected, actual );
     }
 }

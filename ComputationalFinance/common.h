@@ -2,6 +2,7 @@
 
 #include "stdafx.h"
 #include <algorithm>
+#include <numeric>
 
 #define DBOUT( s )            \
 {                             \
@@ -14,7 +15,8 @@ using namespace std;
 
 namespace Common
 {
-    inline int square( const int value )
+    template <typename T>
+    T square( const T value )
     {
         return value * value;
     }
@@ -26,14 +28,23 @@ namespace Common
         return round( n * pow( 10.0, digits ) ) / pow( 10.0, digits );
     }
 
-    inline vector<double> round_digits( const vector<double> & in, const int digits )
+    inline vector<double> round_digits( const vector<double> &in, const int digits )
     {
         vector<double> out;
 
         out.reserve( in.size() );
 
-        transform( in.begin(), in.end(), back_inserter( out ), [digits]( double v ) -> double { return round_digits(v, digits); } );
-        
+        transform( in.begin(), in.end(), back_inserter( out ), [digits]( double v ) -> double { return round_digits( v, digits ); } );
+
         return out;
+    }
+
+    template <typename T>
+    T mean( vector<T> n )
+    {
+        if( n.size() == 0 )
+            return Zero;
+
+        return accumulate( n.begin(), n.end(), 0.0 ) / n.size();
     }
 }

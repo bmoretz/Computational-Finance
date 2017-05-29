@@ -154,8 +154,9 @@
     <ClCompile Include="common_tests.cpp" />
     <ClCompile Include="IntRateCalculator_Tests.cpp" />
     <ClCompile Include="MACalculator_Tests.cpp" />
-    <ClCompile Include="option_pricer.cpp" />
+    <ClCompile Include="OptionPricer_Tests.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="VolatilityCalculator_tests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ComputationalFinance\ComputationalFinance.vcxproj">
