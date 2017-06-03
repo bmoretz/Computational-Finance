@@ -26,7 +26,7 @@ namespace FixedIncomeTests
     TEST_F( CashFlowCalculatorTests, BookExample )
     {
         auto rate = 0.05, // Book erratum, example displays 5% rate, however example actually uses 8%
-            expected = 71.801361; // Correct EV
+            expected = 71.801358487461584; // Correct EV
 
         CashFlowCalculator cfc( rate );
 
@@ -36,7 +36,7 @@ namespace FixedIncomeTests
 
         cfc.addCashPayment( -1000, 4 );
 
-        auto actual = round_digits( cfc.presentValue(), 6 );
+        auto actual = cfc.presentValue();
 
         EXPECT_NE( Zero, actual );
         EXPECT_DOUBLE_EQ( expected, actual );
@@ -46,7 +46,7 @@ namespace FixedIncomeTests
     TEST_F( CashFlowCalculatorTests, Example_2 )
     {
         auto rate = 0.08,
-            expected = 396.6718; // Correct EV
+            expected = 396.67180586311247; // Correct EV
 
         CashFlowCalculator cfc( rate );
 
@@ -58,7 +58,7 @@ namespace FixedIncomeTests
 
         cfc.addCashPayment( -3100, 6 );
 
-        auto actual = round_digits( cfc.presentValue(), 4 );
+        auto actual = cfc.presentValue();
 
         EXPECT_NE( Zero, actual );
         EXPECT_DOUBLE_EQ( expected, actual );

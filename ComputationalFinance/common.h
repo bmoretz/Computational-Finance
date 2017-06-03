@@ -23,7 +23,8 @@ namespace Common
 
     const double Zero = 0.0;
 
-    inline double round_digits( double n, int digits )
+    template<typename T>
+    T round_digits( T n, int digits )
     {
         return round( n * pow( 10.0, digits ) ) / pow( 10.0, digits );
     }

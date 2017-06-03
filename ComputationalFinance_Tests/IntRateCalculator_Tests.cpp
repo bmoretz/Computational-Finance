@@ -46,7 +46,7 @@ namespace FixedIncomeTets
 
         IntRateCalculator irCalc( rate );
 
-        auto actual_fv = irCalc.mulitplePeriod( face, periods );
+        auto actual_fv = round_digits( irCalc.mulitplePeriod( face, periods ), 2 );
 
         EXPECT_NE(Zero, actual_fv);
         EXPECT_DOUBLE_EQ(expected_fv, actual_fv);
