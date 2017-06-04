@@ -7,7 +7,7 @@ using namespace std;
 using namespace Common;
 using namespace FixedIncome;
 
-namespace FixedIncomeTets
+namespace FixedIncomeTests
 {
     class IntRateCalculatorTests :
         public ::testing::Test

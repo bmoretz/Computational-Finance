@@ -4,7 +4,7 @@
 
 namespace Common
 {
-    #pragma region Constructors
+    #pragma region Constructor / Deconstructor
 
     CorrelationCalculator::CorrelationCalculator( TimeSeries &tsA, TimeSeries &tsB )
         : m_tsA( tsA ),

@@ -174,6 +174,4 @@ namespace CommonTests
 
         EXPECT_DOUBLE_EQ( expected_correl, round_digits( correl.correlation(), 4 ) );
     }
-
-
 }
