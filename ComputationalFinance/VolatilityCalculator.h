@@ -26,7 +26,7 @@ namespace Common
 
         double rangeVolatility();
         double avgDailyRange();
-        double stdDev();
+        double stdDev() const;
 
     protected:
         vector<double> m_prices;

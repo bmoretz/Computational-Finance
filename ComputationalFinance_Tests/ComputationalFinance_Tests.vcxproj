@@ -151,11 +151,13 @@
     <ClCompile Include="BinomialPricer_tests.cpp" />
     <ClCompile Include="BondCalculator_tests.cpp" />
     <ClCompile Include="CashFlowCalculator_tests.cpp" />
-    <ClCompile Include="common_tests.cpp" />
+    <ClCompile Include="Common_tests.cpp" />
+    <ClCompile Include="CorrelationCalculator_tests.cpp" />
     <ClCompile Include="IntRateCalculator_Tests.cpp" />
     <ClCompile Include="MACalculator_Tests.cpp" />
     <ClCompile Include="OptionPricer_Tests.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="TimeSeries_tests.cpp" />
     <ClCompile Include="VolatilityCalculator_tests.cpp" />
   </ItemGroup>
   <ItemGroup>

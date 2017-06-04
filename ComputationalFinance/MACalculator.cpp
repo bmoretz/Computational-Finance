@@ -3,6 +3,8 @@
 
 namespace Common
 {
+    #pragma region Constructor / Deconstructor
+
     MACalculator::MACalculator( int periods, double emaFactor ) :
         m_numPeriods( periods ),
         m_emaFactor( emaFactor )
@@ -31,6 +33,8 @@ namespace Common
     MACalculator::~MACalculator()
     {
     }
+
+    #pragma endregion
 
     vector<double> MACalculator::calculateMA()
     {

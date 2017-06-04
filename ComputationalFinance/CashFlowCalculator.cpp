@@ -7,45 +7,53 @@ using namespace Common;
 
 namespace FixedIncome
 {
-	CashFlowCalculator::CashFlowCalculator( double rate ) : 
-		m_rate( rate )
-	{ }
+    #pragma region Constructor / Deconstructor
 
-	CashFlowCalculator &CashFlowCalculator::operator=( const CashFlowCalculator& v )
-	{
-		if( this != &v )
-		{
-			this->m_rate = v.m_rate;
-			this->m_payments = v.m_payments;
-		}
+    CashFlowCalculator::CashFlowCalculator( double rate ) :
+        m_rate( rate )
+    {
+    }
 
-		return *this;
-	}
+    CashFlowCalculator& CashFlowCalculator::operator=( const CashFlowCalculator &v )
+    {
+        if( this != &v )
+        {
+            this->m_rate = v.m_rate;
+            this->m_payments = v.m_payments;
+        }
 
-	CashFlowCalculator::~CashFlowCalculator() { }
+        return *this;
+    }
 
-	void CashFlowCalculator::addCashPayment( double value, int timePeriod )
-	{
-		m_payments.push_back( CashPayment( value, timePeriod ) );
-	}
+    CashFlowCalculator::~CashFlowCalculator()
+    {
+    }
 
-	double CashFlowCalculator::presentValue()
-	{
-		auto total = 0.0;
+    #pragma endregion
 
-		for( auto payment : m_payments ) {
-			total += presentValue( payment );
-		}
+    void CashFlowCalculator::addCashPayment( double value, int timePeriod )
+    {
+        m_payments.push_back( CashPayment( value, timePeriod ) );
+    }
 
-		return total;
-	}
+    double CashFlowCalculator::presentValue()
+    {
+        auto total = 0.0;
 
-	double CashFlowCalculator::presentValue( const CashPayment& p ) const
-	{
-		double pv = p.Value() / pow( 1 + m_rate , p.Period() );
+        for( auto payment : m_payments )
+        {
+            total += presentValue( payment );
+        }
 
-		DBOUT( "present value: " << pv );
+        return total;
+    }
 
-		return pv;
-	}
+    double CashFlowCalculator::presentValue( const CashPayment &p ) const
+    {
+        auto pv = p.Value() / pow( 1 + m_rate, p.Period() );
+
+        DBOUT( "present value: " << pv );
+
+        return pv;
+    }
 }

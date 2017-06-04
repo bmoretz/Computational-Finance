@@ -3,6 +3,8 @@
 
 namespace FixedIncome 
 {
+    #pragma region Constructor / Deconstructor
+
 	BondCalculator::BondCalculator( string instution, double principal, double coupon, int numPeriods ) 
 		: m_instution( instution ), m_principal( principal ), m_coupon( coupon ), m_numPeriods( numPeriods )
 	{ }
@@ -25,6 +27,8 @@ namespace FixedIncome
 	}
 
 	BondCalculator::~BondCalculator() {}
+
+    #pragma endregion
 
 	double BondCalculator::interestRate() const
 	{

@@ -48,4 +48,21 @@ namespace Common
 
         return accumulate( n.begin(), n.end(), 0.0 ) / n.size();
     }
+
+    template<typename T>
+    T stdDev( vector<T> values )
+    {
+        if( values.size() == 0 )
+            return Zero;
+
+        auto m = mean( values ), sum = 0.0;
+
+        for( auto p : values )
+        {
+            auto val = p - m;
+            sum += square( val );
+        }
+
+        return sqrt( sum / ( values.size() - 1 ) );
+    }
 }

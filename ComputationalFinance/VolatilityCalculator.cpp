@@ -27,7 +27,6 @@ namespace Common
     {
     }
 
-
     double VolatilityCalculator::rangeVolatility()
     {
         if( m_prices.size() == 0 )
@@ -65,19 +64,8 @@ namespace Common
         return sum / ( m_prices.size() - 1 );
     }
 
-    double VolatilityCalculator::stdDev()
+    double VolatilityCalculator::stdDev() const
     {
-        if( m_prices.size() == 0 )
-            return Zero;
-
-        auto m = mean( m_prices ), sum = 0.0;
-
-        for( auto p : m_prices )
-        {
-            auto val = p - m;
-            sum += square( val );
-        }
-
-        return sqrt( sum / ( m_prices.size() - 1 ) );
+        return Common::stdDev( m_prices );
     }
 }

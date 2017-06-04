@@ -144,17 +144,20 @@
     <ClInclude Include="BondCalculator.h" />
     <ClInclude Include="CashFlowCalculator.h" />
     <ClInclude Include="common.h" />
+    <ClInclude Include="CorrelationCalculator.h" />
     <ClInclude Include="IntRateCalculator.h" />
     <ClInclude Include="MACalculator.h" />
     <ClInclude Include="OptionPricer.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TimeSeries.h" />
     <ClInclude Include="VolatilityCalculator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BinomialPricer.cpp" />
     <ClCompile Include="BondCalculator.cpp" />
     <ClCompile Include="CashFlowCalculator.cpp" />
+    <ClCompile Include="CorrelationCalculator.cpp" />
     <ClCompile Include="dllmain.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -178,6 +181,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TimeSeries.cpp" />
     <ClCompile Include="VolatilityCalculator.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

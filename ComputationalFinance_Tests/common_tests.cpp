@@ -1,4 +1,4 @@
-#include "stdafx.h""
+#include "stdafx.h"
 #include "common.h"
 #include <gmock/gmock-matchers.h>
 
@@ -15,7 +15,7 @@ namespace CommonTests
 
     TEST(RoundVectorDigits, round_digits)
     {
-        vector<double> 
+        vector<double>
             input = { 10.212312412, 4.53242342, 3.44324234, 5.6664 },
             expected = { 10.2, 4.5, 3.4, 5.7 };
 
