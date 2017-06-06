@@ -147,6 +147,8 @@
     <ClInclude Include="CorrelationCalculator.h" />
     <ClInclude Include="FundamentalsCalculator.h" />
     <ClInclude Include="IntRateCalculator.h" />
+    <ClInclude Include="IntRateEngine.h" />
+    <ClInclude Include="InvestmentInstrument.h" />
     <ClInclude Include="MACalculator.h" />
     <ClInclude Include="OptionPricer.h" />
     <ClInclude Include="stdafx.h" />
@@ -175,6 +177,8 @@
     </ClCompile>
     <ClCompile Include="FundamentalsCalculator.cpp" />
     <ClCompile Include="IntRateCalculator.cpp" />
+    <ClCompile Include="IntRateEngine.cpp" />
+    <ClCompile Include="InvestmentInstrument.cpp" />
     <ClCompile Include="MACalculator.cpp" />
     <ClCompile Include="OptionPricer.cpp" />
     <ClCompile Include="stdafx.cpp">
