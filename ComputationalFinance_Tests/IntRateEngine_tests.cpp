@@ -44,7 +44,7 @@ namespace FixedIncomeTests
     {
         auto expected_annualIntRate = .067;
 
-        IntRateEngine<MortgageInstrument> mortgageEngine;   
+        IntRateEngine<MortgageInstrument> mortgageEngine;
 
         MortgageInstrument mortgage( 250, 50000, 5000 );
 

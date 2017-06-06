@@ -34,8 +34,6 @@ namespace Fundamentals
         string m_ticker;
         double m_price, m_dividend, m_earningsEstimate;
         int m_numShares;
-
-
         double m_earnings, m_bookValue, m_assets, m_liabilitiesAndIntangibles;
         double m_epsGrowth, m_netIncome, m_shareholdersEquity;
     };

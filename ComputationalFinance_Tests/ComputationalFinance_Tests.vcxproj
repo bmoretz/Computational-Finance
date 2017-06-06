@@ -144,6 +144,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -153,6 +154,7 @@
     <ClCompile Include="CashFlowCalculator_tests.cpp" />
     <ClCompile Include="Common_tests.cpp" />
     <ClCompile Include="CorrelationCalculator_tests.cpp" />
+    <ClCompile Include="FinancialStatement_tests.cpp" />
     <ClCompile Include="FundamentalsCalculator_tests.cpp" />
     <ClCompile Include="IntRateCalculator_Tests.cpp" />
     <ClCompile Include="IntRateEngine_tests.cpp" />
@@ -172,6 +174,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ComputationalFinance_Tests.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
