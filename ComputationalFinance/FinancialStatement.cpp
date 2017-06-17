@@ -26,6 +26,7 @@ namespace Common
         {
             m_return = fs.m_return;
             m_transactions = fs.m_transactions;
+            m_transactions = fs.m_transactions;
         }
 
         return *this;
@@ -45,7 +46,7 @@ namespace Common
 
     auto_ptr<FinancialStatement> getSampleStatement()
     {
-        auto_ptr<FinancialStatement> fs( new FinancialStatement() );
+        auto_ptr<FinancialStatement> fs( new FinancialStatement );
 
         fs->addTransaction( "IBM", 102.2 );
         fs->addTransaction( "AAPL", 523.0 );

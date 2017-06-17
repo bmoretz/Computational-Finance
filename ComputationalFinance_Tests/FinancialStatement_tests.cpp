@@ -6,7 +6,7 @@
 using namespace std;
 using namespace Common;
 
-namespace FundamentalsTests
+namespace FinancialStatementTests
 {
     class FinancialStatementTests :
             public ::testing::Test

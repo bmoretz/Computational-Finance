@@ -160,6 +160,7 @@
     <ClCompile Include="IntRateEngine_tests.cpp" />
     <ClCompile Include="MACalculator_Tests.cpp" />
     <ClCompile Include="OptionPricer_Tests.cpp" />
+    <ClCompile Include="RecommendationProcessor_tests.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="TimeSeries_tests.cpp" />
     <ClCompile Include="VolatilityCalculator_tests.cpp" />
