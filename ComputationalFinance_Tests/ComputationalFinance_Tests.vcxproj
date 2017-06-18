@@ -73,7 +73,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(GTEST_INC);$(SolutionDir)ComputationalFinance;$(GMOCK_INC);$(GMOCK);$(IncludePath)</IncludePath>
+    <IncludePath>$(GTEST_INC);$(SolutionDir)ComputationalFinance;$(GMOCK_INC);$(GMOCK);$(BOOST_INC);$(IncludePath)</IncludePath>
+    <LibraryPath>$(BOOST_LIB);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -154,6 +155,7 @@
     <ClCompile Include="Common_tests.cpp" />
     <ClCompile Include="CorrelationCalculator_tests.cpp" />
     <ClCompile Include="CreditRisk_Tests.cpp" />
+    <ClCompile Include="Date_Tests.cpp" />
     <ClCompile Include="FinancialStatement_tests.cpp" />
     <ClCompile Include="FundamentalsCalculator_tests.cpp" />
     <ClCompile Include="IntRateCalculator_Tests.cpp" />

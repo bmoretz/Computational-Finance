@@ -50,7 +50,7 @@ namespace Common
 
         if( file.fail() )
         {
-            throw new FileError( string( "Error opening file " ) + m_fileName );
+            throw FileError( string( "Error opening file " ) + m_fileName );
         }
 
         string op;
@@ -60,7 +60,7 @@ namespace Common
         {
             if( !( op == BUY_OP && op == SELL_OP && op == SHORT_OP && op == COVER_OP ) )
             {
-                throw new TransactionTypeError( string("Unknown Transaction Type:") + op );
+                throw TransactionTypeError( string("Unknown Transaction Type:") + op );
             }
         }
 
