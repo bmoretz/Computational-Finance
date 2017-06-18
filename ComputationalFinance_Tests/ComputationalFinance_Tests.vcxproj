@@ -167,6 +167,7 @@
     </ClCompile>
     <ClCompile Include="TimeSeriesTransformations_Tests.cpp" />
     <ClCompile Include="TimeSeries_tests.cpp" />
+    <ClCompile Include="TransactionHandler_Tests.cpp" />
     <ClCompile Include="VolatilityCalculator_tests.cpp" />
   </ItemGroup>
   <ItemGroup>

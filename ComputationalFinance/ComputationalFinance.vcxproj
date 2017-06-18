@@ -149,6 +149,7 @@
     <ClInclude Include="common.h" />
     <ClInclude Include="CorrelationCalculator.h" />
     <ClInclude Include="CreditRisk.h" />
+    <ClInclude Include="FileError.h" />
     <ClInclude Include="FinancialStatement.h" />
     <ClInclude Include="FundamentalsCalculator.h" />
     <ClInclude Include="IntRateCalculator.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TimeSeries.h" />
     <ClInclude Include="TimeSeriesTransformations.h" />
+    <ClInclude Include="TransactionHandler.h" />
     <ClInclude Include="VolatilityCalculator.h" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +188,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="FileError.cpp" />
     <ClCompile Include="FinancialStatement.cpp" />
     <ClCompile Include="FundamentalsCalculator.cpp" />
     <ClCompile Include="IntRateCalculator.cpp" />
@@ -204,6 +207,7 @@
     </ClCompile>
     <ClCompile Include="TimeSeries.cpp" />
     <ClCompile Include="TimeSeriesTransformations.cpp" />
+    <ClCompile Include="TransactionHandler.cpp" />
     <ClCompile Include="VolatilityCalculator.cpp" />
   </ItemGroup>
   <ItemGroup>
