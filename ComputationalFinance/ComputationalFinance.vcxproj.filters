@@ -86,6 +86,9 @@
     <ClInclude Include="TransactionHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="NumVector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -150,6 +153,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TransactionHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NumVector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

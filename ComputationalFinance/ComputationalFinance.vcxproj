@@ -156,6 +156,7 @@
     <ClInclude Include="IntRateEngine.h" />
     <ClInclude Include="InvestmentInstrument.h" />
     <ClInclude Include="MACalculator.h" />
+    <ClInclude Include="NumVector.h" />
     <ClInclude Include="OptionPricer.h" />
     <ClInclude Include="Recommendation.h" />
     <ClInclude Include="RecommendationProcessor.h" />
@@ -195,6 +196,7 @@
     <ClCompile Include="IntRateEngine.cpp" />
     <ClCompile Include="InvestmentInstrument.cpp" />
     <ClCompile Include="MACalculator.cpp" />
+    <ClCompile Include="NumVector.cpp" />
     <ClCompile Include="OptionPricer.cpp" />
     <ClCompile Include="Recommendation.cpp" />
     <ClCompile Include="RecommendationProcessor.cpp" />

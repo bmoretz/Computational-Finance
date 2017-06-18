@@ -22,3 +22,4 @@
 #include <numeric>
 #include <memory>
 #include <fstream>
+#include <functional>
