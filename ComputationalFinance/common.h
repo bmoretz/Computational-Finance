@@ -1,8 +1,6 @@
 #pragma once
 
 #include "stdafx.h"
-#include <algorithm>
-#include <numeric>
 
 #define DBOUT( s )            \
 {                             \

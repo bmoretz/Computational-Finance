@@ -56,7 +56,7 @@ namespace Equity
             prices.push_back( rec.getTarget() );
         }
 
-        return accumulate( prices.begin(), prices.end(), 0 ) / prices.size();
+        return accumulate( prices.begin(), prices.end(), 0.0 ) / static_cast<double>( prices.size() );
     }
 
     RecommendationType RecommendationProcessor::averageRecommendation( const string &ticker )

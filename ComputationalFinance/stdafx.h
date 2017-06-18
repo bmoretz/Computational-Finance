@@ -10,6 +10,7 @@
 
 #include <windows.h>
 
+#include <algorithm>
 #include <iostream>
 #include <istream>
 #include <cmath>
@@ -18,3 +19,4 @@
 #include <vector>
 #include <limits>
 #include <map>
+#include <numeric>

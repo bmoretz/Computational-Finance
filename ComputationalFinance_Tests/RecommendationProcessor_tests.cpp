@@ -3,7 +3,6 @@
 #include "common.h"
 #include "Recommendation.h"
 #include "RecommendationProcessor.h"
-#include <functional>
 
 using namespace std;
 using namespace Common;
@@ -41,8 +40,10 @@ namespace EquityTests
     };
 
     TEST_F(RecommendationProcessorTests, TestTargets)
-    { 
-        EXPECT_DOUBLE_EQ( m_processor.averageTargetPrice( "aapl" ), 43 );
+    {
+        auto actual_avg = m_processor.averageTargetPrice( "aapl" );
+
+        EXPECT_DOUBLE_EQ( round_digits( actual_avg, 1 ), 44.3 );
     }
 
     TEST_F(RecommendationProcessorTests, TestRecommendations)

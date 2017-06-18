@@ -17,6 +17,7 @@ namespace Equity
     public:
         Recommendation();
         Recommendation( const string ticker, RecommendationType rec, double target );
+
         Recommendation( const Recommendation &r );
         Recommendation& operator=( Recommendation & r );
         ~Recommendation();

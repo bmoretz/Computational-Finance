@@ -86,8 +86,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>Create</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -161,7 +160,11 @@
     <ClCompile Include="MACalculator_Tests.cpp" />
     <ClCompile Include="OptionPricer_Tests.cpp" />
     <ClCompile Include="RecommendationProcessor_tests.cpp" />
-    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TimeSeriesTransformations_Tests.cpp" />
     <ClCompile Include="TimeSeries_tests.cpp" />
     <ClCompile Include="VolatilityCalculator_tests.cpp" />
   </ItemGroup>
