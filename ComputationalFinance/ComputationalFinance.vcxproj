@@ -150,6 +150,7 @@
     <ClInclude Include="CorrelationCalculator.h" />
     <ClInclude Include="CreditRisk.h" />
     <ClInclude Include="FileError.h" />
+    <ClInclude Include="FileManager.h" />
     <ClInclude Include="FinancialStatement.h" />
     <ClInclude Include="FundamentalsCalculator.h" />
     <ClInclude Include="IntRateCalculator.h" />
@@ -190,6 +191,7 @@
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="FileError.cpp" />
+    <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="FinancialStatement.cpp" />
     <ClCompile Include="FundamentalsCalculator.cpp" />
     <ClCompile Include="IntRateCalculator.cpp" />

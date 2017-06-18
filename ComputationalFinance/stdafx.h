@@ -23,3 +23,5 @@
 #include <memory>
 #include <fstream>
 #include <functional>
+
+#include <boost/filesystem/operations.hpp>
