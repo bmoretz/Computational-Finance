@@ -153,6 +153,7 @@
     <ClCompile Include="CashFlowCalculator_tests.cpp" />
     <ClCompile Include="Common_tests.cpp" />
     <ClCompile Include="CorrelationCalculator_tests.cpp" />
+    <ClCompile Include="CreditRisk_Tests.cpp" />
     <ClCompile Include="FinancialStatement_tests.cpp" />
     <ClCompile Include="FundamentalsCalculator_tests.cpp" />
     <ClCompile Include="IntRateCalculator_Tests.cpp" />

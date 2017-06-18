@@ -148,6 +148,7 @@
     <ClInclude Include="CashFlowCalculator.h" />
     <ClInclude Include="common.h" />
     <ClInclude Include="CorrelationCalculator.h" />
+    <ClInclude Include="CreditRisk.h" />
     <ClInclude Include="FinancialStatement.h" />
     <ClInclude Include="FundamentalsCalculator.h" />
     <ClInclude Include="IntRateCalculator.h" />
@@ -158,6 +159,7 @@
     <ClInclude Include="Recommendation.h" />
     <ClInclude Include="RecommendationProcessor.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="RiskCalculator.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TimeSeries.h" />
@@ -169,6 +171,7 @@
     <ClCompile Include="BondCalculator.cpp" />
     <ClCompile Include="CashFlowCalculator.cpp" />
     <ClCompile Include="CorrelationCalculator.cpp" />
+    <ClCompile Include="CreditRisk.cpp" />
     <ClCompile Include="dllmain.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -192,6 +195,7 @@
     <ClCompile Include="OptionPricer.cpp" />
     <ClCompile Include="Recommendation.cpp" />
     <ClCompile Include="RecommendationProcessor.cpp" />
+    <ClCompile Include="RiskCalculator.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

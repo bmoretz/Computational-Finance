@@ -74,6 +74,12 @@
     <ClInclude Include="TimeSeriesTransformations.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CreditRisk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RiskCalculator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -126,6 +132,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TimeSeriesTransformations.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CreditRisk.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RiskCalculator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

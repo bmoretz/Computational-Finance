@@ -20,3 +20,4 @@
 #include <limits>
 #include <map>
 #include <numeric>
+#include <memory>
