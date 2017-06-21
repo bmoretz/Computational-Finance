@@ -146,7 +146,7 @@
     <ClInclude Include="BinomialPricer.h" />
     <ClInclude Include="BondCalculator.h" />
     <ClInclude Include="CashFlowCalculator.h" />
-    <ClInclude Include="common.h" />
+    <ClInclude Include="Common.h" />
     <ClInclude Include="CorrelationCalculator.h" />
     <ClInclude Include="CreditRisk.h" />
     <ClInclude Include="Date.h" />
@@ -158,6 +158,7 @@
     <ClInclude Include="IntRateEngine.h" />
     <ClInclude Include="InvestmentInstrument.h" />
     <ClInclude Include="MACalculator.h" />
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="NumVector.h" />
     <ClInclude Include="OptionPricer.h" />
     <ClInclude Include="Recommendation.h" />
@@ -200,6 +201,7 @@
     <ClCompile Include="IntRateEngine.cpp" />
     <ClCompile Include="InvestmentInstrument.cpp" />
     <ClCompile Include="MACalculator.cpp" />
+    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="NumVector.cpp" />
     <ClCompile Include="OptionPricer.cpp" />
     <ClCompile Include="Recommendation.cpp" />

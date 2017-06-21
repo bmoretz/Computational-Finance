@@ -25,6 +25,7 @@ namespace Common
         Date( int year, int month, int day );
         ~Date();
 
+
         bool isLeapYear() const;
         
         Date& operator++();
