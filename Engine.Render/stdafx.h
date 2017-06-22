@@ -7,15 +7,23 @@
 
 #include "targetver.h"
 
-#define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
-// Windows Header Files:
+#define WIN32_LEAN_AND_MEAN
+
 #include <windows.h>
 
-// C RunTime Header Files
-#include <stdlib.h>
-#include <malloc.h>
-#include <memory.h>
-#include <tchar.h>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <cmath>
 
+#include <iostream>
 
-// TODO: reference additional headers your program requires here
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qmainwindow.h>
+
+#include <QtGui/qpainter.h>
+
+#pragma comment(lib, "qtmaind.lib")
+#pragma comment(lib, "Qt5Core.lib")
+#pragma comment(lib, "Qt5Widgets.lib")
+#pragma comment(lib, "Qt5Gui.lib")
