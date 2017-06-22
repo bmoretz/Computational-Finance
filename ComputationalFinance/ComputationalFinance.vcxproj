@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="BinomialPricer.h" />
     <ClInclude Include="BondCalculator.h" />
+    <ClInclude Include="CalculationTemplate.h" />
     <ClInclude Include="CashFlowCalculator.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="CorrelationCalculator.h" />

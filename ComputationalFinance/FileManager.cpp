@@ -3,7 +3,7 @@
 
 namespace Common
 {
-    #pragma Constructor / Deconstructor
+    #pragma region Constructor / Deconstructor
 
     FileManager::FileManager( const string &basePath )
         : m_basePath( basePath )
