@@ -158,6 +158,7 @@
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="FinancialStatement.h" />
     <ClInclude Include="FundamentalsCalculator.h" />
+    <ClInclude Include="GnuplotPlotter.h" />
     <ClInclude Include="IntRateCalculator.h" />
     <ClInclude Include="IntRateEngine.h" />
     <ClInclude Include="InvestmentInstrument.h" />
@@ -202,6 +203,7 @@
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="FinancialStatement.cpp" />
     <ClCompile Include="FundamentalsCalculator.cpp" />
+    <ClCompile Include="GnuplotPlotter.cpp" />
     <ClCompile Include="IntRateCalculator.cpp" />
     <ClCompile Include="IntRateEngine.cpp" />
     <ClCompile Include="InvestmentInstrument.cpp" />
