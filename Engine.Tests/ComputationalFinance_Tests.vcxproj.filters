@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="RecommendationProcessor_tests.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="TimeSeriesTransformations_Tests.cpp" />
+    <ClCompile Include="TimeSeries_tests.cpp" />
+    <ClCompile Include="TransactionHandler_Tests.cpp" />
+    <ClCompile Include="VolatilityCalculator_tests.cpp" />
+    <ClCompile Include="Common_tests.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="BinomialPricer_tests.cpp">
+      <Filter>Numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="BondCalculator_tests.cpp">
+      <Filter>FixedIncome</Filter>
+    </ClCompile>
+    <ClCompile Include="CashFlowCalculator_tests.cpp">
+      <Filter>FixedIncome</Filter>
+    </ClCompile>
+    <ClCompile Include="ComputationTemplate_Tests.cpp">
+      <Filter>Numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="CorrelationCalculator_tests.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="IntRateCalculator_Tests.cpp">
+      <Filter>FixedIncome</Filter>
+    </ClCompile>
+    <ClCompile Include="Date_Tests.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="CreditRisk_Tests.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="IntRateEngine_tests.cpp">
+      <Filter>FixedIncome</Filter>
+    </ClCompile>
+    <ClCompile Include="FinancialStatement_tests.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="MACalculator_Tests.cpp">
+      <Filter>Numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="FundamentalsCalculator_tests.cpp">
+      <Filter>Fundamentals</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionPricer_Tests.cpp">
+      <Filter>Derivative</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix_tests.cpp">
+      <Filter>Numerical</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ComputationalFinance_Tests.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>{d062db1f-00e4-428a-bd0f-2888f68b3441}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Equity">
+      <UniqueIdentifier>{8850ea5a-9b95-4f1f-8c92-efa5b2a87236}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FixedIncome">
+      <UniqueIdentifier>{06fe1848-ce46-4331-b5c9-4a85052717a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Derivative">
+      <UniqueIdentifier>{2c38e286-3dcb-4e67-9eeb-b7ac636c70bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Numerical">
+      <UniqueIdentifier>{45f40b62-c2c1-4349-89cc-86750dd113e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fundamentals">
+      <UniqueIdentifier>{c1b4f601-aa5b-4f00-a731-5d7d34ac8d15}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
