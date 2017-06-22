@@ -40,4 +40,13 @@ namespace CommonTests
 
         EXPECT_EQ( expected, actual );
     }
+
+    TEST_F(ComputationTemplateTests, ChoiceNumberTest_1)
+    {
+        auto expected = 210;
+
+        auto actual = ChoiceNumber<10,4>::result;
+
+        EXPECT_EQ( expected, actual );
+    }
 }

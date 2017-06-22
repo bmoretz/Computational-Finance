@@ -19,4 +19,13 @@ namespace Common
             result = 1
         };
     };
+
+    template<int N, int P>
+    struct ChoiceNumber
+    {
+        enum
+        {
+            result = Factorial<N>::result / ( Factorial<P>::result * Factorial<N-P>::result )
+        };
+    };
 }
