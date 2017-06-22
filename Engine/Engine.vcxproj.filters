@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="BinomialPricer.cpp">
+      <Filter>Source Files\Numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="BondCalculator.cpp">
+      <Filter>Source Files\Fixed Income</Filter>
+    </ClCompile>
+    <ClCompile Include="CashFlowCalculator.cpp">
+      <Filter>Source Files\Fixed Income</Filter>
+    </ClCompile>
+    <ClCompile Include="CorrelationCalculator.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="CreditRisk.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="FileError.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="FileManager.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="FinancialStatement.cpp">
+      <Filter>Source Files\Fundamenal</Filter>
+    </ClCompile>
+    <ClCompile Include="Date.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="FundamentalsCalculator.cpp">
+      <Filter>Source Files\Fundamenal</Filter>
+    </ClCompile>
+    <ClCompile Include="IntRateCalculator.cpp">
+      <Filter>Source Files\Fixed Income</Filter>
+    </ClCompile>
+    <ClCompile Include="InvestmentInstrument.cpp">
+      <Filter>Source Files\Fixed Income</Filter>
+    </ClCompile>
+    <ClCompile Include="MACalculator.cpp">
+      <Filter>Source Files\Numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="Recommendation.cpp">
+      <Filter>Source Files\Equity</Filter>
+    </ClCompile>
+    <ClCompile Include="TransactionHandler.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeSeries.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeSeriesTransformations.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="VolatilityCalculator.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="NumVector.cpp">
+      <Filter>Source Files\Numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp">
+      <Filter>Source Files\Numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionPricer.cpp">
+      <Filter>Source Files\Derivative</Filter>
+    </ClCompile>
+    <ClCompile Include="RecommendationProcessor.cpp">
+      <Filter>Source Files\Equity</Filter>
+    </ClCompile>
+    <ClCompile Include="IntRateEngine.cpp">
+      <Filter>Source Files\Fixed Income</Filter>
+    </ClCompile>
+    <ClCompile Include="RiskCalculator.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Common.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="BinomialPricer.h">
+      <Filter>Header Files\Numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="BondCalculator.h">
+      <Filter>Header Files\Fixed Income</Filter>
+    </ClInclude>
+    <ClInclude Include="CalculationTemplate.h">
+      <Filter>Header Files\Numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="CashFlowCalculator.h">
+      <Filter>Header Files\Fixed Income</Filter>
+    </ClInclude>
+    <ClInclude Include="CorrelationCalculator.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="CreditRisk.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="FileError.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="FileManager.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Date.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="FinancialStatement.h">
+      <Filter>Header Files\Fundamental</Filter>
+    </ClInclude>
+    <ClInclude Include="FundamentalsCalculator.h">
+      <Filter>Header Files\Fundamental</Filter>
+    </ClInclude>
+    <ClInclude Include="InvestmentInstrument.h">
+      <Filter>Header Files\Fixed Income</Filter>
+    </ClInclude>
+    <ClInclude Include="IntRateCalculator.h">
+      <Filter>Header Files\Fixed Income</Filter>
+    </ClInclude>
+    <ClInclude Include="MACalculator.h">
+      <Filter>Header Files\Numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="Recommendation.h">
+      <Filter>Header Files\Equity</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactionHandler.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="VolatilityCalculator.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeSeriesTransformations.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeSeries.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>Header Files\Numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionPricer.h">
+      <Filter>Header Files\Derivative</Filter>
+    </ClInclude>
+    <ClInclude Include="RecommendationProcessor.h">
+      <Filter>Header Files\Equity</Filter>
+    </ClInclude>
+    <ClInclude Include="NumVector.h">
+      <Filter>Header Files\Numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="Ratios.h">
+      <Filter>Header Files\Numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="IntRateEngine.h">
+      <Filter>Header Files\Fixed Income</Filter>
+    </ClInclude>
+    <ClInclude Include="RiskCalculator.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ComputationalFinance.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4560ceba-1581-4904-bf09-2093ab0ad1f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{15d8eb65-5662-49ad-8200-779dba45ffe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common">
+      <UniqueIdentifier>{3ebcc449-8bf5-4cd3-9ef9-3d27c56b8fa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common">
+      <UniqueIdentifier>{e33a6a93-723f-426c-a232-be81ac710ae7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Numerical">
+      <UniqueIdentifier>{dc00f635-b3b0-41ec-b127-cb2a47c1f99d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Numerical">
+      <UniqueIdentifier>{a3879e41-6c7f-4b68-bb97-955c59765a23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Fixed Income">
+      <UniqueIdentifier>{d3127010-e3b0-4c27-b32b-a13aeb7d60a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Fixed Income">
+      <UniqueIdentifier>{b2e9932c-9a79-4e66-807a-91dcd6a3f742}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utility">
+      <UniqueIdentifier>{fe03f09a-aaef-4f28-b81a-b7071df54bd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utility">
+      <UniqueIdentifier>{27a034c4-17bc-4c4e-a016-560eada88231}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Equity">
+      <UniqueIdentifier>{e0907988-595b-4c14-9dde-49b0e790ef6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Equity">
+      <UniqueIdentifier>{2bf8acba-5ac8-44be-bd3e-25567af859ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Fundamenal">
+      <UniqueIdentifier>{710061d5-eefc-4433-85cb-8fba8524dd83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Fundamental">
+      <UniqueIdentifier>{44d3338c-6ae5-4b1d-b2a7-982a4144067a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Derivative">
+      <UniqueIdentifier>{79fb077d-febe-40ec-a577-3990d4b234f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Derivative">
+      <UniqueIdentifier>{41653c9a-73ab-467d-9ed1-36740be1cd0b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

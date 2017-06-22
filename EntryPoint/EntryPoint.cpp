@@ -1,6 +1,6 @@
 #include "stdafx.h"
 
-#include "BinomialPricer.h"
+#include "../Engine/BinomialPricer.h"
 
 using namespace std;
 using namespace NumericalMethods;
@@ -18,7 +18,7 @@ int main()
 
 	cout << "Risk-Neutral Probability: " << pricer.RiskNeutProb();
 
-	cout << std::endl << "Press any key" << std::endl;
+	cout << endl << "Press any key" << endl;
 	cin.ignore();
 	string temp;
 	cin >> temp;

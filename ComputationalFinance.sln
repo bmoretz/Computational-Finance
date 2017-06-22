@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EntryPoint", "EntryPoint\EntryPoint.vcxproj", "{DEC03305-2393-4B67-B724-BF3376EBC126}"
 EndProject
@@ -12,11 +12,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		todo.txt = todo.txt
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ComputationalFinance", "ComputationalFinance\ComputationalFinance.vcxproj", "{928E4D91-7DE8-492D-9581-14BF02BD5ACA}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GTest", "GTest\GTest.vcxproj", "{70AA44E2-4FAD-4851-9E85-F154021B0F7A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ComputationalFinance_Tests", "ComputationalFinance_Tests\ComputationalFinance_Tests.vcxproj", "{5116F166-CE92-42AB-95CE-9CE9150BB198}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcxproj", "{928E4D91-7DE8-492D-9581-14BF02BD5ACA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine.Tests", "Engine.Tests\Engine.Tests.vcxproj", "{5116F166-CE92-42AB-95CE-9CE9150BB198}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,14 +34,6 @@ Global
 		{DEC03305-2393-4B67-B724-BF3376EBC126}.Release|x64.Build.0 = Release|x64
 		{DEC03305-2393-4B67-B724-BF3376EBC126}.Release|x86.ActiveCfg = Release|Win32
 		{DEC03305-2393-4B67-B724-BF3376EBC126}.Release|x86.Build.0 = Release|Win32
-		{928E4D91-7DE8-492D-9581-14BF02BD5ACA}.Debug|x64.ActiveCfg = Debug|x64
-		{928E4D91-7DE8-492D-9581-14BF02BD5ACA}.Debug|x64.Build.0 = Debug|x64
-		{928E4D91-7DE8-492D-9581-14BF02BD5ACA}.Debug|x86.ActiveCfg = Debug|Win32
-		{928E4D91-7DE8-492D-9581-14BF02BD5ACA}.Debug|x86.Build.0 = Debug|Win32
-		{928E4D91-7DE8-492D-9581-14BF02BD5ACA}.Release|x64.ActiveCfg = Release|x64
-		{928E4D91-7DE8-492D-9581-14BF02BD5ACA}.Release|x64.Build.0 = Release|x64
-		{928E4D91-7DE8-492D-9581-14BF02BD5ACA}.Release|x86.ActiveCfg = Release|Win32
-		{928E4D91-7DE8-492D-9581-14BF02BD5ACA}.Release|x86.Build.0 = Release|Win32
 		{70AA44E2-4FAD-4851-9E85-F154021B0F7A}.Debug|x64.ActiveCfg = Debug|x64
 		{70AA44E2-4FAD-4851-9E85-F154021B0F7A}.Debug|x64.Build.0 = Debug|x64
 		{70AA44E2-4FAD-4851-9E85-F154021B0F7A}.Debug|x86.ActiveCfg = Debug|Win32
@@ -50,6 +42,14 @@ Global
 		{70AA44E2-4FAD-4851-9E85-F154021B0F7A}.Release|x64.Build.0 = Release|x64
 		{70AA44E2-4FAD-4851-9E85-F154021B0F7A}.Release|x86.ActiveCfg = Release|Win32
 		{70AA44E2-4FAD-4851-9E85-F154021B0F7A}.Release|x86.Build.0 = Release|Win32
+		{928E4D91-7DE8-492D-9581-14BF02BD5ACA}.Debug|x64.ActiveCfg = Debug|x64
+		{928E4D91-7DE8-492D-9581-14BF02BD5ACA}.Debug|x64.Build.0 = Debug|x64
+		{928E4D91-7DE8-492D-9581-14BF02BD5ACA}.Debug|x86.ActiveCfg = Debug|Win32
+		{928E4D91-7DE8-492D-9581-14BF02BD5ACA}.Debug|x86.Build.0 = Debug|Win32
+		{928E4D91-7DE8-492D-9581-14BF02BD5ACA}.Release|x64.ActiveCfg = Release|x64
+		{928E4D91-7DE8-492D-9581-14BF02BD5ACA}.Release|x64.Build.0 = Release|x64
+		{928E4D91-7DE8-492D-9581-14BF02BD5ACA}.Release|x86.ActiveCfg = Release|Win32
+		{928E4D91-7DE8-492D-9581-14BF02BD5ACA}.Release|x86.Build.0 = Release|Win32
 		{5116F166-CE92-42AB-95CE-9CE9150BB198}.Debug|x64.ActiveCfg = Debug|x64
 		{5116F166-CE92-42AB-95CE-9CE9150BB198}.Debug|x64.Build.0 = Debug|x64
 		{5116F166-CE92-42AB-95CE-9CE9150BB198}.Debug|x86.ActiveCfg = Debug|Win32
