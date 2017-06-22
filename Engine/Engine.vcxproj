@@ -144,6 +144,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Engine.Tests\targetver.h" />
     <ClInclude Include="BinomialPricer.h" />
     <ClInclude Include="BondCalculator.h" />
     <ClInclude Include="CalculationTemplate.h" />
@@ -152,6 +153,7 @@
     <ClInclude Include="CorrelationCalculator.h" />
     <ClInclude Include="CreditRisk.h" />
     <ClInclude Include="Date.h" />
+    <ClInclude Include="DistrubutionData.h" />
     <ClInclude Include="FileError.h" />
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="FinancialStatement.h" />
@@ -169,7 +171,6 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="RiskCalculator.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
     <ClInclude Include="TimeSeries.h" />
     <ClInclude Include="TimeSeriesTransformations.h" />
     <ClInclude Include="TransactionHandler.h" />
@@ -182,6 +183,7 @@
     <ClCompile Include="CorrelationCalculator.cpp" />
     <ClCompile Include="CreditRisk.cpp" />
     <ClCompile Include="Date.cpp" />
+    <ClCompile Include="DistrubutionData.cpp" />
     <ClCompile Include="dllmain.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

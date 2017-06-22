@@ -28,3 +28,5 @@
 
 #include <boost/filesystem/operations.hpp>
 #include <boost/date_time/gregorian/gregorian.hpp>
+#include <boost/math/distributions.hpp>
+#include <boost/random.hpp>

@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="BinomialPricer.cpp">
       <Filter>Source Files\Numerical</Filter>
     </ClCompile>
@@ -75,11 +74,13 @@
     <ClCompile Include="RiskCalculator.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DistrubutionData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
     <ClInclude Include="Common.h">
       <Filter>Header Files\Common</Filter>
     </ClInclude>
@@ -161,6 +162,11 @@
     <ClInclude Include="RiskCalculator.h">
       <Filter>Header Files\Common</Filter>
     </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Engine.Tests\targetver.h" />
+    <ClInclude Include="DistrubutionData.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ComputationalFinance.rc" />

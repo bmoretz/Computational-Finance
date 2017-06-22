@@ -74,7 +74,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(GTEST_INC);$(SolutionDir)Engine;$(GMOCK_INC);$(GMOCK);$(BOOST_INC);$(IncludePath)</IncludePath>
-    <LibraryPath>$(BOOST_LIB);C:\Projects\Computational-Finance\Engine;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(BOOST_LIB);$(SolutionDir)Engine;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -146,7 +146,6 @@
   <ItemGroup>
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BinomialPricer_tests.cpp" />
@@ -158,6 +157,7 @@
     <ClCompile Include="CorrelationCalculator_tests.cpp" />
     <ClCompile Include="CreditRisk_Tests.cpp" />
     <ClCompile Include="Date_Tests.cpp" />
+    <ClCompile Include="DistributionData_Tests.cpp" />
     <ClCompile Include="FinancialStatement_tests.cpp" />
     <ClCompile Include="FundamentalsCalculator_tests.cpp" />
     <ClCompile Include="IntRateCalculator_Tests.cpp" />
