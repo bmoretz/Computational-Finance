@@ -77,7 +77,10 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DistrubutionData.cpp" />
+    <ClCompile Include="DistrubutionData.cpp">
+      <Filter>Source Files\Numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="GnuplotPlotter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
@@ -166,7 +169,10 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Engine.Tests\targetver.h" />
-    <ClInclude Include="DistrubutionData.h" />
+    <ClInclude Include="DistrubutionData.h">
+      <Filter>Header Files\Numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="GnuplotPlotter.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ComputationalFinance.rc" />

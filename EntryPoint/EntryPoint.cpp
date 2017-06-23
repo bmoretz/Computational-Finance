@@ -1,21 +1,35 @@
 #include "stdafx.h"
-
-#include "DistrubutionData.h"
+#include "GnuplotPlotter.h"
+#include <boost/filesystem/path.hpp>
 
 using namespace std;
-using namespace NumericalMethods;
+using namespace  boost::filesystem;
+using namespace Utility;
 
-int main()
+int main( int argc, const char **argv )
 {
-    auto normal = DistrubutionData::gaussianData( 10, 0, 1 );
+    if( argc != 1 )
+    {
+        cout << "Invalid arguments. They are ignored.";
+    }
 
-    printData( "Normal", normal );
-    
-    // Wait
-	cout << endl << "Press any key" << endl;
-	cin.ignore();
-	string temp;
-	cin >> temp;
-    
+    GnuplotPlotter plotter { "test.csv" };
+
+    plotter.setHeaders( "x", "sin(x)" );
+
+    vector<double> xdata, ydata;
+
+    for( auto index = 0; index < 100; ++index )
+    {
+        auto x = index * 10 / 100.0;
+
+        xdata.push_back( x );
+        ydata.push_back( sin( x ) );
+    }
+
+    plotter.setData( xdata, ydata );
+    plotter.csvWrite();
+    plotter.generateCmds( "testcmds.gp" );
+
     return 0;
 }
