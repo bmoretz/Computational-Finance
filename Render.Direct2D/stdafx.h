@@ -5,18 +5,23 @@
 
 #pragma once
 
-#include "targetver.h"
+#define NOMINMAX
 
-// Exclude rarely-used stuff from Windows headers
-#define WIN32_LEAN_AND_MEAN
+#include "targetver.h"
+#include "Debug.h"
 
 // Windows Header Files:
 #include <windows.h>
 #include <windowsx.h>
+#include <shellscalingapi.h>
+
+// Standard Libraries
 
 #include <string>
 #include <vector>
 #include <cassert>
+
+// Direct Composition
 
 #include <wrl.h>
 #include <dxgi.h>
@@ -25,6 +30,7 @@
 #include <dcomp.h>
 #include <dwrite.h>
 
+#pragma comment(lib, "shcore")
 #pragma comment(lib, "dxgi")
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "D2d1.lib")

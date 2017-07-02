@@ -2,6 +2,8 @@
 
 #include "stdafx.h"
 
+using namespace std;
+
 struct ComException
 {
     HRESULT result;
@@ -22,7 +24,7 @@ inline ComException::ComException( HRESULT const value ):
 {
 }
 
-inline void HR( HRESULT const result, wstring msg )
+inline void HR( HRESULT const result, wstring msg = L"")
 {
     if( S_OK != result )
     {
@@ -32,4 +34,16 @@ inline void HR( HRESULT const result, wstring msg )
 
         throw ComException( result );
     }
+}
+
+template <typename T>
+float LogicalToPhysical( T pixel, float const dpi )
+{
+	return pixel * 96.0f / dpi;
+}
+
+template <typename T>
+float PhysicalToLogical( T pixel, float const dpi )
+{
+	return pixel / 96.0f * dpi;
 }

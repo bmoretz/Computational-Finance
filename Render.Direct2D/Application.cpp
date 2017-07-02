@@ -331,25 +331,9 @@ void Application::DestroyDXGIDevice()
 
 void Application::CreateCompositionDevice()
 {
-    HR( DCompositionCreateDevice(
-            m_dxgiDevice.Get(),
-            __uuidof(IDCompositionDevice),
-            reinterpret_cast<void **>( m_dcompDevice.GetAddressOf() ) ),
-        L""
-    );
-
-    HR(
-        m_dcompDevice->CreateTargetForHwnd( m_hWnd,
-                                            true, // Top most
-                                            m_target.GetAddressOf() ),
-        L""
-    );
-
-    HR(
-        m_dcompDevice->CreateVisual( m_visual.GetAddressOf() ),
-        L""
-    );
-
+    HR( DCompositionCreateDevice( m_dxgiDevice.Get(), __uuidof(IDCompositionDevice), reinterpret_cast<void **>( m_dcompDevice.GetAddressOf() ) ), L"" );
+    HR( m_dcompDevice->CreateTargetForHwnd( m_hWnd, true, m_target.GetAddressOf() ), L"" );
+    HR( m_dcompDevice->CreateVisual( m_visual.GetAddressOf() ), L"" );
     HR( m_visual->SetContent( m_swapChain.Get() ), L"" );
     HR( m_target->SetRoot( m_visual.Get() ), L"" );
     HR( m_dcompDevice->Commit(), L"" );
@@ -389,11 +373,7 @@ void Application::RenderSurface() const
 
     // Retrieve the swap chain's back buffer
     ComPtr<IDXGISurface2> surface;
-    HR( m_swapChain->GetBuffer(
-            0, // index
-            __uuidof(IDXGISurface2),
-            reinterpret_cast<void **>( surface.GetAddressOf() ) ),
-        L"m_swapChain->GetBuffer" );
+    HR( m_swapChain->GetBuffer( 0, __uuidof(IDXGISurface2), reinterpret_cast<void **>( surface.GetAddressOf() ) ), L"m_swapChain->GetBuffer" );
 
     // Create a Direct2D bitmap that points to the swap chain surface
 
@@ -403,10 +383,7 @@ void Application::RenderSurface() const
     properties.bitmapOptions = D2D1_BITMAP_OPTIONS_TARGET | D2D1_BITMAP_OPTIONS_CANNOT_DRAW;
 
     ComPtr<ID2D1Bitmap1> bitmap;
-    HR( dc->CreateBitmapFromDxgiSurface( surface.Get(),
-                                         properties,
-                                         bitmap.GetAddressOf() ),
-        L"" );
+    HR( dc->CreateBitmapFromDxgiSurface( surface.Get(), properties, bitmap.GetAddressOf() ), L"" );
 
     // Point the device context to the bitmap for rendering
     dc->SetTarget( bitmap.Get() );

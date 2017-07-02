@@ -59,8 +59,8 @@ private:
     HINSTANCE m_hInstance;
 
     HWND m_hWnd;
-    UINT m_hWndClientWidth;
-    UINT m_hWndClientHeight;
+    LONG m_hWndClientWidth;
+    LONG m_hWndClientHeight;
 
     #pragma endregion
 
