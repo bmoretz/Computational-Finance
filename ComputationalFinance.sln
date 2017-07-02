@@ -22,6 +22,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine.Render", "Engine.Ren
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine.Render.Qt", "Engine.Render.Qt\Engine.Render.Qt.vcxproj", "{B12702AD-ABFB-343A-A199-8E24837244A3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Render.Direct2D", "Render.Direct2D\Render.Direct2D.vcxproj", "{41E944E1-9A00-491A-9DF9-6100DDF0D91B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -76,6 +78,14 @@ Global
 		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x64.ActiveCfg = Release|x64
 		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x64.Build.0 = Release|x64
 		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x86.ActiveCfg = Release|x64
+		{41E944E1-9A00-491A-9DF9-6100DDF0D91B}.Debug|x64.ActiveCfg = Debug|x64
+		{41E944E1-9A00-491A-9DF9-6100DDF0D91B}.Debug|x64.Build.0 = Debug|x64
+		{41E944E1-9A00-491A-9DF9-6100DDF0D91B}.Debug|x86.ActiveCfg = Debug|Win32
+		{41E944E1-9A00-491A-9DF9-6100DDF0D91B}.Debug|x86.Build.0 = Debug|Win32
+		{41E944E1-9A00-491A-9DF9-6100DDF0D91B}.Release|x64.ActiveCfg = Release|x64
+		{41E944E1-9A00-491A-9DF9-6100DDF0D91B}.Release|x64.Build.0 = Release|x64
+		{41E944E1-9A00-491A-9DF9-6100DDF0D91B}.Release|x86.ActiveCfg = Release|Win32
+		{41E944E1-9A00-491A-9DF9-6100DDF0D91B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

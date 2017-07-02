@@ -23,6 +23,7 @@
 
 #include <QtGui/qpainter.h>
 
+
 #pragma comment(lib, "qtmaind.lib")
 #pragma comment(lib, "Qt5Core.lib")
 #pragma comment(lib, "Qt5Widgets.lib")

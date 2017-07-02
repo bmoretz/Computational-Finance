@@ -14,3 +14,4 @@ public:
 private:
     Ui::QtPlotterClass ui;
 };
+
