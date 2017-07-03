@@ -9,67 +9,64 @@ using namespace std;
 
 #define MAX_LOADSTRING 100
 
-struct RenderingWindow : 
-	Window<RenderingWindow>
+struct RenderingWindow :
+        Window<RenderingWindow>
 {
     LRESULT MessageHandler( UINT const message,
-		WPARAM const wparam,
-		LPARAM const lparam ) override;
+                            WPARAM const wparam,
+                            LPARAM const lparam ) override;
 
     //int MessagePump() override;
 
+    
 protected:
 
-    void PaintHandler() const;
+    void Render();
 
     void CreateHandler();
 
-    static void Render();
+    void PaintHandler();
+    void DpiHandler( const LPARAM wparam, const WPARAM lparam );
+    void SizeHandler( const LPARAM wparam, const WPARAM lparam );
 
-    /*
-    void CreateD3DDevice();
-    void DestroyD3DDevice();
+    bool IsDeviceCreated() const;
 
-    void CreateD2DDevice();
-    void DestroyD2DDevice();
+    void CreateDeviceResources();
+    void ReleaseDeviceResources();
 
-    void CreateDXGIDevice();
-    void DestroyDXGIDevice();
-
-    void CreateDXFactory();
-    void DestroyDXFactory();
-
-    void CreateSwapChain();
-    void DestroySwapChain();
-
+    void CreateDevice3D();
+    void CreateDevice2D();
     void CreateCompositionDevice();
-    void DestroyCompositionDevice();
-    */
 
 private:
 
     #pragma region Device Independent
 
-	float m_dpiX = 0.0f, m_dpiY = 0.0f;
+    float m_rectSize = 0;
 
-	RECT m_clientRect = { };
+    D2D_SIZE_F m_size;
+    D2D_POINT_2F m_dpi;
 
-	ComPtr<ID2D1Factory2> m_factory;
-	ComPtr<ID2D1EllipseGeometry> m_geometry;
+    RECT m_clientRect = {};
 
-	#pragma endregion
+    ComPtr<ID2D1Factory2> m_factory;
+    ComPtr<ID2D1EllipseGeometry> m_geometry;
+    ComPtr<ID2D1SolidColorBrush> m_brush;
+
+    #pragma endregion
 
     #pragma region Device Dependent
 
-    ComPtr<ID3D11Device> m_d3dDevice;
-    ComPtr<ID2D1Device> m_d2dDevice;
+    ComPtr<ID3D11Device> m_device3d;
+    ComPtr<ID2D1Device> m_device2d;
     ComPtr<IDXGIDevice> m_dxgiDevice;
     ComPtr<IDXGIFactory2> m_dxFactory;
     ComPtr<IDXGISwapChain1> m_swapChain;
 
-    ComPtr<IDCompositionDevice> m_dcompDevice;
+    ComPtr<IDCompositionDesktopDevice> m_device;
     ComPtr<IDCompositionTarget> m_target;
-    ComPtr<IDCompositionVisual> m_visual;
+    ComPtr<IDCompositionVisual2> m_visual;
+    ComPtr<IDCompositionSurface> m_surface;
 
-	#pragma endregion
+    #pragma endregion
 };

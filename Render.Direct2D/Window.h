@@ -12,7 +12,7 @@ struct Window
     HWND m_window = nullptr;
 	RECT m_clientRect = { };
 
-    ULONG m_WindowWidth, m_WindowHeight = 0.0;
+    int m_WindowWidth, m_WindowHeight;
 
     static T* GetThisFromHandle( HWND const window )
     {
@@ -84,7 +84,7 @@ struct Window
             DispatchMessage( &message );
         }
 
-        return message.wParam;
+        return static_cast<int>( message.wParam );
     }
 
     virtual void DistroyWindow()
@@ -111,7 +111,7 @@ struct Window
     }
 
     virtual void CreateDesktopWindow( wstring windowClass, wstring windowTitle,
-        float windowWidth = 640.0f, float windowHeight = 480.0f )
+        int windowWidth = 640.0f, int windowHeight = 480 )
     {
         m_WindowWidth = windowWidth; m_WindowHeight = windowHeight;
 
