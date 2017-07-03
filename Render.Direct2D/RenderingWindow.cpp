@@ -28,7 +28,7 @@ LRESULT RenderingWindow::MessageHandler( UINT const message,
 
         case WM_SIZE:
             {
-                SizeHandler( wparam, wparam );
+                SizeHandler( wparam, lparam );
                 return 0;
             }
 
@@ -73,11 +73,7 @@ void RenderingWindow::CreateHandler()
         static_cast<unsigned>( LogicalToPhysical( m_WindowHeight, dpiY ) )
     };
 
-    VERIFY( AdjustWindowRect(
-            &size,
-            GetWindowLong( m_window, GWL_STYLE ),
-        false )
-    );
+    VERIFY( AdjustWindowRect( &size, GetWindowLong( m_window, GWL_STYLE ), false ) );
 
     VERIFY( SetWindowPos(
             m_window,
@@ -157,7 +153,7 @@ void RenderingWindow::PaintHandler()
     {
         CreateDeviceResources();
 
-        Render();
+        RenderDevice();
     }
     catch( const ComException &ex )
     {
@@ -260,9 +256,17 @@ void RenderingWindow::CreateCompositionDevice()
     HR( m_visual->SetContent( m_surface.Get() ) );
     HR( m_target->SetRoot( m_visual.Get() ) );
 
-    // Create Resources for the Rendering Loop
+    m_size.width = ( rect.right - rect.left ) * 96 / m_dpi.x;
+    m_size.height = ( rect.bottom - rect.top ) * 96 / m_dpi.y;
 
+    CreateDeviceSpecificResources();
+}
+
+void RenderingWindow::CreateDeviceSpecificResources()
+{
+    // Create Resources for the Rendering Loop
     ComPtr<ID2D1DeviceContext> dc;
+
     HR( m_device2d->CreateDeviceContext( D2D1_DEVICE_CONTEXT_OPTIONS_NONE, dc.GetAddressOf() ) );
 
     auto const color = static_cast<_D3DCOLORVALUE>( ColorF( 0.26f, 0.56f, 0.87f, 0.5f ) );
@@ -281,8 +285,18 @@ void RenderingWindow::CreateCompositionDevice()
 
     m_dpi.x = static_cast<float>( x );
     m_dpi.y = static_cast<float>( y );
-    m_size.width = ( rect.right - rect.left ) * 96 / m_dpi.x;
-    m_size.height = ( rect.bottom - rect.top ) * 96 / m_dpi.y;
+}
+
+void RenderingWindow::DestroyResources()
+{
+    m_device3d = nullptr;
+    m_device2d = nullptr;
+    m_dxgiDevice = nullptr;
+
+    m_device = nullptr;
+    m_target = nullptr;
+    m_visual = nullptr;
+    m_surface = nullptr;
 }
 
 #pragma endregion
@@ -305,16 +319,17 @@ int RenderingWindow::MessagePump()
         }
         else
         {
-            Render();
+            RenderDevice();
         }
     }
 
     return message.wParam;
 }
 
-void RenderingWindow::Render()
+void RenderingWindow::RenderDevice()
 {
     ComPtr<ID2D1DeviceContext> dc;
+    
     POINT offset = {};
 
     if( m_surface == nullptr )

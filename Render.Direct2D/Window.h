@@ -12,12 +12,14 @@ struct Window
     HWND m_window = nullptr;
 	RECT m_clientRect = { };
 
-    int m_WindowWidth, m_WindowHeight;
+    unsigned m_WindowWidth, m_WindowHeight;
 
     static T* GetThisFromHandle( HWND const window )
     {
         return reinterpret_cast<T *>( GetWindowLongPtr( window, GWLP_USERDATA ) );
     }
+
+    virtual void DestroyResources() = 0;
 
     static LRESULT __stdcall WndProc( HWND const window,
                                       UINT const message,
@@ -87,8 +89,10 @@ struct Window
         return static_cast<int>( message.wParam );
     }
 
-    virtual void DistroyWindow()
+    void DistroyWindow()
     {
+        DestroyResources();
+
         if( m_window != nullptr )
         {
             DestroyWindow( m_window );
