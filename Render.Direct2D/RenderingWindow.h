@@ -16,7 +16,7 @@ struct RenderingWindow :
                             WPARAM const wparam,
                             LPARAM const lparam ) override;
 
-    //int MessagePump() override;
+    int MessagePump() override;
 
     
 protected:

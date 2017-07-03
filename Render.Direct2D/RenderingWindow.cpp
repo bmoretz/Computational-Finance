@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "RenderingWindow.h"
 #include "Common.h"
-#include "../../../Program Files (x86)/Windows Kits/10/Include/10.0.14393.0/um/debugapi.h"
 
 LRESULT RenderingWindow::MessageHandler( UINT const message,
                                          WPARAM const wparam,
@@ -288,7 +287,6 @@ void RenderingWindow::CreateCompositionDevice()
 
 #pragma endregion
 
-/*
 int RenderingWindow::MessagePump()
 {
     MSG message = {};
@@ -312,7 +310,7 @@ int RenderingWindow::MessagePump()
     }
 
     return message.wParam;
-}*/
+}
 
 void RenderingWindow::Render()
 {
