@@ -63,7 +63,7 @@ void RenderingWindow::CreateHandler()
     m_dpi.x = static_cast<float>( dpiX );
     m_dpi.y = static_cast<float>( dpiY );
 
-    TRACE( L"DPI %.2f, %.2f\n", m_dpi.x, m_dpi.y );
+    DBOUT( L"DPI %.2f, %.2f\n", m_dpi.x, m_dpi.y );
 
     RECT size =
     {
@@ -73,9 +73,9 @@ void RenderingWindow::CreateHandler()
         static_cast<unsigned>( LogicalToPhysical( m_WindowHeight, dpiY ) )
     };
 
-    VERIFY( AdjustWindowRect( &size, GetWindowLong( m_window, GWL_STYLE ), false ) );
+    assert( AdjustWindowRect( &size, GetWindowLong( m_window, GWL_STYLE ), false ) );
 
-    VERIFY( SetWindowPos(
+    assert( SetWindowPos(
             m_window,
             nullptr,
             0, 0,
@@ -84,7 +84,7 @@ void RenderingWindow::CreateHandler()
             SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOZORDER )
     );
 
-    TRACE( L"Adjusted: %d %d %d %d\n", size.left, size.top, size.left - size.right, size.bottom - size.top );
+    DBOUT( L"Adjusted: %d %d %d %d\n", size.left, size.top, size.left - size.right, size.bottom - size.top );
 }
 
 
@@ -99,7 +99,7 @@ void RenderingWindow::DpiHandler( LPARAM const wparam,
         auto const *suggested =
                 reinterpret_cast<RECT const *>( lparam );
 
-        VERIFY( SetWindowPos(
+        assert( SetWindowPos(
             m_window,
             nullptr,
             suggested->left,
@@ -111,12 +111,12 @@ void RenderingWindow::DpiHandler( LPARAM const wparam,
     }
     catch( ComException const &e )
     {
-        TRACE( L"DpiHandler failed 0x%X\n", e.result );
+        DBOUT( L"DpiHandler failed 0x%X\n", e.result );
 
-        VERIFY( InvalidateRect( m_window, nullptr, false ) );
+        assert( InvalidateRect( m_window, nullptr, false ) );
     }
 
-    TRACE( L"DPI %.2f, %.2f\n", m_dpi.x, m_dpi.y );
+    DBOUT( L"DPI %.2f, %.2f\n", m_dpi.x, m_dpi.y );
 }
 
 void RenderingWindow::SizeHandler( const LPARAM wparam, const WPARAM lparam )
@@ -187,7 +187,7 @@ void RenderingWindow::CreateDeviceResources()
 
 void RenderingWindow::CreateDevice3D()
 {
-    ASSERT( !IsDeviceCreated() );
+    assert( !IsDeviceCreated() );
 
     unsigned flags =
             D3D11_CREATE_DEVICE_BGRA_SUPPORT | D3D11_CREATE_DEVICE_SINGLETHREADED;
@@ -211,7 +211,7 @@ void RenderingWindow::CreateDevice3D()
 
 void RenderingWindow::CreateDevice2D()
 {
-    ASSERT( m_device3d != nullptr );
+    assert( m_device3d != nullptr );
 
     HR( m_device3d.As( &m_dxgiDevice ) );
 
@@ -219,6 +219,8 @@ void RenderingWindow::CreateDevice2D()
 
     #ifndef _DEBUG
         properties.debugLevel = D2D1_DEBUG_LEVEL_INFORMATION;
+    #elseif
+
     #endif
 
     HR( D2D1CreateDevice(
@@ -245,7 +247,7 @@ void RenderingWindow::CreateCompositionDevice()
     HR( m_device->CreateVisual( m_visual.ReleaseAndGetAddressOf() ) );
 
     RECT rect = {};
-    VERIFY(GetClientRect(m_window, &rect));
+    assert(GetClientRect(m_window, &rect));
 
     HR( m_device->CreateSurface( rect.right - rect.left,
                                  rect.bottom - rect.top,
@@ -359,7 +361,8 @@ void RenderingWindow::RenderDevice()
         m_size.width - 100.0f,
         m_size.height - 100.0f + m_rectSize
     );
-
+    
+    
     dc->DrawRectangle( rect, m_brush.Get(), 10.0f );
 
     m_rectSize++;
@@ -371,5 +374,5 @@ void RenderingWindow::RenderDevice()
     HR( m_surface->EndDraw() );
     HR( m_device->Commit() );
 
-    VERIFY(ValidateRect(m_window, nullptr));
+    assert(ValidateRect(m_window, nullptr));
 }

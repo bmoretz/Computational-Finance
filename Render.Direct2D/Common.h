@@ -2,7 +2,25 @@
 
 #include "stdafx.h"
 
+#define DBOUT( s )            \
+{                             \
+   std::wostringstream os_;    \
+   os_ << s;                   \
+   OutputDebugStringW( os_.str().c_str() );  \
+}
+
 using namespace std;
+
+template<class Interface>
+void SafeRelease( Interface **ppInterfaceToRelease )
+{
+    if (*ppInterfaceToRelease != NULL)
+    {
+        (*ppInterfaceToRelease)->Release();
+
+        (*ppInterfaceToRelease) = NULL;
+    }
+}
 
 struct ComException
 {

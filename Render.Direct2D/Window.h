@@ -26,7 +26,7 @@ struct Window
                                       WPARAM const wparam,
                                       LPARAM const lparam )
     {
-        ASSERT( window );
+        assert( window );
 
         if( WM_NCCREATE == message )
         {
@@ -34,8 +34,8 @@ struct Window
 
             T *that = static_cast<T *>( cs->lpCreateParams );
 
-            ASSERT( that );
-            ASSERT( !that->m_window );
+            assert( that );
+            assert( !that->m_window );
 
             that->m_window = window;
 
@@ -136,9 +136,9 @@ struct Window
 
         RegisterClassExW( &wcex );
 
-        ASSERT( !m_window );
+        assert( !m_window );
 
-        VERIFY( CreateWindowEx(
+        assert( CreateWindowEx(
                 WS_EX_CLIENTEDGE,
                 windowClass.c_str(),
                 windowTitle.c_str(),
@@ -154,6 +154,6 @@ struct Window
             ) 
         );
 
-        ASSERT( m_window );
+        assert( m_window );
     }
 };

@@ -8,7 +8,6 @@
 #define NOMINMAX
 
 #include "targetver.h"
-#include "Debug.h"
 
 // Windows Header Files:
 #include <windows.h>
@@ -18,6 +17,7 @@
 // Standard Libraries
 
 #include <string>
+#include <sstream>
 #include <vector>
 #include <cassert>
 
