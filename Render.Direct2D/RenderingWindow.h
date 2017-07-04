@@ -16,10 +16,10 @@ struct RenderingWindow :
                             WPARAM const wparam,
                             LPARAM const lparam ) override;
 
-   int MessagePump() override;
+    int MessagePump() override;
 
-   void DestroyResources() override;
-    
+    void DestroyResources() override;
+
 protected:
 
     void CreateHandler();
@@ -37,19 +37,19 @@ protected:
     void CreateDevice2D();
     void CreateCompositionDevice();
 
-    virtual void CreateDeviceSpecificResources();
-    virtual void RenderDevice();
+    void CreateDeviceSpecificResources();
+    void ReadyDevice();
+
+    virtual void Render(  ID2D1DeviceContext *dc );
 
 private:
 
     #pragma region Device Independent
 
-    float m_rectSize = 0;
-
     D2D_SIZE_F m_size;
     D2D_POINT_2F m_dpi;
 
-    ComPtr<ID2D1SolidColorBrush> m_brush;
+    ComPtr<ID2D1Brush> m_brush;
 
     #pragma endregion
 

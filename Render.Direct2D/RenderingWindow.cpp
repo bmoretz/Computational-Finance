@@ -63,7 +63,7 @@ void RenderingWindow::CreateHandler()
     m_dpi.x = static_cast<float>( dpiX );
     m_dpi.y = static_cast<float>( dpiY );
 
-    DBOUT( L"DPI %.2f, %.2f\n", m_dpi.x, m_dpi.y );
+    DBOUT( L"DPI -> X: " << m_dpi.x << " Y: " << m_dpi.y << endl );
 
     RECT size =
     {
@@ -84,7 +84,7 @@ void RenderingWindow::CreateHandler()
             SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOZORDER )
     );
 
-    DBOUT( L"Adjusted: %d %d %d %d\n", size.left, size.top, size.left - size.right, size.bottom - size.top );
+    DBOUT( L"Adjusted: " << size.left << " " << size.top << " " << size.left - size.right << " " << size.bottom - size.top << endl );
 }
 
 
@@ -116,7 +116,7 @@ void RenderingWindow::DpiHandler( LPARAM const wparam,
         assert( InvalidateRect( m_window, nullptr, false ) );
     }
 
-    DBOUT( L"DPI %.2f, %.2f\n", m_dpi.x, m_dpi.y );
+    DBOUT( L"DPI Handler -> x: " << m_dpi.x << "L, Y: " << m_dpi.y << endl );
 }
 
 void RenderingWindow::SizeHandler( const LPARAM wparam, const WPARAM lparam )
@@ -153,7 +153,7 @@ void RenderingWindow::PaintHandler()
     {
         CreateDeviceResources();
 
-        RenderDevice();
+        ReadyDevice();
     }
     catch( const ComException &ex )
     {
@@ -273,7 +273,11 @@ void RenderingWindow::CreateDeviceSpecificResources()
 
     auto const color = static_cast<_D3DCOLORVALUE>( ColorF( 0.26f, 0.56f, 0.87f, 0.5f ) );
 
-    HR( dc->CreateSolidColorBrush( color, m_brush.ReleaseAndGetAddressOf() ) );
+    ComPtr<ID2D1SolidColorBrush> solid_brush;
+
+    HR( dc->CreateSolidColorBrush( color, solid_brush.ReleaseAndGetAddressOf() ) );
+
+    m_brush = solid_brush;
 
     auto const monitor = MonitorFromWindow( m_window, MONITOR_DEFAULTTONEAREST );
 
@@ -321,58 +325,57 @@ int RenderingWindow::MessagePump()
         }
         else
         {
-            RenderDevice();
+            ReadyDevice();
         }
     }
 
     return message.wParam;
 }
 
-void RenderingWindow::RenderDevice()
+void RenderingWindow::ReadyDevice()
 {
     ComPtr<ID2D1DeviceContext> dc;
-    
+
     POINT offset = {};
 
-    if( m_surface == nullptr )
-        throw exception( "Lost surface" );
+    assert( m_surface );
 
-    HR( m_surface->BeginDraw(
-            nullptr, // Entire surface
-            __uuidof(dc),
-            reinterpret_cast<void **>( dc.GetAddressOf() ),
-            &offset )
-    );
+    HR( m_surface->BeginDraw( nullptr, __uuidof(dc), reinterpret_cast<void **>( dc.GetAddressOf() ), &offset ) );
 
     dc->SetDpi( m_dpi.x, m_dpi.y );
 
-    dc->SetTransform( Matrix3x2F::Translation
-        (
-            offset.x * 96 / m_dpi.x,
-            offset.y * 96 / m_dpi.y
-        ) );
+    dc->SetTransform( Matrix3x2F::Translation( offset.x * 96 / m_dpi.x, offset.y * 96 / m_dpi.y ) );
 
-    dc->Clear();
+    Render( dc.Get() );
 
-    auto const rect = RectF
-    (
-        100.0f + m_rectSize,
-        100.0f,
-        m_size.width - 100.0f,
-        m_size.height - 100.0f + m_rectSize
-    );
-    
-    
-    dc->DrawRectangle( rect, m_brush.Get(), 10.0f );
-
-    m_rectSize++;
-
-    if( m_rectSize >= 100 )
-        m_rectSize = 0.0f;
-
-    // Finished Drawing
     HR( m_surface->EndDraw() );
+
     HR( m_device->Commit() );
 
     assert(ValidateRect(m_window, nullptr));
+}
+
+void RenderingWindow::Render( ID2D1DeviceContext * dc )
+{
+    for( auto x = 0; x < m_size.width; x += 10 )
+    {
+        dc->DrawLine
+        (
+            Point2F( static_cast<FLOAT>( x ), 0.0f ),
+            Point2F( static_cast<FLOAT>( x ), m_size.height ),
+            m_brush.Get(),
+            0.5f
+        );
+    }
+
+    for( auto y = 0; y < m_size.height; y += 10 )
+    {
+        dc->DrawLine
+        (
+            Point2F( 0.0f, static_cast<FLOAT>( y ) ),
+            Point2F( static_cast<FLOAT>( m_size.width ), static_cast<FLOAT>( y ) ),
+            m_brush.Get(),
+            0.5f
+        );
+    }
 }
