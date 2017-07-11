@@ -164,6 +164,7 @@
     <ClInclude Include="InvestmentInstrument.h" />
     <ClInclude Include="MACalculator.h" />
     <ClInclude Include="Matrix.h" />
+    <ClInclude Include="MatrixOperations.h" />
     <ClInclude Include="NumVector.h" />
     <ClInclude Include="OptionPricer.h" />
     <ClInclude Include="Ratios.h" />
@@ -175,6 +176,7 @@
     <ClInclude Include="TimeSeries.h" />
     <ClInclude Include="TimeSeriesTransformations.h" />
     <ClInclude Include="TransactionHandler.h" />
+    <ClInclude Include="VectorOperations.h" />
     <ClInclude Include="VolatilityCalculator.h" />
   </ItemGroup>
   <ItemGroup>
@@ -209,6 +211,7 @@
     <ClCompile Include="InvestmentInstrument.cpp" />
     <ClCompile Include="MACalculator.cpp" />
     <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="MatrixOperations.cpp" />
     <ClCompile Include="NumVector.cpp" />
     <ClCompile Include="OptionPricer.cpp" />
     <ClCompile Include="Recommendation.cpp" />
@@ -223,6 +226,7 @@
     <ClCompile Include="TimeSeries.cpp" />
     <ClCompile Include="TimeSeriesTransformations.cpp" />
     <ClCompile Include="TransactionHandler.cpp" />
+    <ClCompile Include="VectorOperations.cpp" />
     <ClCompile Include="VolatilityCalculator.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -1,19 +1,17 @@
 #pragma once
 
-using namespace std;
-
 namespace NumericalMethods
 {
     class Matrix
     {
     public:
 
-        typedef vector<double> Row;
+        typedef std::vector<double> Row;
 
         Matrix( int m, int n );
         explicit Matrix( int size );
         Matrix( const Matrix &m );
-        explicit Matrix( vector<Row> rows );
+        explicit Matrix( std::vector<Row> rows );
         Matrix& operator=( const Matrix &m );
         ~Matrix();
 
@@ -23,13 +21,13 @@ namespace NumericalMethods
         void subtract( const Matrix &m );
         void multiply( const Matrix &m );
 
-        vector<Row> getRows() const;
+        std::vector<Row> getRows() const;
 
         Row& operator[]( int pos );
         bool operator==( const Matrix &m ) const;
 
     private:
-        vector<Row> m_rows;
+        std::vector<Row> m_rows;
     };
 
     Matrix operator+( const Matrix &m1, const Matrix &m2 );

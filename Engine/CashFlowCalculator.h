@@ -39,7 +39,7 @@ namespace FixedIncome
 	class CashFlowCalculator
 	{
 	public:
-		CashFlowCalculator( double rate );
+	    explicit CashFlowCalculator( double rate );
 		CashFlowCalculator &operator =( const CashFlowCalculator& c );
 
 		~CashFlowCalculator();
