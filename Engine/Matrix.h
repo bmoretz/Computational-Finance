@@ -26,6 +26,17 @@ namespace NumericalMethods
         Row& operator[]( int pos );
         bool operator==( const Matrix &m ) const;
 
+        size_t size1() const
+        {
+            return m_rows.size();
+        }
+
+        size_t size2() const
+        {
+            return size1() > 0 ?
+                m_rows[ 0 ].size() : 0;
+        }
+
     private:
         std::vector<Row> m_rows;
     };

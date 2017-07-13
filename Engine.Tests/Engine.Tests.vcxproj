@@ -163,6 +163,7 @@
     <ClCompile Include="IntRateCalculator_Tests.cpp" />
     <ClCompile Include="IntRateEngine_tests.cpp" />
     <ClCompile Include="MACalculator_tests.cpp" />
+    <ClCompile Include="MatrixDeterminant_tests.cpp" />
     <ClCompile Include="MatrixOperations_tests.cpp" />
     <ClCompile Include="Matrix_tests.cpp" />
     <ClCompile Include="OptionPricer_Tests.cpp" />
