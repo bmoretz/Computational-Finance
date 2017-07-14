@@ -163,6 +163,7 @@
     <ClInclude Include="IntRateCalculator.h" />
     <ClInclude Include="IntRateEngine.h" />
     <ClInclude Include="InvestmentInstrument.h" />
+    <ClInclude Include="LinearInterpolation.h" />
     <ClInclude Include="MACalculator.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MatrixOperations.h" />
@@ -211,6 +212,7 @@
     <ClCompile Include="IntRateCalculator.cpp" />
     <ClCompile Include="IntRateEngine.cpp" />
     <ClCompile Include="InvestmentInstrument.cpp" />
+    <ClCompile Include="LinearInterpolation.cpp" />
     <ClCompile Include="MACalculator.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="MatrixOperations.cpp" />

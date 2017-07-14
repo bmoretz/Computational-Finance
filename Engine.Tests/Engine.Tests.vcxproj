@@ -160,6 +160,7 @@
     <ClCompile Include="DistributionData_Tests.cpp" />
     <ClCompile Include="FinancialStatement_tests.cpp" />
     <ClCompile Include="FundamentalsCalculator_tests.cpp" />
+    <ClCompile Include="IinearInterpolation_tests.cpp" />
     <ClCompile Include="IntRateCalculator_Tests.cpp" />
     <ClCompile Include="IntRateEngine_tests.cpp" />
     <ClCompile Include="MACalculator_tests.cpp" />
