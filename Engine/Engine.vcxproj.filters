@@ -80,7 +80,16 @@
     <ClCompile Include="DistrubutionData.cpp">
       <Filter>Source Files\Numerical</Filter>
     </ClCompile>
-    <ClCompile Include="GnuplotPlotter.cpp" />
+    <ClCompile Include="GnuplotPlotter.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="VectorOperations.cpp">
+      <Filter>Source Files\Numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="MatrixOperations.cpp" />
+    <ClCompile Include="Determinant.cpp">
+      <Filter>Source Files\Numerical</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
@@ -172,7 +181,16 @@
     <ClInclude Include="DistrubutionData.h">
       <Filter>Header Files\Numerical</Filter>
     </ClInclude>
-    <ClInclude Include="GnuplotPlotter.h" />
+    <ClInclude Include="GnuplotPlotter.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorOperations.h">
+      <Filter>Header Files\Numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOperations.h" />
+    <ClInclude Include="Determinant.h">
+      <Filter>Header Files\Numerical</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ComputationalFinance.rc" />

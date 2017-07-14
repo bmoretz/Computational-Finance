@@ -19,7 +19,7 @@ namespace FixedIncome
         T m_instrument;
     };
 
-        template <class T>
+    template <class T>
     IntRateEngine<T>::IntRateEngine()
     {
     }

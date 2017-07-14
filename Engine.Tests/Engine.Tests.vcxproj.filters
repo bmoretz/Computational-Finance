@@ -68,6 +68,15 @@
     <ClCompile Include="DistributionData_Tests.cpp">
       <Filter>Numerical</Filter>
     </ClCompile>
+    <ClCompile Include="VectorOperations_tests.cpp">
+      <Filter>Numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="MatrixOperations_tests.cpp">
+      <Filter>Numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="MatrixDeterminant_tests.cpp">
+      <Filter>Numerical</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />

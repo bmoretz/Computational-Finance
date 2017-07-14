@@ -163,6 +163,8 @@
     <ClCompile Include="IntRateCalculator_Tests.cpp" />
     <ClCompile Include="IntRateEngine_tests.cpp" />
     <ClCompile Include="MACalculator_tests.cpp" />
+    <ClCompile Include="MatrixDeterminant_tests.cpp" />
+    <ClCompile Include="MatrixOperations_tests.cpp" />
     <ClCompile Include="Matrix_tests.cpp" />
     <ClCompile Include="OptionPricer_Tests.cpp" />
     <ClCompile Include="RecommendationProcessor_tests.cpp" />
@@ -173,6 +175,7 @@
     <ClCompile Include="TimeSeriesTransformations_Tests.cpp" />
     <ClCompile Include="TimeSeries_tests.cpp" />
     <ClCompile Include="TransactionHandler_Tests.cpp" />
+    <ClCompile Include="VectorOperations_tests.cpp" />
     <ClCompile Include="VolatilityCalculator_tests.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -5,7 +5,7 @@ namespace FixedIncome {
 	class IntRateCalculator
 	{
 	public:
-		IntRateCalculator( double rate );
+	    explicit IntRateCalculator( double rate );
 		IntRateCalculator( const IntRateCalculator &v );
 		IntRateCalculator &operator= ( const IntRateCalculator &v );
 		~IntRateCalculator();
