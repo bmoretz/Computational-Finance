@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 #include "Common.h"
-#include "LinearInterpolation.h"
+#include "PolynomialInterpolation.h"
 
 using namespace std;
 using namespace Common;
@@ -10,10 +10,11 @@ using namespace NumericalMethods;
 
 namespace NumericalTests
 {
-    class LinearInterpolationTests :
+    class PolynomialInterpolationTests :
             public ::testing::Test
     {
     protected:
+
         void SetUp() override
         {
             m_x = { 10, 20, 30, 40, 49 },
@@ -27,18 +28,18 @@ namespace NumericalTests
         vector<double> m_x, m_y;
     };
 
-    TEST_F( LinearInterpolationTests, Example1 )
+    TEST_F( PolynomialInterpolationTests, Example1 )
     {
         auto 
-            expected_value = 0.803,
+            expected_value = 0.795433,
             missing_point = 27.0;
 
-        LinearInterpolation li;
+        PolynomialInterpolation pi;
 
-        li.setPoints( m_x, m_y );
+        pi.setPoints( m_x, m_y );
 
-        auto actual_value = li.getValue( missing_point );
+        auto actual_value = pi.getPolynomial( missing_point );
 
-        EXPECT_EQ( expected_value, actual_value );
+        EXPECT_DOUBLE_EQ( expected_value, round_digits( actual_value, 6 ) );
     }
 }

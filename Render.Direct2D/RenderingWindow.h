@@ -25,10 +25,15 @@ protected:
     void CreateHandler();
 
     void PaintHandler();
+
     void DpiHandler( const LPARAM wparam, const WPARAM lparam );
     void SizeHandler( const LPARAM wparam, const WPARAM lparam );
 
     bool IsDeviceCreated() const;
+    
+    // Resources
+    void AdjustDpiScaling();
+    void CreateFactoryAndGeometry();
 
     void CreateDeviceResources();
     void ReleaseDeviceResources();
@@ -40,7 +45,7 @@ protected:
     void CreateDeviceSpecificResources();
     void ReadyDevice();
 
-    virtual void Render(  ID2D1DeviceContext *dc );
+    virtual void Render( ID2D1DeviceContext *dc );
 
 private:
 
@@ -63,6 +68,13 @@ private:
     ComPtr<IDCompositionTarget> m_target;
     ComPtr<IDCompositionVisual2> m_visual;
     ComPtr<IDCompositionSurface> m_surface;
+
+    #pragma endregion
+
+    #pragma region
+    
+    ComPtr<ID2D1Factory2> m_factory;
+    ComPtr<ID2D1EllipseGeometry> m_geometry;
 
     #pragma endregion
 };

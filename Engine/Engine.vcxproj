@@ -169,6 +169,7 @@
     <ClInclude Include="MatrixOperations.h" />
     <ClInclude Include="NumVector.h" />
     <ClInclude Include="OptionPricer.h" />
+    <ClInclude Include="PolynomialInterpolation.h" />
     <ClInclude Include="Ratios.h" />
     <ClInclude Include="Recommendation.h" />
     <ClInclude Include="RecommendationProcessor.h" />
@@ -218,6 +219,7 @@
     <ClCompile Include="MatrixOperations.cpp" />
     <ClCompile Include="NumVector.cpp" />
     <ClCompile Include="OptionPricer.cpp" />
+    <ClCompile Include="PolynomialInterpolation.cpp" />
     <ClCompile Include="Recommendation.cpp" />
     <ClCompile Include="RecommendationProcessor.cpp" />
     <ClCompile Include="RiskCalculator.cpp" />

@@ -46,7 +46,7 @@ LRESULT RenderingWindow::MessageHandler( UINT const message,
 
 #pragma region Message Handlers
 
-void RenderingWindow::CreateHandler()
+void RenderingWindow::AdjustDpiScaling()
 {
     auto const monitor =
             MonitorFromWindow( m_window, MONITOR_DEFAULTTONEAREST );
@@ -87,6 +87,11 @@ void RenderingWindow::CreateHandler()
     DBOUT( L"Adjusted: " << size.left << " " << size.top << " " << size.left - size.right << " " << size.bottom - size.top << endl );
 }
 
+void RenderingWindow::CreateHandler()
+{
+    AdjustDpiScaling();
+    CreateFactoryAndGeometry();
+}
 
 void RenderingWindow::DpiHandler( LPARAM const wparam,
                                   WPARAM const lparam )
@@ -170,6 +175,25 @@ bool RenderingWindow::IsDeviceCreated() const
     return m_device3d;
 }
 
+void RenderingWindow::CreateFactoryAndGeometry()
+{
+    D2D1_FACTORY_OPTIONS options = {};
+
+    #ifdef _DEBUG
+
+    options.debugLevel = D2D1_DEBUG_LEVEL_INFORMATION;
+
+    #endif
+
+    HR( D2D1CreateFactory( D2D1_FACTORY_TYPE_SINGLE_THREADED,
+                           options,
+                           m_factory.GetAddressOf() ) );
+
+    const auto ellipse = Ellipse( Point2F( 50.0f, 50.0f ), 49.0f, 49.0f );
+
+    HR( m_factory->CreateEllipseGeometry( ellipse, m_geometry.GetAddressOf() ) );
+}
+
 void RenderingWindow::ReleaseDeviceResources()
 {
     m_device3d.Reset();
@@ -223,11 +247,8 @@ void RenderingWindow::CreateDevice2D()
 
     #endif
 
-    HR( D2D1CreateDevice(
-        m_dxgiDevice.Get(),
-        properties,
-        m_device2d.GetAddressOf()
-    ) );
+    HR( m_factory->CreateDevice( m_dxgiDevice.Get(),
+                                 m_device2d.GetAddressOf() ) );
 }
 
 void RenderingWindow::CreateCompositionDevice()
@@ -303,6 +324,9 @@ void RenderingWindow::DestroyResources()
     m_target = nullptr;
     m_visual = nullptr;
     m_surface = nullptr;
+
+    m_factory = nullptr;
+    m_geometry = nullptr;
 }
 
 #pragma endregion
@@ -351,11 +375,9 @@ void RenderingWindow::ReadyDevice()
     HR( m_surface->EndDraw() );
 
     HR( m_device->Commit() );
-
-    assert(ValidateRect(m_window, nullptr));
 }
 
-void RenderingWindow::Render( ID2D1DeviceContext * dc )
+void RenderingWindow::Render( ID2D1DeviceContext *dc )
 {
     for( auto x = 0; x < m_size.width; x += 10 )
     {
