@@ -75,17 +75,20 @@
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LinkIncremental>true</LinkIncremental>
+    <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(BOOST_INC);$(SolutionDir)Engine;$(IncludePath)</IncludePath>
-    <LibraryPath>$(BOOST_LIB);$(SolutionDir)Engine;$(LibraryPath)</LibraryPath>
-    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\Shell</OutDir>
-    <IntDir>$(Platform)\$(Configuration)\Shell</IntDir>
+    <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\Engine\;$(BOOST_LIB);$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\Shell\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\Shell\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\Shell\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\Shell\</IntDir>
+    <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\Engine\;$(BOOST_LIB);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

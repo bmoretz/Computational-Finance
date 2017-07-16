@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EntryPoint", "EntryPoint\EntryPoint.vcxproj", "{DEC03305-2393-4B67-B724-BF3376EBC126}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shell", "EntryPoint\EntryPoint.vcxproj", "{DEC03305-2393-4B67-B724-BF3376EBC126}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1721825A-6A81-4E7E-BA82-CDDD3BE4D874}"
 	ProjectSection(SolutionItems) = preProject
@@ -23,6 +23,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Render.Direct2D", "Render.Direct2D\Render.Direct2D.vcxproj", "{41E944E1-9A00-491A-9DF9-6100DDF0D91B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Render.UWP", "Render.UWP\Render.UWP.vcxproj", "{1AE62A8B-1DE4-4082-96F0-F43FEE615D49}"
+	ProjectSection(ProjectDependencies) = postProject
+		{928E4D91-7DE8-492D-9581-14BF02BD5ACA} = {928E4D91-7DE8-492D-9581-14BF02BD5ACA}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

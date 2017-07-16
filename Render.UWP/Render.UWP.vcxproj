@@ -102,7 +102,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\UWP\</OutDir>
     <IncludePath>$(SolutionDir)Engine;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\Engine;$(BOOST_LIB);$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\Engine\;$(BOOST_LIB);$(LibraryPath)</LibraryPath>
+    <IntDir>$(Platform)\$(Configuration)\UWP\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\UWP\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\UWP\</IntDir>
+    <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\Engine\;$(BOOST_LIB);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <ClCompile>

@@ -76,7 +76,8 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(BOOST_INC);$(IncludePath)</IncludePath>
     <LibraryPath>$(BOOST_LIB);$(LibraryPath)</LibraryPath>
-    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\Engine</OutDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\Engine\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\Engine\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -86,6 +87,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\Engine\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\Engine\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>

@@ -74,7 +74,8 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(BOOST_INC);$(IncludePath)</IncludePath>
     <LibraryPath>$(BOOST_LIB);$(LibraryPath)</LibraryPath>
-    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\Direct2D</OutDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\Direct2D\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\Direct2D\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -84,6 +85,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\Direct2D\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\Direct2D\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
