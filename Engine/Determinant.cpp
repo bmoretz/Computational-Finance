@@ -43,7 +43,7 @@ namespace NumericalMethods
         {
             if( i != pm( i ) )
             {
-                sign *= -1.0;
+                sign *= -1;
             }
         }
 

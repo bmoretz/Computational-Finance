@@ -105,5 +105,8 @@
     <Page Include="MovingAverage.xaml">
       <Filter>Views</Filter>
     </Page>
+    <Page Include="Distributions.xaml">
+      <Filter>Views</Filter>
+    </Page>
   </ItemGroup>
 </Project>

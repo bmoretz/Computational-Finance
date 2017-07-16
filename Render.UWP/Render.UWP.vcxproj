@@ -99,6 +99,11 @@
   <PropertyGroup>
     <PackageCertificateKeyFile>Render.UWP_TemporaryKey.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\UWP\</OutDir>
+    <IncludePath>$(SolutionDir)Engine;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\Engine;$(BOOST_LIB);$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
@@ -128,6 +133,9 @@
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -138,6 +146,9 @@
   <ItemGroup>
     <ClInclude Include="BasicPage.xaml.h">
       <DependentUpon>BasicPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Distributions.xaml.h">
+      <DependentUpon>Distributions.xaml</DependentUpon>
     </ClInclude>
     <ClInclude Include="FinancialChart.xaml.h">
       <DependentUpon>FinancialChart.xaml</DependentUpon>
@@ -170,6 +181,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="BasicPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Distributions.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Include="FinancialChart.xaml">
@@ -213,6 +227,9 @@
     </ClCompile>
     <ClCompile Include="BasicPage.xaml.cpp">
       <DependentUpon>BasicPage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Distributions.xaml.cpp">
+      <DependentUpon>Distributions.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="FinancialChart.xaml.cpp">
       <DependentUpon>FinancialChart.xaml</DependentUpon>

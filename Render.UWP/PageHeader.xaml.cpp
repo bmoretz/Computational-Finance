@@ -21,7 +21,7 @@ namespace RenderEngine
 {
     namespace Controls
     {
-        DependencyProperty^ PageHeader::_headerContentProperty = DependencyProperty::Register
+        DependencyProperty^ PageHeader::m_headerContentProperty = DependencyProperty::Register
     	(
             "HeaderContent",
             TypeName( UIElement::typeid ),
@@ -39,7 +39,7 @@ namespace RenderEngine
 
         void PageHeader::OnLoaded( Platform::Object ^sender, Windows::UI::Xaml::RoutedEventArgs ^e )
         {
-            _toggleButtonRectChangedToken = AppShell::Current->TogglePaneButtonRectChanged +=
+            m_toggleButtonRectChangedToken = AppShell::Current->TogglePaneButtonRectChanged +=
                 ref new TypedEventHandler<AppShell^, Rect>( this, &PageHeader::Current_TogglePaneButtonSizeChanged );
 
             titleBar->Margin = Thickness( AppShell::Current->TogglePaneButtonRect.Right, 0, 0, 0 );
@@ -47,7 +47,7 @@ namespace RenderEngine
 
         void PageHeader::OnUnloaded( Platform::Object ^sender, Windows::UI::Xaml::RoutedEventArgs ^e )
         {
-			AppShell::Current->TogglePaneButtonRectChanged -= _toggleButtonRectChangedToken;
+			AppShell::Current->TogglePaneButtonRectChanged -= m_toggleButtonRectChangedToken;
         }
 
         void PageHeader::Current_TogglePaneButtonSizeChanged( AppShell^ sender, Rect e )

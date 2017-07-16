@@ -1,13 +1,11 @@
-﻿//
-// FinancialChart.xaml.cpp
-// Implementation of the FinancialChart class
-//
-
-#include "pch.h"
+﻿#include "pch.h"
 #include "FinancialChart.xaml.h"
 #include "AppShell.xaml.h"
 
+#include "..\Engine\DistrubutionData.h"
+
 using namespace RenderEngine::Controls;
+using namespace NumericalMethods;
 
 using namespace Platform;
 using namespace Windows;
@@ -29,8 +27,15 @@ namespace RenderEngine
         {
             InitializeComponent();
 
-            FinancialChart::Loaded += ref new Windows::UI::Xaml::RoutedEventHandler( this, &FinancialChart::OnLoaded );
-            FinancialChart::Unloaded += ref new Windows::UI::Xaml::RoutedEventHandler( this, &FinancialChart::OnUnloaded );
+			m_pointsPerFrame = 30;
+
+			DistrubutionData d;
+
+            FinancialChart::Loaded += 
+				ref new Windows::UI::Xaml::RoutedEventHandler( this, &FinancialChart::OnLoaded );
+            
+        	FinancialChart::Unloaded += 
+				ref new Windows::UI::Xaml::RoutedEventHandler( this, &FinancialChart::OnUnloaded );
         }
 
         void FinancialChart::OnLoaded( Platform::Object ^sender, Windows::UI::Xaml::RoutedEventArgs ^e )
@@ -44,7 +49,7 @@ namespace RenderEngine
 		
 		void FinancialChart::OnDraw( CanvasControl ^sender, CanvasDrawEventArgs ^e )
         {
-			auto background = UI::ColorHelper::FromArgb( 255, 0, 0, 0 );
+			auto background = UI::ColorHelper::FromArgb( 0, 0, 0, 0 );
 
 			e->DrawingSession->Clear( background );
 

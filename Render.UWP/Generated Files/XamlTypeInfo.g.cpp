@@ -10,6 +10,7 @@
 #include "XamlTypeInfo.g.h"
 
 #include "BasicPage.xaml.h"
+#include "Distributions.xaml.h"
 #include "FinancialChart.xaml.h"
 #include "LandingPage.xaml.h"
 #include "MovingAverage.xaml.h"
@@ -18,6 +19,7 @@
 #include "AppShell.xaml.h"
 #include "XamlBindingInfo.g.hpp"
 #include "BasicPage.g.hpp"
+#include "Distributions.g.hpp"
 #include "FinancialChart.g.hpp"
 #include "LandingPage.g.hpp"
 #include "MovingAverage.g.hpp"
@@ -251,57 +253,63 @@ const TypeInfo TypeInfos[] =
     1, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
     true,  false, false, false,
     //  12
-    L"RenderEngine.Controls.PageHeader", L"",
-    &ActivateType<::RenderEngine::Controls::PageHeader>, nullptr, nullptr, nullptr,
-    15, // Windows.UI.Xaml.Controls.UserControl
+    L"RenderEngine.Views.Distributions", L"",
+    &ActivateType<::RenderEngine::Views::Distributions>, nullptr, nullptr, nullptr,
+    9, // Windows.UI.Xaml.Controls.Page
     1, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
     true,  false, false, false,
     //  13
+    L"RenderEngine.Controls.PageHeader", L"",
+    &ActivateType<::RenderEngine::Controls::PageHeader>, nullptr, nullptr, nullptr,
+    16, // Windows.UI.Xaml.Controls.UserControl
+    1, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
+    true,  false, false, false,
+    //  14
     L"RenderEngine.Views.MovingAverage", L"",
     &ActivateType<::RenderEngine::Views::MovingAverage>, nullptr, nullptr, nullptr,
     9, // Windows.UI.Xaml.Controls.Page
     2, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
     true,  false, false, false,
-    //  14
+    //  15
     L"Windows.UI.Xaml.Controls.ListView", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1,
     2, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
     false, true,  false, false,
-    //  15
+    //  16
     L"Windows.UI.Xaml.Controls.UserControl", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1,
     2, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
     false, true,  false, false,
-    //  16
+    //  17
     L"RenderEngine.Controls.FinancialChart", L"",
     &ActivateType<::RenderEngine::Controls::FinancialChart>, nullptr, nullptr, nullptr,
-    15, // Windows.UI.Xaml.Controls.UserControl
-    2, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
-    true,  false, false, false,
-    //  17
-    L"RenderEngine.Controls.NavMenuListView", L"",
-    &ActivateType<::RenderEngine::Controls::NavMenuListView>, nullptr, nullptr, nullptr,
-    14, // Windows.UI.Xaml.Controls.ListView
+    16, // Windows.UI.Xaml.Controls.UserControl
     2, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
     true,  false, false, false,
     //  18
+    L"RenderEngine.Controls.NavMenuListView", L"",
+    &ActivateType<::RenderEngine::Controls::NavMenuListView>, nullptr, nullptr, nullptr,
+    15, // Windows.UI.Xaml.Controls.ListView
+    2, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
+    true,  false, false, false,
+    //  19
     L"Windows.UI.Xaml.Controls.ItemsControl", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1,
     2, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
     false, true,  false, false,
-    //  19
+    //  20
     L"Microsoft.Graphics.Canvas.CanvasDevice", L"",
     nullptr, nullptr, nullptr, nullptr,
     0, // Object
     2, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
     false, false, true,  false,
-    //  20
+    //  21
     L"Microsoft.Graphics.Canvas.UI.Xaml.CanvasControl", L"",
     &ActivateType<::Microsoft::Graphics::Canvas::UI::Xaml::CanvasControl>, nullptr, nullptr, nullptr,
-    15, // Windows.UI.Xaml.Controls.UserControl
+    16, // Windows.UI.Xaml.Controls.UserControl
     2, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
     false, false, false, false,
     //  Last type here is for padding
@@ -346,22 +354,22 @@ const UINT TypeInfoLookup[] = {
      10,   //  30
      12,   //  31
      12,   //  32
-     14,   //  33
-     15,   //  34
-     15,   //  35
-     15,   //  36
-     17,   //  37
-     19,   //  38
-     20,   //  39
-     20,   //  40
-     20,   //  41
-     20,   //  42
-     20,   //  43
-     20,   //  44
-     20,   //  45
-     20,   //  46
-     20,   //  47
-     21,   //  48
+     15,   //  33
+     16,   //  34
+     16,   //  35
+     16,   //  36
+     18,   //  37
+     20,   //  38
+     21,   //  39
+     21,   //  40
+     21,   //  41
+     21,   //  42
+     21,   //  43
+     21,   //  44
+     21,   //  45
+     21,   //  46
+     21,   //  47
+     22,   //  48
 };
 
 struct MemberInfo 
@@ -396,7 +404,7 @@ const MemberInfo MemberInfos[] =
     L"Device",
     &GetReferenceTypeMember_Device<::Microsoft::Graphics::Canvas::UI::Xaml::CanvasControl>,
     nullptr,
-    19, // Microsoft.Graphics.Canvas.CanvasDevice
+    20, // Microsoft.Graphics.Canvas.CanvasDevice
     -1,
     true,  false, false,
     //   3 - Microsoft.Graphics.Canvas.UI.Xaml.CanvasControl.Dpi
@@ -431,7 +439,7 @@ const MemberInfo MemberInfos[] =
     L"CustomDevice",
     &GetReferenceTypeMember_CustomDevice<::Microsoft::Graphics::Canvas::UI::Xaml::CanvasControl>,
     &SetReferenceTypeMember_CustomDevice<::Microsoft::Graphics::Canvas::UI::Xaml::CanvasControl, ::Microsoft::Graphics::Canvas::CanvasDevice>,
-    19, // Microsoft.Graphics.Canvas.CanvasDevice
+    20, // Microsoft.Graphics.Canvas.CanvasDevice
     -1,
     false, false, false,
     //   8 - Microsoft.Graphics.Canvas.UI.Xaml.CanvasControl.ClearColor

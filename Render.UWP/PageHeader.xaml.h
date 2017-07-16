@@ -1,9 +1,4 @@
-﻿//
-// PageHeader.xaml.h
-// Declaration of the PageHeader class
-//
-
-#pragma once
+﻿#pragma once
 
 #include "PageHeader.g.h"
 #include "AppShell.xaml.h"
@@ -26,18 +21,20 @@ namespace RenderEngine
 
             static property DependencyProperty^ HeaderContentProperty
             {
-                DependencyProperty^ get() { return _headerContentProperty; }
+                DependencyProperty^ get() { return m_headerContentProperty; }
             }
 
             property UIElement^ HeaderContent
             {
-                UIElement^ get() { return ( UIElement^ )GetValue(_headerContentProperty); }
-                void set( UIElement^ value ) { SetValue( _headerContentProperty, value ); }
+                UIElement^ get() { return ( UIElement^ )GetValue( m_headerContentProperty ); }
+                void set( UIElement^ value ) { SetValue( m_headerContentProperty, value ); }
             }
 
         private:
-            static DependencyProperty^ _headerContentProperty;
-			Windows::Foundation::EventRegistrationToken _toggleButtonRectChangedToken;
+            
+        	static DependencyProperty^ m_headerContentProperty;
+			Windows::Foundation::EventRegistrationToken m_toggleButtonRectChangedToken;
+
             void Current_TogglePaneButtonSizeChanged( AppShell^ sender, Rect e );
         };
     }

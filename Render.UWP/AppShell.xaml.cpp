@@ -5,6 +5,7 @@
 
 #include "BasicPage.xaml.h"
 #include "MovingAverage.xaml.h"
+#include "Distributions.xaml.h"
 
 using namespace Platform;
 using namespace Windows::UI::Core;
@@ -63,7 +64,17 @@ namespace RenderEngine
 			(
 				"Moving Average",
 				Symbol::Calculator,
-				TypeName(Views::MovingAverage::typeid )
+				TypeName( Views::MovingAverage::typeid )
+			)
+		);
+
+		navlist->Append
+		(
+			ref new NavMenuItem
+			(
+				"Distributions",
+				Symbol::Bullets,
+				TypeName( Views::Distributions::typeid )
 			)
 		);
 
@@ -198,16 +209,16 @@ namespace RenderEngine
                 }
             }
 
-            for (NavMenuItem^ i : navlist)
+            for( NavMenuItem^ i : navlist )
             {
                 i->IsSelected = false;
             }
-            if (item != nullptr)
+            if( item != nullptr )
             {
                 item->IsSelected = true;
             }
 
-            auto container = (ListViewItem^)NavMenuList->ContainerFromItem(item);
+            auto container = ( ListViewItem^ ) NavMenuList->ContainerFromItem( item );
 
             // While updating the selection state of the item prevent it from taking keyboard focus.  If a
             // user is invoking the back button via the keyboard causing the selected nav menu item to change

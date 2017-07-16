@@ -25,8 +25,8 @@ namespace RenderEngine
 			void OnDraw( CanvasControl ^sender, CanvasDrawEventArgs ^args );
 
         private:
-			
+			std::vector<double> m_points;
+			int m_pointsPerFrame;
         };
-
 	}
 }

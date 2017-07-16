@@ -1,9 +1,4 @@
-﻿//
-// MovingAverage.xaml.h
-// Declaration of the MovingAverage class
-//
-
-#pragma once
+﻿#pragma once
 
 #include "MovingAverage.g.h"
 
