@@ -21,36 +21,38 @@ namespace RenderEngine
 {
     namespace Controls
     {
-        DependencyProperty^ PageHeader::_headerContentProperty = DependencyProperty::Register(
+        DependencyProperty^ PageHeader::_headerContentProperty = DependencyProperty::Register
+    	(
             "HeaderContent",
-            TypeName(UIElement::typeid),
-            TypeName(PageHeader::typeid),
-            ref new PropertyMetadata(nullptr));
+            TypeName( UIElement::typeid ),
+            TypeName( PageHeader::typeid ),
+            ref new PropertyMetadata( nullptr )
+        );
 
         PageHeader::PageHeader()
         {
             InitializeComponent();
 
-            PageHeader::Loaded += ref new Windows::UI::Xaml::RoutedEventHandler(this, &PageHeader::OnLoaded);
-            PageHeader::Unloaded += ref new Windows::UI::Xaml::RoutedEventHandler(this, &PageHeader::OnUnloaded);
+            PageHeader::Loaded += ref new Windows::UI::Xaml::RoutedEventHandler( this, &PageHeader::OnLoaded );
+            PageHeader::Unloaded += ref new Windows::UI::Xaml::RoutedEventHandler( this, &PageHeader::OnUnloaded );
         }
 
-        void PageHeader::OnLoaded(Platform::Object ^sender, Windows::UI::Xaml::RoutedEventArgs ^e)
+        void PageHeader::OnLoaded( Platform::Object ^sender, Windows::UI::Xaml::RoutedEventArgs ^e )
         {
             _toggleButtonRectChangedToken = AppShell::Current->TogglePaneButtonRectChanged +=
-                ref new TypedEventHandler<AppShell^, Rect>(this, &PageHeader::Current_TogglePaneButtonSizeChanged);
+                ref new TypedEventHandler<AppShell^, Rect>( this, &PageHeader::Current_TogglePaneButtonSizeChanged );
 
-            titleBar->Margin = Thickness(AppShell::Current->TogglePaneButtonRect.Right, 0, 0, 0);
+            titleBar->Margin = Thickness( AppShell::Current->TogglePaneButtonRect.Right, 0, 0, 0 );
         }
 
-        void PageHeader::OnUnloaded(Platform::Object ^sender, Windows::UI::Xaml::RoutedEventArgs ^e)
+        void PageHeader::OnUnloaded( Platform::Object ^sender, Windows::UI::Xaml::RoutedEventArgs ^e )
         {
 			AppShell::Current->TogglePaneButtonRectChanged -= _toggleButtonRectChangedToken;
         }
 
-        void PageHeader::Current_TogglePaneButtonSizeChanged(AppShell^ sender, Rect e)
+        void PageHeader::Current_TogglePaneButtonSizeChanged( AppShell^ sender, Rect e )
         {
-            titleBar->Margin = Thickness(e.Right, 0, 0, 0);
+            titleBar->Margin = Thickness( e.Right, 0, 0, 0 );
         }
     }
 }

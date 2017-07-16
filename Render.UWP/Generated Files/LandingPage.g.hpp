@@ -14,6 +14,7 @@ extern "C" __declspec(dllimport) int __stdcall IsDebuggerPresent();
 #endif
 
 #include "LandingPage.xaml.h"
+#include "PageHeader.xaml.h"
 
 void ::RenderEngine::Views::LandingPage::InitializeComponent()
 {
@@ -28,8 +29,24 @@ void ::RenderEngine::Views::LandingPage::InitializeComponent()
 
 void ::RenderEngine::Views::LandingPage::Connect(int __connectionId, ::Platform::Object^ __target)
 {
-    __connectionId;         // unreferenced 
-    __target;               // unreferenced
+    switch (__connectionId)
+    {
+    case 1:
+        {
+            this->pageHeader = safe_cast<::RenderEngine::Controls::PageHeader^>(__target);
+        }
+        break;
+    case 2:
+        {
+            this->ContentContainer = safe_cast<::Windows::UI::Xaml::Controls::StackPanel^>(__target);
+        }
+        break;
+    case 3:
+        {
+            this->title = safe_cast<::Windows::UI::Xaml::Controls::TextBlock^>(__target);
+        }
+        break;
+    }
     _contentLoaded = true;
 }
 

@@ -1,13 +1,10 @@
-﻿//
-// MainPage.xaml.cpp
-// Implementation of the MainPage class.
-//
-
-#include "pch.h"
-#include "BasicPage.xaml.h"
+﻿#include "pch.h"
 #include "NavMenuItem.h"
 #include "NavMenuListView.h"
 #include "AppShell.xaml.h"
+
+#include "BasicPage.xaml.h"
+#include "MovingAverage.xaml.h"
 
 using namespace Platform;
 using namespace Windows::UI::Core;
@@ -38,35 +35,37 @@ namespace RenderEngine
 
         Loaded += ref new Windows::UI::Xaml::RoutedEventHandler(this, &AppShell::OnLoaded);
 
-        RootSplitView->RegisterPropertyChangedCallback(
+        RootSplitView->RegisterPropertyChangedCallback
+    	(
             SplitView::DisplayModeProperty,
-            ref new DependencyPropertyChangedCallback(this, &AppShell::RootSplitViewDisplayModeChangedCallback));
+            ref new DependencyPropertyChangedCallback( this, &AppShell::RootSplitViewDisplayModeChangedCallback ) 
+		);
 
         SystemNavigationManager::GetForCurrentView()->BackRequested +=
-            ref new EventHandler<Windows::UI::Core::BackRequestedEventArgs^>(this, &AppShell::SystemNavigationManager_BackRequested);
+            ref new EventHandler<Windows::UI::Core::BackRequestedEventArgs^>( this, &AppShell::SystemNavigationManager_BackRequested );
 
         // Declare the top level nav items
         navlist = ref new Vector<NavMenuItem^>();
 
-        navlist->Append(
-            ref new NavMenuItem (
+        navlist->Append
+    	(
+            ref new NavMenuItem
+			(
                 "Basic Page",
-                Symbol::Contact,
-                TypeName(Views::BasicPage::typeid)));
+                Symbol::Document,
+                TypeName( Views::BasicPage::typeid )
+			)
+		);
 
-		/*
-        navlist->Append(
-            ref new NavMenuItem (
-                "CommandBar Page",
-                Symbol::Edit,
-                TypeName(Views::CommandBarPage::typeid)));
-
-        navlist->Append(
-            ref new NavMenuItem(
-                "Drill In Page",
-                Symbol::Favorite,
-                TypeName(Views::DrillInPage::typeid)));
-		*/
+		navlist->Append
+    	(
+			ref new NavMenuItem
+			(
+				"Moving Average",
+				Symbol::Calculator,
+				TypeName(Views::MovingAverage::typeid )
+			)
+		);
 
         NavMenuList->ItemsSource = navlist;
     }
@@ -93,12 +92,14 @@ namespace RenderEngine
         FocusNavigationDirection direction = FocusNavigationDirection::None;
         switch (e->Key)
         {
+
         case Windows::System::VirtualKey::Left:
         case Windows::System::VirtualKey::GamepadDPadLeft:
         case Windows::System::VirtualKey::GamepadLeftThumbstickLeft:
         case Windows::System::VirtualKey::NavigationLeft:
             direction = FocusNavigationDirection::Left;
             break;
+
         case Windows::System::VirtualKey::Right:
         case Windows::System::VirtualKey::GamepadDPadRight:
         case Windows::System::VirtualKey::GamepadLeftThumbstickRight:
@@ -182,6 +183,7 @@ namespace RenderEngine
             {
                 // In cases where a page drills into sub-pages then we'll highlight the most recent
                 // navigation menu item that appears in the BackStack
+
                 for (auto entry : AppFrame->BackStack)
                 {
                     Object^ p = nullptr;
@@ -231,7 +233,7 @@ namespace RenderEngine
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="args"></param>
-    void AppShell::RootSplitView_PaneClosed(SplitView^ sender, Object^ args)
+    void AppShell::RootSplitView_PaneClosed( SplitView^ sender, Object^ args )
     {
         NavPaneDivider->Visibility = Windows::UI::Xaml::Visibility::Collapsed;
 
@@ -246,7 +248,7 @@ namespace RenderEngine
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    void AppShell::TogglePaneButton_Checked(Object^ sender, RoutedEventArgs^ e)
+    void AppShell::TogglePaneButton_Checked( Object^ sender, RoutedEventArgs^ e )
     {
         NavPaneDivider->Visibility = Windows::UI::Xaml::Visibility::Visible;
         CheckTogglePaneButtonSizeChanged();
@@ -281,11 +283,11 @@ namespace RenderEngine
     /// </summary>
     void AppShell::CheckTogglePaneButtonSizeChanged()
     {
-        if (RootSplitView->DisplayMode == SplitViewDisplayMode::Inline ||
-            RootSplitView->DisplayMode == SplitViewDisplayMode::Overlay)
+        if( RootSplitView->DisplayMode == SplitViewDisplayMode::Inline ||
+            RootSplitView->DisplayMode == SplitViewDisplayMode::Overlay )
         {
-            auto transform = TogglePaneButton->TransformToVisual(this);
-            auto rect = transform->TransformBounds(Rect(0, 0, (float)TogglePaneButton->ActualWidth, (float)TogglePaneButton->ActualHeight));
+            auto transform = TogglePaneButton->TransformToVisual( this );
+            auto rect = transform->TransformBounds( Rect(0, 0, ( float ) TogglePaneButton->ActualWidth, ( float ) TogglePaneButton->ActualHeight ) );
             _togglePaneButtonRect = rect;
         }
         else
@@ -293,7 +295,7 @@ namespace RenderEngine
             _togglePaneButtonRect = Rect();
         }
 
-        TogglePaneButtonRectChanged(this, TogglePaneButtonRect);
+        TogglePaneButtonRectChanged( this, TogglePaneButtonRect );
     }
 
     /// <summary>
@@ -302,15 +304,15 @@ namespace RenderEngine
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="args"></param>
-    void AppShell::NavMenuItemContainerContentChanging(ListViewBase^ sender, ContainerContentChangingEventArgs^ args)
+    void AppShell::NavMenuItemContainerContentChanging( ListViewBase^ sender, ContainerContentChangingEventArgs^ args )
     {
-        if (!args->InRecycleQueue && args->Item != nullptr && dynamic_cast<NavMenuItem^>(args->Item) != nullptr)
+        if( !args->InRecycleQueue && args->Item != nullptr && dynamic_cast<NavMenuItem^>(args->Item) != nullptr )
         {
             args->ItemContainer->SetValue(Windows::UI::Xaml::Automation::AutomationProperties::NameProperty, ((NavMenuItem^)args->Item)->Label);
         }
         else
         {
-            args->ItemContainer->ClearValue(Windows::UI::Xaml::Automation::AutomationProperties::NameProperty);
+            args->ItemContainer->ClearValue( Windows::UI::Xaml::Automation::AutomationProperties::NameProperty );
         }
     }
 }

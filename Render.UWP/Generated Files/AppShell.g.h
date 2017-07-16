@@ -59,7 +59,12 @@ namespace RenderEngine
         virtual ::Windows::UI::Xaml::Markup::IComponentConnector^ GetBindingConnector(int connectionId, ::Platform::Object^ target);
     
     private:
+        void UnloadObject(::Windows::UI::Xaml::DependencyObject^ dependencyObject);
+        void DisconnectUnloadedObject(int connectionId);
+    
+    private:
         bool _contentLoaded;
+    
         class AppShell_obj2_Bindings;
     
         ::XamlBindingInfo::XamlBindings^ Bindings;

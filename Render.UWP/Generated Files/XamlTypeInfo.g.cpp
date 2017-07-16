@@ -10,13 +10,17 @@
 #include "XamlTypeInfo.g.h"
 
 #include "BasicPage.xaml.h"
+#include "FinancialChart.xaml.h"
 #include "LandingPage.xaml.h"
+#include "MovingAverage.xaml.h"
 #include "PageHeader.xaml.h"
 #include "App.xaml.h"
 #include "AppShell.xaml.h"
 #include "XamlBindingInfo.g.hpp"
 #include "BasicPage.g.hpp"
+#include "FinancialChart.g.hpp"
 #include "LandingPage.g.hpp"
+#include "MovingAverage.g.hpp"
 #include "PageHeader.g.hpp"
 #include "App.g.hpp"
 #include "AppShell.g.hpp"
@@ -45,6 +49,48 @@ template<typename T>
     return ref new ::Platform::Box<T>((T)userType->CreateEnumUIntFromString(input));
 }
 
+template<typename TDeclaringType, typename TValue>
+::Platform::Object^ GetValueTypeMember_Dpi(::Platform::Object^ instance)
+{
+    return ref new ::Platform::Box<TValue>(safe_cast<TDeclaringType^>(instance)->Dpi);
+}
+
+template<typename TDeclaringType, typename TValue>
+::Platform::Object^ GetValueTypeMember_UseSharedDevice(::Platform::Object^ instance)
+{
+    return ref new ::Platform::Box<TValue>(safe_cast<TDeclaringType^>(instance)->UseSharedDevice);
+}
+
+template<typename TDeclaringType, typename TValue>
+::Platform::Object^ GetValueTypeMember_ForceSoftwareRenderer(::Platform::Object^ instance)
+{
+    return ref new ::Platform::Box<TValue>(safe_cast<TDeclaringType^>(instance)->ForceSoftwareRenderer);
+}
+
+template<typename TDeclaringType, typename TValue>
+::Platform::Object^ GetValueTypeMember_DpiScale(::Platform::Object^ instance)
+{
+    return ref new ::Platform::Box<TValue>(safe_cast<TDeclaringType^>(instance)->DpiScale);
+}
+
+template<typename TDeclaringType, typename TValue>
+::Platform::Object^ GetValueTypeMember_ClearColor(::Platform::Object^ instance)
+{
+    return ref new ::Platform::Box<TValue>(safe_cast<TDeclaringType^>(instance)->ClearColor);
+}
+
+template<typename TDeclaringType, typename TValue>
+::Platform::Object^ GetValueTypeMember_ReadyToDraw(::Platform::Object^ instance)
+{
+    return ref new ::Platform::Box<TValue>(safe_cast<TDeclaringType^>(instance)->ReadyToDraw);
+}
+
+template<typename TDeclaringType, typename TValue>
+::Platform::Object^ GetValueTypeMember_Size(::Platform::Object^ instance)
+{
+    return ref new ::Platform::Box<TValue>(safe_cast<TDeclaringType^>(instance)->Size);
+}
+
 template<typename TDeclaringType>
 ::Platform::Object^ GetReferenceTypeMember_AppFrame(::Platform::Object^ instance)
 {
@@ -52,9 +98,51 @@ template<typename TDeclaringType>
 }
 
 template<typename TDeclaringType>
+::Platform::Object^ GetReferenceTypeMember_Device(::Platform::Object^ instance)
+{
+    return safe_cast<TDeclaringType^>(instance)->Device;
+}
+
+template<typename TDeclaringType>
+::Platform::Object^ GetReferenceTypeMember_CustomDevice(::Platform::Object^ instance)
+{
+    return safe_cast<TDeclaringType^>(instance)->CustomDevice;
+}
+
+template<typename TDeclaringType>
 ::Platform::Object^ GetReferenceTypeMember_HeaderContent(::Platform::Object^ instance)
 {
     return safe_cast<TDeclaringType^>(instance)->HeaderContent;
+}
+
+template<typename TDeclaringType, typename TValue>
+void SetValueTypeMember_UseSharedDevice(::Platform::Object^ instance, ::Platform::Object^ value)
+{
+    safe_cast<TDeclaringType^>(instance)->UseSharedDevice = safe_cast<::Platform::IBox<TValue>^>(value)->Value;
+}
+
+template<typename TDeclaringType, typename TValue>
+void SetValueTypeMember_ForceSoftwareRenderer(::Platform::Object^ instance, ::Platform::Object^ value)
+{
+    safe_cast<TDeclaringType^>(instance)->ForceSoftwareRenderer = safe_cast<::Platform::IBox<TValue>^>(value)->Value;
+}
+
+template<typename TDeclaringType, typename TValue>
+void SetValueTypeMember_DpiScale(::Platform::Object^ instance, ::Platform::Object^ value)
+{
+    safe_cast<TDeclaringType^>(instance)->DpiScale = safe_cast<::Platform::IBox<TValue>^>(value)->Value;
+}
+
+template<typename TDeclaringType, typename TValue>
+void SetValueTypeMember_ClearColor(::Platform::Object^ instance, ::Platform::Object^ value)
+{
+    safe_cast<TDeclaringType^>(instance)->ClearColor = safe_cast<::Platform::IBox<TValue>^>(value)->Value;
+}
+
+template<typename TDeclaringType, typename TValue>
+void SetReferenceTypeMember_CustomDevice(::Platform::Object^ instance, ::Platform::Object^ value)
+{
+    safe_cast<TDeclaringType^>(instance)->CustomDevice = safe_cast<TValue^>(value);
 }
 
 template<typename TDeclaringType, typename TValue>
@@ -91,76 +179,136 @@ std::function<::Platform::Object^(::Platform::String^)> CreateFromStringMethods[
 const TypeInfo TypeInfos[] = 
 {
     //   0
+    L"Object", L"",
+    nullptr, nullptr, nullptr, nullptr,
+    -1,
+    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
+    false, true,  false, false,
+    //   1
+    L"Single", L"",
+    nullptr, nullptr, nullptr, nullptr,
+    -1,
+    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
+    false, true,  false, false,
+    //   2
+    L"Boolean", L"",
+    nullptr, nullptr, nullptr, nullptr,
+    -1,
+    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
+    false, true,  false, false,
+    //   3
+    L"Windows.UI.Color", L"",
+    nullptr, nullptr, nullptr, nullptr,
+    4, // System.ValueType
+    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
+    false, false, true,  false,
+    //   4
+    L"System.ValueType", L"",
+    nullptr, nullptr, nullptr, nullptr,
+    0, // Object
+    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
+    false, false, false, false,
+    //   5
     L"RenderEngine.AppShell", L"",
     &ActivateType<::RenderEngine::AppShell>, nullptr, nullptr, nullptr,
-    3, // Windows.UI.Xaml.Controls.Page
+    9, // Windows.UI.Xaml.Controls.Page
     0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
     true,  false, false, false,
-    //   1
+    //   6
+    L"Windows.Foundation.Size", L"",
+    nullptr, nullptr, nullptr, nullptr,
+    -1,
+    1, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
+    false, true,  false, false,
+    //   7
     L"Windows.UI.Xaml.UIElement", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1,
     1, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
     false, true,  false, false,
-    //   2
+    //   8
     L"RenderEngine.Views.BasicPage", L"",
     &ActivateType<::RenderEngine::Views::BasicPage>, nullptr, nullptr, nullptr,
-    3, // Windows.UI.Xaml.Controls.Page
+    9, // Windows.UI.Xaml.Controls.Page
     1, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
     true,  false, false, false,
-    //   3
+    //   9
     L"Windows.UI.Xaml.Controls.Page", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1,
     1, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
     false, true,  false, false,
-    //   4
+    //  10
     L"Windows.UI.Xaml.Controls.Frame", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1,
     1, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
     false, true,  false, false,
-    //   5
+    //  11
     L"RenderEngine.Views.LandingPage", L"",
     &ActivateType<::RenderEngine::Views::LandingPage>, nullptr, nullptr, nullptr,
-    3, // Windows.UI.Xaml.Controls.Page
+    9, // Windows.UI.Xaml.Controls.Page
     1, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
     true,  false, false, false,
-    //   6
+    //  12
     L"RenderEngine.Controls.PageHeader", L"",
     &ActivateType<::RenderEngine::Controls::PageHeader>, nullptr, nullptr, nullptr,
-    8, // Windows.UI.Xaml.Controls.UserControl
+    15, // Windows.UI.Xaml.Controls.UserControl
     1, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
     true,  false, false, false,
-    //   7
+    //  13
+    L"RenderEngine.Views.MovingAverage", L"",
+    &ActivateType<::RenderEngine::Views::MovingAverage>, nullptr, nullptr, nullptr,
+    9, // Windows.UI.Xaml.Controls.Page
+    2, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
+    true,  false, false, false,
+    //  14
     L"Windows.UI.Xaml.Controls.ListView", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1,
     2, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
     false, true,  false, false,
-    //   8
+    //  15
     L"Windows.UI.Xaml.Controls.UserControl", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1,
     2, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
     false, true,  false, false,
-    //   9
-    L"RenderEngine.Controls.NavMenuListView", L"",
-    &ActivateType<::RenderEngine::Controls::NavMenuListView>, nullptr, nullptr, nullptr,
-    7, // Windows.UI.Xaml.Controls.ListView
+    //  16
+    L"RenderEngine.Controls.FinancialChart", L"",
+    &ActivateType<::RenderEngine::Controls::FinancialChart>, nullptr, nullptr, nullptr,
+    15, // Windows.UI.Xaml.Controls.UserControl
     2, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
     true,  false, false, false,
-    //  10
+    //  17
+    L"RenderEngine.Controls.NavMenuListView", L"",
+    &ActivateType<::RenderEngine::Controls::NavMenuListView>, nullptr, nullptr, nullptr,
+    14, // Windows.UI.Xaml.Controls.ListView
+    2, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
+    true,  false, false, false,
+    //  18
     L"Windows.UI.Xaml.Controls.ItemsControl", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1,
     2, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
     false, true,  false, false,
+    //  19
+    L"Microsoft.Graphics.Canvas.CanvasDevice", L"",
+    nullptr, nullptr, nullptr, nullptr,
+    0, // Object
+    2, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
+    false, false, true,  false,
+    //  20
+    L"Microsoft.Graphics.Canvas.UI.Xaml.CanvasControl", L"",
+    &ActivateType<::Microsoft::Graphics::Canvas::UI::Xaml::CanvasControl>, nullptr, nullptr, nullptr,
+    15, // Windows.UI.Xaml.Controls.UserControl
+    2, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
+    false, false, false, false,
     //  Last type here is for padding
     L"", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1, 
-    2, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
+    11, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
     false, false, false, false,
 };
 
@@ -172,38 +320,48 @@ const UINT TypeInfoLookup[] = {
       0,   //   4
       0,   //   5
       0,   //   6
-      0,   //   7
-      0,   //   8
-      0,   //   9
-      0,   //  10
-      0,   //  11
-      0,   //  12
-      0,   //  13
-      0,   //  14
-      0,   //  15
-      0,   //  16
-      0,   //  17
-      0,   //  18
-      0,   //  19
-      0,   //  20
-      0,   //  21
-      1,   //  22
-      1,   //  23
-      1,   //  24
-      1,   //  25
-      2,   //  26
-      2,   //  27
-      2,   //  28
-      3,   //  29
-      4,   //  30
-      6,   //  31
-      6,   //  32
-      7,   //  33
-      8,   //  34
-      8,   //  35
-      8,   //  36
-      9,   //  37
-     11,   //  38
+      2,   //   7
+      3,   //   8
+      3,   //   9
+      3,   //  10
+      3,   //  11
+      3,   //  12
+      3,   //  13
+      3,   //  14
+      3,   //  15
+      3,   //  16
+      5,   //  17
+      5,   //  18
+      5,   //  19
+      5,   //  20
+      5,   //  21
+      6,   //  22
+      6,   //  23
+      7,   //  24
+      7,   //  25
+      8,   //  26
+      8,   //  27
+      8,   //  28
+      9,   //  29
+     10,   //  30
+     12,   //  31
+     12,   //  32
+     14,   //  33
+     15,   //  34
+     15,   //  35
+     15,   //  36
+     17,   //  37
+     19,   //  38
+     20,   //  39
+     20,   //  40
+     20,   //  41
+     20,   //  42
+     20,   //  43
+     20,   //  44
+     20,   //  45
+     20,   //  46
+     20,   //  47
+     21,   //  48
 };
 
 struct MemberInfo 
@@ -224,16 +382,79 @@ const MemberInfo MemberInfos[] =
     L"AppFrame",
     &GetReferenceTypeMember_AppFrame<::RenderEngine::AppShell>,
     nullptr,
-    4, // Windows.UI.Xaml.Controls.Frame
+    10, // Windows.UI.Xaml.Controls.Frame
     -1,
     true,  false, false,
     //   1 - RenderEngine.Controls.PageHeader.HeaderContent
     L"HeaderContent",
     &GetReferenceTypeMember_HeaderContent<::RenderEngine::Controls::PageHeader>,
     &SetReferenceTypeMember_HeaderContent<::RenderEngine::Controls::PageHeader, ::Windows::UI::Xaml::UIElement>,
-    1, // Windows.UI.Xaml.UIElement
+    7, // Windows.UI.Xaml.UIElement
     -1,
     false, true,  false,
+    //   2 - Microsoft.Graphics.Canvas.UI.Xaml.CanvasControl.Device
+    L"Device",
+    &GetReferenceTypeMember_Device<::Microsoft::Graphics::Canvas::UI::Xaml::CanvasControl>,
+    nullptr,
+    19, // Microsoft.Graphics.Canvas.CanvasDevice
+    -1,
+    true,  false, false,
+    //   3 - Microsoft.Graphics.Canvas.UI.Xaml.CanvasControl.Dpi
+    L"Dpi",
+    &GetValueTypeMember_Dpi<::Microsoft::Graphics::Canvas::UI::Xaml::CanvasControl, ::default::float32>,
+    nullptr,
+    1, // Single
+    -1,
+    true,  false, false,
+    //   4 - Microsoft.Graphics.Canvas.UI.Xaml.CanvasControl.UseSharedDevice
+    L"UseSharedDevice",
+    &GetValueTypeMember_UseSharedDevice<::Microsoft::Graphics::Canvas::UI::Xaml::CanvasControl, ::Platform::Boolean>,
+    &SetValueTypeMember_UseSharedDevice<::Microsoft::Graphics::Canvas::UI::Xaml::CanvasControl, ::Platform::Boolean>,
+    2, // Boolean
+    -1,
+    false, false, false,
+    //   5 - Microsoft.Graphics.Canvas.UI.Xaml.CanvasControl.ForceSoftwareRenderer
+    L"ForceSoftwareRenderer",
+    &GetValueTypeMember_ForceSoftwareRenderer<::Microsoft::Graphics::Canvas::UI::Xaml::CanvasControl, ::Platform::Boolean>,
+    &SetValueTypeMember_ForceSoftwareRenderer<::Microsoft::Graphics::Canvas::UI::Xaml::CanvasControl, ::Platform::Boolean>,
+    2, // Boolean
+    -1,
+    false, false, false,
+    //   6 - Microsoft.Graphics.Canvas.UI.Xaml.CanvasControl.DpiScale
+    L"DpiScale",
+    &GetValueTypeMember_DpiScale<::Microsoft::Graphics::Canvas::UI::Xaml::CanvasControl, ::default::float32>,
+    &SetValueTypeMember_DpiScale<::Microsoft::Graphics::Canvas::UI::Xaml::CanvasControl, ::default::float32>,
+    1, // Single
+    -1,
+    false, false, false,
+    //   7 - Microsoft.Graphics.Canvas.UI.Xaml.CanvasControl.CustomDevice
+    L"CustomDevice",
+    &GetReferenceTypeMember_CustomDevice<::Microsoft::Graphics::Canvas::UI::Xaml::CanvasControl>,
+    &SetReferenceTypeMember_CustomDevice<::Microsoft::Graphics::Canvas::UI::Xaml::CanvasControl, ::Microsoft::Graphics::Canvas::CanvasDevice>,
+    19, // Microsoft.Graphics.Canvas.CanvasDevice
+    -1,
+    false, false, false,
+    //   8 - Microsoft.Graphics.Canvas.UI.Xaml.CanvasControl.ClearColor
+    L"ClearColor",
+    &GetValueTypeMember_ClearColor<::Microsoft::Graphics::Canvas::UI::Xaml::CanvasControl, ::Windows::UI::Color>,
+    &SetValueTypeMember_ClearColor<::Microsoft::Graphics::Canvas::UI::Xaml::CanvasControl, ::Windows::UI::Color>,
+    3, // Windows.UI.Color
+    -1,
+    false, false, false,
+    //   9 - Microsoft.Graphics.Canvas.UI.Xaml.CanvasControl.ReadyToDraw
+    L"ReadyToDraw",
+    &GetValueTypeMember_ReadyToDraw<::Microsoft::Graphics::Canvas::UI::Xaml::CanvasControl, ::Platform::Boolean>,
+    nullptr,
+    2, // Boolean
+    -1,
+    true,  false, false,
+    //  10 - Microsoft.Graphics.Canvas.UI.Xaml.CanvasControl.Size
+    L"Size",
+    &GetValueTypeMember_Size<::Microsoft::Graphics::Canvas::UI::Xaml::CanvasControl, ::Windows::Foundation::Size>,
+    nullptr,
+    6, // Windows.Foundation.Size
+    -1,
+    true,  false, false,
 };
 
 PCWSTR GetShortName(PCWSTR longName)

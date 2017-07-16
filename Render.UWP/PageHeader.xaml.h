@@ -21,8 +21,8 @@ namespace RenderEngine
         public:
             PageHeader();
 
-            void OnLoaded(Platform::Object ^sender, Windows::UI::Xaml::RoutedEventArgs ^e);
-            void OnUnloaded(Platform::Object ^sender, Windows::UI::Xaml::RoutedEventArgs ^e);
+            void OnLoaded( Platform::Object ^sender, Windows::UI::Xaml::RoutedEventArgs ^e );
+            void OnUnloaded( Platform::Object ^sender, Windows::UI::Xaml::RoutedEventArgs ^e );
 
             static property DependencyProperty^ HeaderContentProperty
             {
@@ -31,14 +31,14 @@ namespace RenderEngine
 
             property UIElement^ HeaderContent
             {
-                UIElement^ get() { return (UIElement^)GetValue(_headerContentProperty); }
-                void set(UIElement^ value) { SetValue(_headerContentProperty, value); }
+                UIElement^ get() { return ( UIElement^ )GetValue(_headerContentProperty); }
+                void set( UIElement^ value ) { SetValue( _headerContentProperty, value ); }
             }
 
         private:
             static DependencyProperty^ _headerContentProperty;
 			Windows::Foundation::EventRegistrationToken _toggleButtonRectChangedToken;
-            void Current_TogglePaneButtonSizeChanged(AppShell^ sender, Rect e);
+            void Current_TogglePaneButtonSizeChanged( AppShell^ sender, Rect e );
         };
     }
 }

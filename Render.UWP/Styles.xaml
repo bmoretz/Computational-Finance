@@ -5,12 +5,12 @@
     <SolidColorBrush
         x:Key="SplitViewLightDismissOverlayBackground" Opacity="0.6"
         Color="{ThemeResource SystemChromeLowColor}" />
-
+	
     <!-- window width adaptive snap points-->
     <x:Double x:Key="MinWindowSnapPoint">0</x:Double>
     <x:Double x:Key="MediumWindowSnapPoint">641</x:Double>
     <x:Double x:Key="LargeWindowSnapPoint">1008</x:Double>
-
+	
     <!-- padding between window title bar and content-->
     <x:Double x:Key="DesktopWindowTopPadding">12</x:Double>
 

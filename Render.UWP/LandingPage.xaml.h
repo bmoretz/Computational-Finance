@@ -12,7 +12,7 @@ namespace RenderEngine
     namespace Views
     {
         /// <summary>
-        /// An empty page that can be used on its own or navigated to within a Frame.
+        /// Landing page to give a brief overview of the project.
         /// </summary>
         [Windows::Foundation::Metadata::WebHostHidden]
         public ref class LandingPage sealed

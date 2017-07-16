@@ -36,6 +36,8 @@
     <ClCompile Include="NavMenuItem.cpp">
       <Filter>Controls</Filter>
     </ClCompile>
+    <ClCompile Include="LandingPage.xaml.cpp" />
+    <ClCompile Include="MovingAverage.xaml.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -50,6 +52,8 @@
       <Filter>Controls</Filter>
     </ClInclude>
     <ClInclude Include="SystemInformationHelpers.h" />
+    <ClInclude Include="LandingPage.xaml.h" />
+    <ClInclude Include="MovingAverage.xaml.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\LockScreenLogo.scale-200.png">
@@ -79,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Render.UWP_TemporaryKey.pfx" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="AppShell.xaml" />
@@ -93,6 +98,12 @@
     </Page>
     <Page Include="Styles.xaml">
       <Filter>Styles</Filter>
+    </Page>
+    <Page Include="FinancialChart.xaml">
+      <Filter>Controls</Filter>
+    </Page>
+    <Page Include="MovingAverage.xaml">
+      <Filter>Views</Filter>
     </Page>
   </ItemGroup>
 </Project>

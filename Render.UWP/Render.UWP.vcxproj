@@ -139,8 +139,14 @@
     <ClInclude Include="BasicPage.xaml.h">
       <DependentUpon>BasicPage.xaml</DependentUpon>
     </ClInclude>
+    <ClInclude Include="FinancialChart.xaml.h">
+      <DependentUpon>FinancialChart.xaml</DependentUpon>
+    </ClInclude>
     <ClInclude Include="LandingPage.xaml.h">
       <DependentUpon>LandingPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="MovingAverage.xaml.h">
+      <DependentUpon>MovingAverage.xaml</DependentUpon>
     </ClInclude>
     <ClInclude Include="NavMenuItem.h" />
     <ClInclude Include="NavMenuListView.h" />
@@ -166,7 +172,13 @@
     <Page Include="BasicPage.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="FinancialChart.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="LandingPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MovingAverage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Include="PageHeader.xaml">
@@ -180,6 +192,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="packages.config" />
     <None Include="Render.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -201,8 +214,14 @@
     <ClCompile Include="BasicPage.xaml.cpp">
       <DependentUpon>BasicPage.xaml</DependentUpon>
     </ClCompile>
+    <ClCompile Include="FinancialChart.xaml.cpp">
+      <DependentUpon>FinancialChart.xaml</DependentUpon>
+    </ClCompile>
     <ClCompile Include="LandingPage.xaml.cpp">
       <DependentUpon>LandingPage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="MovingAverage.xaml.cpp">
+      <DependentUpon>MovingAverage.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="NavMenuItem.cpp" />
     <ClCompile Include="NavMenuListView.cpp" />
@@ -220,5 +239,12 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\Win2D.uwp.1.21.0\build\native\Win2D.uwp.targets" Condition="Exists('..\packages\Win2D.uwp.1.21.0\build\native\Win2D.uwp.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Win2D.uwp.1.21.0\build\native\Win2D.uwp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Win2D.uwp.1.21.0\build\native\Win2D.uwp.targets'))" />
+  </Target>
 </Project>
