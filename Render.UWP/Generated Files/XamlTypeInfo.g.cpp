@@ -100,6 +100,12 @@ template<typename TDeclaringType>
 }
 
 template<typename TDeclaringType>
+::Platform::Object^ GetReferenceTypeMember_HeaderContent(::Platform::Object^ instance)
+{
+    return safe_cast<TDeclaringType^>(instance)->HeaderContent;
+}
+
+template<typename TDeclaringType>
 ::Platform::Object^ GetReferenceTypeMember_Device(::Platform::Object^ instance)
 {
     return safe_cast<TDeclaringType^>(instance)->Device;
@@ -109,12 +115,6 @@ template<typename TDeclaringType>
 ::Platform::Object^ GetReferenceTypeMember_CustomDevice(::Platform::Object^ instance)
 {
     return safe_cast<TDeclaringType^>(instance)->CustomDevice;
-}
-
-template<typename TDeclaringType>
-::Platform::Object^ GetReferenceTypeMember_HeaderContent(::Platform::Object^ instance)
-{
-    return safe_cast<TDeclaringType^>(instance)->HeaderContent;
 }
 
 template<typename TDeclaringType, typename TValue>
@@ -142,15 +142,15 @@ void SetValueTypeMember_ClearColor(::Platform::Object^ instance, ::Platform::Obj
 }
 
 template<typename TDeclaringType, typename TValue>
-void SetReferenceTypeMember_CustomDevice(::Platform::Object^ instance, ::Platform::Object^ value)
-{
-    safe_cast<TDeclaringType^>(instance)->CustomDevice = safe_cast<TValue^>(value);
-}
-
-template<typename TDeclaringType, typename TValue>
 void SetReferenceTypeMember_HeaderContent(::Platform::Object^ instance, ::Platform::Object^ value)
 {
     safe_cast<TDeclaringType^>(instance)->HeaderContent = safe_cast<TValue^>(value);
+}
+
+template<typename TDeclaringType, typename TValue>
+void SetReferenceTypeMember_CustomDevice(::Platform::Object^ instance, ::Platform::Object^ value)
+{
+    safe_cast<TDeclaringType^>(instance)->CustomDevice = safe_cast<TValue^>(value);
 }
 
 struct TypeInfo
@@ -253,16 +253,16 @@ const TypeInfo TypeInfos[] =
     1, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
     true,  false, false, false,
     //  12
-    L"RenderEngine.Views.Distributions", L"",
-    &ActivateType<::RenderEngine::Views::Distributions>, nullptr, nullptr, nullptr,
-    9, // Windows.UI.Xaml.Controls.Page
-    1, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
-    true,  false, false, false,
-    //  13
     L"RenderEngine.Controls.PageHeader", L"",
     &ActivateType<::RenderEngine::Controls::PageHeader>, nullptr, nullptr, nullptr,
     16, // Windows.UI.Xaml.Controls.UserControl
     1, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
+    true,  false, false, false,
+    //  13
+    L"RenderEngine.Views.Distributions", L"",
+    &ActivateType<::RenderEngine::Views::Distributions>, nullptr, nullptr, nullptr,
+    9, // Windows.UI.Xaml.Controls.Page
+    2, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
     true,  false, false, false,
     //  14
     L"RenderEngine.Views.MovingAverage", L"",

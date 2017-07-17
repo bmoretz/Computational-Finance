@@ -35,6 +35,11 @@ void ::RenderEngine::Views::Distributions::Connect(int __connectionId, ::Platfor
             this->LayoutRoot = safe_cast<::Windows::UI::Xaml::Controls::Grid^>(__target);
         }
         break;
+    case 2:
+        {
+            this->title = safe_cast<::Windows::UI::Xaml::Controls::TextBlock^>(__target);
+        }
+        break;
     }
     _contentLoaded = true;
 }

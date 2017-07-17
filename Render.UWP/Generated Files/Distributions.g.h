@@ -12,6 +12,7 @@ namespace Windows {
         namespace Xaml {
             namespace Controls {
                 ref class Grid;
+                ref class TextBlock;
             }
         }
     }
@@ -40,6 +41,7 @@ namespace RenderEngine
         
         
             private: ::Windows::UI::Xaml::Controls::Grid^ LayoutRoot;
+            private: ::Windows::UI::Xaml::Controls::TextBlock^ title;
         };
     }
 }

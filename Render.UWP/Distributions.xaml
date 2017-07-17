@@ -1,11 +1,12 @@
 ﻿<Page
-    x:Class="RenderEngine.Views.Distributions"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="RenderEngine.Views.Distributions"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:c="using:RenderEngine.Controls"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
+	mc:Ignorable="d">
 
 	<Grid x:Name="LayoutRoot"
 		Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
@@ -18,7 +19,7 @@
 						<AdaptiveTrigger MinWindowWidth="{StaticResource MediumWindowSnapPoint}" />
 					</VisualState.StateTriggers>
 					<VisualState.Setters>
-						<Setter Target="LayoutRoot.Margin" Value="24,0"/>
+						<Setter Target="LayoutRoot.Margin" Value="24,0" />
 					</VisualState.Setters>
 				</VisualState>
 				<VisualState>
@@ -26,13 +27,50 @@
 						<AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowSnapPoint}" />
 					</VisualState.StateTriggers>
 					<VisualState.Setters>
-						<Setter Target="LayoutRoot.Margin" Value="12,0"/>
+						<Setter Target="LayoutRoot.Margin" Value="12,0" />
 					</VisualState.Setters>
 				</VisualState>
 			</VisualStateGroup>
 		</VisualStateManager.VisualStateGroups>
 
-		<c:FinancialChart />
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+
+		<c:PageHeader Grid.Row="0">
+			<c:PageHeader.HeaderContent>
+				<TextBlock x:Name="title" Style="{StaticResource PageTitleTextBlockStyle}" Text="Data Distributions" />
+			</c:PageHeader.HeaderContent>
+		</c:PageHeader>
+
+		<VariableSizedWrapGrid Grid.Row="1">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+
+				<VariableSizedWrapGrid Grid.Column="0" HorizontalChildrenAlignment="Stretch" Margin="5 0 5 0">
+					<RadioButton Content="Exponental" GroupName="DataType" />
+					<RadioButton Content="Chi-Squared" GroupName="DataType" />
+					<RadioButton Content="Log Normal" GroupName="DataType" />
+				</VariableSizedWrapGrid>
+
+				<VariableSizedWrapGrid Grid.Column="1">
+                    
+					<Slider
+						Value="50" Minimum="5" Maximum="500" 
+                        Orientation="Vertical" SmallChange="1"
+                        Width="200" />
+                    
+				</VariableSizedWrapGrid>
+			</Grid>
+
+		</VariableSizedWrapGrid>
+
+		<c:FinancialChart Grid.Row="2" />
 
 	</Grid>
 </Page>
