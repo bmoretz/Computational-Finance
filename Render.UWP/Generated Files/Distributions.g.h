@@ -6,6 +6,7 @@
 //     the code is regenerated.
 //------------------------------------------------------------------------------
 
+#include "XamlBindingInfo.g.h"
 
 namespace Windows {
     namespace UI {
@@ -15,6 +16,11 @@ namespace Windows {
                 ref class TextBlock;
             }
         }
+    }
+}
+namespace RenderEngine {
+    namespace Controls {
+        ref class FinancialChart;
     }
 }
 
@@ -39,8 +45,11 @@ namespace RenderEngine
         private:
             bool _contentLoaded;
         
+            class Distributions_obj1_Bindings;
         
+            ::XamlBindingInfo::XamlBindings^ Bindings;
             private: ::Windows::UI::Xaml::Controls::Grid^ LayoutRoot;
+            private: ::RenderEngine::Controls::FinancialChart^ display;
             private: ::Windows::UI::Xaml::Controls::TextBlock^ title;
         };
     }

@@ -153,9 +153,11 @@
     <ClInclude Include="BasicPage.xaml.h">
       <DependentUpon>BasicPage.xaml</DependentUpon>
     </ClInclude>
+    <ClInclude Include="EnumToBooleanConverter.h" />
     <ClInclude Include="Distributions.xaml.h">
       <DependentUpon>Distributions.xaml</DependentUpon>
     </ClInclude>
+    <ClInclude Include="DistributionViewModel.h" />
     <ClInclude Include="FinancialChart.xaml.h">
       <DependentUpon>FinancialChart.xaml</DependentUpon>
     </ClInclude>
@@ -237,6 +239,7 @@
     <ClCompile Include="Distributions.xaml.cpp">
       <DependentUpon>Distributions.xaml</DependentUpon>
     </ClCompile>
+    <ClCompile Include="DistributionViewModel.cpp" />
     <ClCompile Include="FinancialChart.xaml.cpp">
       <DependentUpon>FinancialChart.xaml</DependentUpon>
     </ClCompile>

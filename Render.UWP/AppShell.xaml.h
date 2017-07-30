@@ -38,43 +38,43 @@ namespace RenderEngine
 
 		void OpenNavePane();
 
-    internal:
-        /// <summary>
-        /// An event to notify listeners when the hamburger button may occlude other content in the app.
-        /// The custom "PageHeader" user control is using this.
-        /// </summary>
-        event TypedEventHandler<AppShell^, Rect>^ TogglePaneButtonRectChanged;
-        property Rect TogglePaneButtonRect
-        {
-            Rect get() { return _togglePaneButtonRect;  }
-        private:
-            void set(Rect value) { _togglePaneButtonRect = value; }
-        }
+	internal:
+		/// <summary>
+		/// An event to notify listeners when the hamburger button may occlude other content in the app.
+		/// The custom "PageHeader" user control is using this.
+		/// </summary>
+		event TypedEventHandler<AppShell^, Rect>^ TogglePaneButtonRectChanged;
+		property Rect TogglePaneButtonRect
+		{
+			Rect get() { return _togglePaneButtonRect; }
+		private:
+			void set(Rect value) { _togglePaneButtonRect = value; }
+		}
 
-        static property AppShell^ Current
-        {
-            AppShell^ get()
-            {
-                return _current;
-            }
-        }
+		static property AppShell^ Current
+		{
+			AppShell^ get()
+			{
+				return _current;
+			}
+		}
 
-    private:
-        void OnLoaded(Object ^sender, RoutedEventArgs ^e);
-        void AppShell_KeyDown(Object^ sender, KeyRoutedEventArgs^ e);
-        void SystemNavigationManager_BackRequested(Object^, Windows::UI::Core::BackRequestedEventArgs^ e);
-        void NavMenuList_ItemInvoked(Object^ sender, ListViewItem^ e);
-        void OnNavigatingToPage(Object^ sender, NavigatingCancelEventArgs^ e);
-        void RootSplitView_PaneClosed(SplitView^ sender, Object^ args);
-        void TogglePaneButton_Checked(Object^ sender, RoutedEventArgs^ e);
-        void TogglePaneButton_Unchecked(Object^ sender, RoutedEventArgs^ e);
-        void CheckTogglePaneButtonSizeChanged();
-        void RootSplitViewDisplayModeChangedCallback(DependencyObject^ sender, DependencyProperty^ dp);
-        void NavMenuItemContainerContentChanging(ListViewBase^ sender, ContainerContentChangingEventArgs^ args);
+	private:
+		void OnLoaded(Object ^sender, RoutedEventArgs ^e);
+		void AppShell_KeyDown(Object^ sender, KeyRoutedEventArgs^ e);
+		void SystemNavigationManager_BackRequested(Object^, Windows::UI::Core::BackRequestedEventArgs^ e);
+		void NavMenuList_ItemInvoked(Object^ sender, ListViewItem^ e);
+		void OnNavigatingToPage(Object^ sender, NavigatingCancelEventArgs^ e);
+		void RootSplitView_PaneClosed(SplitView^ sender, Object^ args);
+		void TogglePaneButton_Checked(Object^ sender, RoutedEventArgs^ e);
+		void TogglePaneButton_Unchecked(Object^ sender, RoutedEventArgs^ e);
+		void CheckTogglePaneButtonSizeChanged();
+		void RootSplitViewDisplayModeChangedCallback(DependencyObject^ sender, DependencyProperty^ dp);
+		void NavMenuItemContainerContentChanging(ListViewBase^ sender, ContainerContentChangingEventArgs^ args);
 
-        Vector<NavMenuItem^>^ navlist;
-        Rect _togglePaneButtonRect;
+		Vector<NavMenuItem^>^ navlist;
+		Rect _togglePaneButtonRect;
 
-        static AppShell^ _current;
-    };
+		static AppShell^ _current;
+	};
 }

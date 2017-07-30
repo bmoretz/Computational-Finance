@@ -252,6 +252,10 @@ namespace XamlBindingInfo
             }
             obj->Text = value;
         }
+        static void Set_Windows_UI_Xaml_Controls_Primitives_RangeBase_Value(::Windows::UI::Xaml::Controls::Primitives::RangeBase^ obj, ::default::float64 value)
+        {
+            obj->Value = value;
+        }
         static void Set_Windows_UI_Xaml_Controls_Panel_Background(::Windows::UI::Xaml::Controls::Panel^ obj, ::Windows::UI::Xaml::Media::Brush^ value, ::Platform::String^ targetNullValue)
         {
             if (value == nullptr && targetNullValue != nullptr)

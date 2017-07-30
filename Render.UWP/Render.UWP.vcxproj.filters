@@ -20,6 +20,12 @@
     <Filter Include="Views">
       <UniqueIdentifier>{0a1f3c4d-097d-43bd-8b8b-750e8a9ff36a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ViewModel">
+      <UniqueIdentifier>{73ed3b60-236b-4595-9583-bbbf217920a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Converters">
+      <UniqueIdentifier>{1beb9f3b-fedc-413a-97ee-9aea54a92d3c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
@@ -38,6 +44,11 @@
     </ClCompile>
     <ClCompile Include="LandingPage.xaml.cpp" />
     <ClCompile Include="MovingAverage.xaml.cpp" />
+    <ClCompile Include="Distributions.xaml.cpp" />
+    <ClCompile Include="FinancialChart.xaml.cpp" />
+    <ClCompile Include="DistributionViewModel.cpp">
+      <Filter>ViewModel</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -54,6 +65,14 @@
     <ClInclude Include="SystemInformationHelpers.h" />
     <ClInclude Include="LandingPage.xaml.h" />
     <ClInclude Include="MovingAverage.xaml.h" />
+    <ClInclude Include="Distributions.xaml.h" />
+    <ClInclude Include="FinancialChart.xaml.h" />
+    <ClInclude Include="DistributionViewModel.h">
+      <Filter>ViewModel</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumToBooleanConverter.h">
+      <Filter>Converters</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\LockScreenLogo.scale-200.png">

@@ -7,6 +7,7 @@
 
 #include "FinancialChart.g.h"
 
+using namespace Windows::Foundation::Collections;
 using namespace Microsoft::Graphics::Canvas::UI::Xaml;
 
 namespace RenderEngine
@@ -24,9 +25,10 @@ namespace RenderEngine
 
 			void OnDraw( CanvasControl ^sender, CanvasDrawEventArgs ^args );
 
+			void setPoints( IVector<double>^ points );
+
         private:
-			std::vector<double> m_points;
-			int m_pointsPerFrame;
+			IVector<double>^ m_points;
         };
 	}
 }

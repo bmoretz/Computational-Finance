@@ -2,10 +2,7 @@
 #include "FinancialChart.xaml.h"
 #include "AppShell.xaml.h"
 
-#include "..\Engine\DistrubutionData.h"
-
 using namespace RenderEngine::Controls;
-using namespace NumericalMethods;
 
 using namespace Platform;
 using namespace Windows;
@@ -27,10 +24,6 @@ namespace RenderEngine
         {
             InitializeComponent();
 
-			m_pointsPerFrame = 30;
-
-			DistrubutionData d;
-
             FinancialChart::Loaded += 
 				ref new Windows::UI::Xaml::RoutedEventHandler( this, &FinancialChart::OnLoaded );
             
@@ -47,11 +40,27 @@ namespace RenderEngine
 
         }
 		
+		void FinancialChart::setPoints(IVector<double>^ points)
+        {
+			m_points = points;
+        }
+
 		void FinancialChart::OnDraw( CanvasControl ^sender, CanvasDrawEventArgs ^e )
         {
 			auto background = UI::ColorHelper::FromArgb( 0, 0, 0, 0 );
 
 			e->DrawingSession->Clear( background );
+
+			if (m_points != nullptr)
+			{
+				for (auto index = 0; index < m_points->Size; index++)
+				{
+					auto x = index;
+					auto y = m_points->GetAt(index);
+
+					e->DrawingSession->DrawLine(x, y, x, y, UI::ColorHelper::FromArgb(255, 255, 255, 255), 10 );
+				}
+			}
 
 			sender->Invalidate();
         }
