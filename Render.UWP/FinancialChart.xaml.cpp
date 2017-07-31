@@ -16,6 +16,9 @@ using namespace Windows::UI::Xaml::Input;
 using namespace Windows::UI::Xaml::Media;
 using namespace Windows::UI::Xaml::Navigation;
 
+using namespace Microsoft::Graphics::Canvas::Geometry;
+using namespace Microsoft::Graphics::Canvas::UI::Xaml;
+
 namespace RenderEngine
 {
     namespace Controls
@@ -51,14 +54,21 @@ namespace RenderEngine
 
 			e->DrawingSession->Clear( background );
 
-			if (m_points != nullptr)
+			auto width = sender->ActualWidth;
+			auto height = sender->ActualHeight;
+			auto midWidth = ( float )(width * .5);
+			auto midHeight = ( float )(height * .5);
+
+			CanvasPathBuilder^ cpb = ref new CanvasPathBuilder(e->DrawingSession);
+
+			if( m_points != nullptr )
 			{
-				for (auto index = 0; index < m_points->Size; index++)
+				for( auto index = 0; index < m_points->Size; index++ )
 				{
 					auto x = index;
-					auto y = m_points->GetAt(index);
+					auto y = m_points->GetAt( index );
 
-					e->DrawingSession->DrawLine(x, y, x, y, UI::ColorHelper::FromArgb(255, 255, 255, 255), 10 );
+					e->DrawingSession->DrawLine( x, y, x, y, UI::ColorHelper::FromArgb( 255, 255, 255, 255 ), 10 );
 				}
 			}
 

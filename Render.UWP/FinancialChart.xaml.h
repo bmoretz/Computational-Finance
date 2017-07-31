@@ -14,14 +14,15 @@ namespace RenderEngine
 {
 	namespace Controls
 	{
-        [Windows::Foundation::Metadata::WebHostHidden]
-        public ref class FinancialChart sealed
-        {
-        public:
-            FinancialChart();
+		[Windows::Foundation::Metadata::WebHostHidden]
+		public ref class FinancialChart sealed
+		{
+		public:
 
-            void OnLoaded( Platform::Object ^sender, Windows::UI::Xaml::RoutedEventArgs ^e );
-            void OnUnloaded( Platform::Object ^sender, Windows::UI::Xaml::RoutedEventArgs ^e );
+			FinancialChart();
+
+			void OnLoaded( Platform::Object ^sender, Windows::UI::Xaml::RoutedEventArgs ^e );
+			void OnUnloaded( Platform::Object ^sender, Windows::UI::Xaml::RoutedEventArgs ^e );
 
 			void OnDraw( CanvasControl ^sender, CanvasDrawEventArgs ^args );
 
@@ -29,6 +30,6 @@ namespace RenderEngine
 
         private:
 			IVector<double>^ m_points;
-        };
+		};
 	}
 }

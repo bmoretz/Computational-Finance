@@ -22,7 +22,7 @@ IVector<double>^ DistributionViewModel::getDistribution( DistributionType type, 
 		{
 			auto out = data.gaussianData( 1000, 0, 1);
 
-			out_points = ref new Vector<double>(std::move(out));
+			out_points = ref new Vector<double>( std::move( out ) );
 		} break;
 	}
 
