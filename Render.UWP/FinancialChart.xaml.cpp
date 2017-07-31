@@ -16,40 +16,44 @@ using namespace Windows::UI::Xaml::Input;
 using namespace Windows::UI::Xaml::Media;
 using namespace Windows::UI::Xaml::Navigation;
 
+using namespace Windows::Foundation::Numerics;
+
+using namespace Microsoft::Graphics::Canvas::Svg;
 using namespace Microsoft::Graphics::Canvas::Geometry;
 using namespace Microsoft::Graphics::Canvas::UI::Xaml;
 
 namespace RenderEngine
 {
-    namespace Controls
-    {
-        FinancialChart::FinancialChart()
-        {
-            InitializeComponent();
+	namespace Controls
+	{
+		FinancialChart::FinancialChart()	
+		{
+			InitializeComponent();
 
-            FinancialChart::Loaded += 
+			FinancialChart::Loaded += 
 				ref new Windows::UI::Xaml::RoutedEventHandler( this, &FinancialChart::OnLoaded );
-            
-        	FinancialChart::Unloaded += 
+
+			FinancialChart::Unloaded += 
 				ref new Windows::UI::Xaml::RoutedEventHandler( this, &FinancialChart::OnUnloaded );
-        }
+		}
 
-        void FinancialChart::OnLoaded( Platform::Object ^sender, Windows::UI::Xaml::RoutedEventArgs ^e )
-        {
-        }
+		void FinancialChart::OnLoaded( Platform::Object ^sender, Windows::UI::Xaml::RoutedEventArgs ^e )
+		{
 
-        void FinancialChart::OnUnloaded( Platform::Object ^sender, Windows::UI::Xaml::RoutedEventArgs ^e )
-        {
+		}
 
-        }
+		void FinancialChart::OnUnloaded( Platform::Object ^sender, Windows::UI::Xaml::RoutedEventArgs ^e )
+		{
+
+		}
 		
 		void FinancialChart::setPoints(IVector<double>^ points)
-        {
+		{
 			m_points = points;
-        }
+		}
 
 		void FinancialChart::OnDraw( CanvasControl ^sender, CanvasDrawEventArgs ^e )
-        {
+		{
 			auto background = UI::ColorHelper::FromArgb( 0, 0, 0, 0 );
 
 			e->DrawingSession->Clear( background );
@@ -59,20 +63,47 @@ namespace RenderEngine
 			auto midWidth = ( float )(width * .5);
 			auto midHeight = ( float )(height * .5);
 
-			CanvasPathBuilder^ cpb = ref new CanvasPathBuilder(e->DrawingSession);
+			{
+				CanvasPathBuilder^ cpb = ref new CanvasPathBuilder(e->DrawingSession);
+
+				cpb->BeginFigure(float2(0, midHeight));
+				cpb->AddLine(float2(width, midHeight));
+				cpb->EndFigure(CanvasFigureLoop::Open);
+
+				e->DrawingSession->DrawGeometry(CanvasGeometry::CreatePath(cpb), UI::ColorHelper::FromArgb(150, 150, 150, 150), 1);
+			}
+
+			{
+				CanvasPathBuilder^ cpb = ref new CanvasPathBuilder(e->DrawingSession);
+
+				cpb->BeginFigure(float2(midHeight, 0));
+				cpb->AddLine(float2(midHeight, width));
+				cpb->EndFigure(CanvasFigureLoop::Open);
+
+				cpb->BeginFigure(float2(midWidth - 3, 10));
+				cpb->AddLine(float2(midWidth, 0));
+				cpb->AddLine(float2(midWidth + 3, 10));
+				cpb->EndFigure(CanvasFigureLoop::Open);
+
+				e->DrawingSession->DrawGeometry(CanvasGeometry::CreatePath(cpb), UI::ColorHelper::FromArgb(150, 150, 150, 150), 1);
+			}
 
 			if( m_points != nullptr )
 			{
+
+
+				/*
 				for( auto index = 0; index < m_points->Size; index++ )
 				{
 					auto x = index;
-					auto y = m_points->GetAt( index );
-
-					e->DrawingSession->DrawLine( x, y, x, y, UI::ColorHelper::FromArgb( 255, 255, 255, 255 ), 10 );
-				}
+					auto y = m_points->GetAt( index ) * midHeight;
+					
+					
+					//	e->DrawingSession->DrawLine( x, y, x + 1, y + 1, UI::ColorHelper::FromArgb( 255, 255, 255, 255 ), 10 );
+				}*/
 			}
 
 			sender->Invalidate();
-        }
-    }
+		}
+	}
 }
