@@ -18,7 +18,7 @@ using namespace Windows::UI::Xaml::Navigation;
 
 using namespace Windows::Foundation::Numerics;
 
-using namespace Microsoft::Graphics::Canvas::Svg;
+using namespace Microsoft::Graphics::Canvas::Text;
 using namespace Microsoft::Graphics::Canvas::Geometry;
 using namespace Microsoft::Graphics::Canvas::UI::Xaml;
 
@@ -47,63 +47,73 @@ namespace RenderEngine
 
 		}
 		
-		void FinancialChart::setPoints(IVector<double>^ points)
+		void FinancialChart::setPoints( IVector<double>^ points )
 		{
 			m_points = points;
 		}
 
-		void FinancialChart::OnDraw( CanvasControl ^sender, CanvasDrawEventArgs ^e )
+		void FinancialChart::OnDraw( CanvasControl ^canvas, CanvasDrawEventArgs ^e )
 		{
 			auto background = UI::ColorHelper::FromArgb( 0, 0, 0, 0 );
 
 			e->DrawingSession->Clear( background );
 
-			auto width = sender->ActualWidth;
-			auto height = sender->ActualHeight;
-			auto midWidth = ( float )(width * .5);
-			auto midHeight = ( float )(height * .5);
+			auto width = canvas->ActualWidth;
+			auto height = canvas->ActualHeight;
+
+			auto midWidth = ( float )( width * .5 );
+			auto midHeight = ( float )( height * .5 );
 
 			{
-				CanvasPathBuilder^ cpb = ref new CanvasPathBuilder(e->DrawingSession);
+				// X-Axis
+				CanvasPathBuilder^ cpb = ref new CanvasPathBuilder( e->DrawingSession );
 
-				cpb->BeginFigure(float2(0, midHeight));
-				cpb->AddLine(float2(width, midHeight));
-				cpb->EndFigure(CanvasFigureLoop::Open);
+				cpb->BeginFigure(float2( 0, midHeight ));
+				cpb->AddLine(float2( width, midHeight ));
+				cpb->EndFigure( CanvasFigureLoop::Open );
 
-				e->DrawingSession->DrawGeometry(CanvasGeometry::CreatePath(cpb), UI::ColorHelper::FromArgb(150, 150, 150, 150), 1);
+				e->DrawingSession->DrawGeometry( CanvasGeometry::CreatePath( cpb ), UI::Colors::Gray, 1);
+				e->DrawingSession->DrawText( "0", 0, midHeight, UI::Colors::Gray );
+                e->DrawingSession->DrawText(canvas->ActualWidth.ToString(), width - 50, midHeight - 30, UI::Colors::Gray);
 			}
 
 			{
-				CanvasPathBuilder^ cpb = ref new CanvasPathBuilder(e->DrawingSession);
+				// Y-Axis
+				CanvasPathBuilder^ cpb = ref new CanvasPathBuilder( e->DrawingSession );
 
-				cpb->BeginFigure(float2(midHeight, 0));
-				cpb->AddLine(float2(midHeight, width));
-				cpb->EndFigure(CanvasFigureLoop::Open);
+				cpb->BeginFigure( float2( midWidth, 0 ) );
+				cpb->AddLine( float2( midWidth, width ) );
+				cpb->EndFigure( CanvasFigureLoop::Open );
 
-				cpb->BeginFigure(float2(midWidth - 3, 10));
-				cpb->AddLine(float2(midWidth, 0));
-				cpb->AddLine(float2(midWidth + 3, 10));
-				cpb->EndFigure(CanvasFigureLoop::Open);
+				cpb->BeginFigure( float2( midWidth - 3, 10 ) );
+				cpb->AddLine( float2( midWidth, 0 ) );
+				cpb->AddLine( float2( midWidth + 3, 10 ) );
+				cpb->EndFigure( CanvasFigureLoop::Open );
 
-				e->DrawingSession->DrawGeometry(CanvasGeometry::CreatePath(cpb), UI::ColorHelper::FromArgb(150, 150, 150, 150), 1);
+				e->DrawingSession->DrawGeometry(CanvasGeometry::CreatePath( cpb ), UI::Colors::Gray, 1);
+				e->DrawingSession->DrawText("0", midWidth + 5, height - 30, UI::Colors::Gray);
+				e->DrawingSession->DrawText("1", midWidth + 5, 5, UI::Colors::Gray);
 			}
 
 			if( m_points != nullptr )
 			{
+				CanvasPathBuilder^ cpb = ref new CanvasPathBuilder(e->DrawingSession);
 
+				cpb->BeginFigure(float2(0, midHeight));
 
-				/*
 				for( auto index = 0; index < m_points->Size; index++ )
 				{
-					auto x = index;
+					auto x = m_points->GetAt(index) * midWidth;
 					auto y = m_points->GetAt( index ) * midHeight;
 					
-					
-					//	e->DrawingSession->DrawLine( x, y, x + 1, y + 1, UI::ColorHelper::FromArgb( 255, 255, 255, 255 ), 10 );
-				}*/
+					cpb->AddLine( float2( x, y ) );
+				}
+
+				cpb->EndFigure( CanvasFigureLoop::Open );
+				e->DrawingSession->DrawGeometry(CanvasGeometry::CreatePath(cpb), UI::Colors::Black , 1 );
 			}
 
-			sender->Invalidate();
+			canvas->Invalidate();
 		}
 	}
 }

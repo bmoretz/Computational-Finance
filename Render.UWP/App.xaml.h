@@ -7,6 +7,8 @@
 
 #include "App.g.h"
 
+#include "DistributionViewModel.h"
+
 using namespace Platform;
 using namespace Windows::ApplicationModel;
 using namespace Windows::UI::Xaml::Navigation;

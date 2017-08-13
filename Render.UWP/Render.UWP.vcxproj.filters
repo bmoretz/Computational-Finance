@@ -49,6 +49,15 @@
     <ClCompile Include="DistributionViewModel.cpp">
       <Filter>ViewModel</Filter>
     </ClCompile>
+    <ClCompile Include="EnumToBooleanConverter.cpp">
+      <Filter>Converters</Filter>
+    </ClCompile>
+    <ClCompile Include="BindableBase.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="EnumDescriptionCoverter.cpp">
+      <Filter>Converters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -70,7 +79,14 @@
     <ClInclude Include="DistributionViewModel.h">
       <Filter>ViewModel</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="EnumToBooleanConverter.h">
+      <Filter>Converters</Filter>
+    </ClInclude>
+    <ClInclude Include="BindableBase.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumDescriptionCoverter.h">
       <Filter>Converters</Filter>
     </ClInclude>
   </ItemGroup>
@@ -127,5 +143,8 @@
     <Page Include="Distributions.xaml">
       <Filter>Views</Filter>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Render.UWP.rc" />
   </ItemGroup>
 </Project>

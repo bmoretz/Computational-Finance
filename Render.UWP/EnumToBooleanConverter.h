@@ -1,28 +1,23 @@
 #pragma once
 
-#include "pch.h"
+#include "pch.h" 
 
 using namespace Platform;
+using namespace Windows::UI::Xaml::Data;
 using namespace Windows::UI::Xaml::Interop;
 
 namespace RenderEngine
 {
 	namespace Converters
 	{
-		public ref class EnumToBooleanConverter sealed : Windows::UI::Xaml::Data::IValueConverter
+		public ref class EnumToBooleanConverter sealed : IValueConverter
 		{
 		public:
 			EnumToBooleanConverter();
+			virtual ~EnumToBooleanConverter();
 
-			virtual Object^ Convert(Object^ value, TypeName targetType, Object^ parameter, String^ language)
-			{
-				return value == parameter;
-			}
-
-			virtual Object^ ConvertBack(Object^ value, TypeName targetType, Object^ parameter, String^ language)
-			{
-				return value == true ? parameter : nullptr;
-			}
+			virtual Object^ Convert( Object^ value, TypeName targetType, Object^ parameter, String^ language );
+			virtual Object^ ConvertBack( Object^ value, TypeName targetType, Object^ parameter, String^ language );
 		};
 	}
 }

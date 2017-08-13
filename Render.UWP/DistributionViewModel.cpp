@@ -12,17 +12,28 @@ DistributionViewModel::DistributionViewModel()
 {
 }
 
-IVector<double>^ DistributionViewModel::getDistribution( DistributionType type, int points )
+IVector<double>^ DistributionViewModel::getDistribution( int points )
 {
 	IVector<double>^ out_points;
 	
-	switch( type )
+	switch( DataType )
 	{
 		case DistributionType::Normal:
 		{
-			auto out = data.gaussianData( 1000, 0, 1);
+			auto out = data.gaussianData( points, 0, 1);
+
+			// sort(out.begin(), out.end());
 
 			out_points = ref new Vector<double>( std::move( out ) );
+		} break;
+
+		case DistributionType::Log:
+		{
+			auto out = data.logNormalData(points, 0, 1);
+
+			sort(out.begin(), out.end());
+
+			out_points = ref new Vector<double>(std::move(out));
 		} break;
 	}
 

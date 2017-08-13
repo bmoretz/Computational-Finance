@@ -13,7 +13,6 @@ using namespace Windows::UI::Xaml::Input;
 using namespace Windows::UI::Xaml::Interop;
 using namespace Windows::UI::Xaml::Media;
 using namespace Windows::UI::Xaml::Navigation;
-
 using namespace RenderEngine::Views;
 using namespace RenderEngine::ViewModels;
 
@@ -24,14 +23,9 @@ Distributions::Distributions()
 	this->viewModel = ref new DistributionViewModel();
 }
 
-void Distributions::OnPropertyChanged( Platform::String^ propertyName )
-{
-	PropertyChanged( this, ref new PropertyChangedEventArgs( propertyName ) );
-}
-
 void RenderEngine::Views::Distributions::DrawClick(Platform::Object ^ sender, Windows::UI::Xaml::RoutedEventArgs ^ e)
 {
-	auto points = viewModel->getDistribution( DistributionType::Normal, display->Width );
+	auto points = viewModel->getDistribution( display->ActualWidth );
 
-	display->setPoints(points);
+	display->setPoints( points );
 }

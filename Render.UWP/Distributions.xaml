@@ -7,8 +7,10 @@
 	xmlns:converters="using:RenderEngine.Converters"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="using:RenderEngine.ViewModels.DistributionViewModel"
 	mc:Ignorable="d">
 	<Page.Resources>
+
 	</Page.Resources>
 	
 	<Grid x:Name="LayoutRoot"
@@ -63,24 +65,24 @@
 						<RowDefinition Height="Auto" />
 					</Grid.RowDefinitions>
 
-					<TextBlock
-                        Grid.Row="0" 
-                        Style="{StaticResource InfoTextBlockStyle}" 
-                        Text="Type" />
+					<ListView
+						Grid.Row="0"
+						ItemsSource="{x:Bind ViewModel.DistributionTypes}">
+					    <ListView.ItemsPanel>
+					        <ItemsPanelTemplate>
+					            <StackPanel Orientation="Horizontal" />
+					        </ItemsPanelTemplate>
+					    </ListView.ItemsPanel>
 
-					<VariableSizedWrapGrid Grid.Row="1" HorizontalChildrenAlignment="Stretch" Margin="5 0 5 0">
+						<ListView.ItemTemplate>
+						    <DataTemplate>
+						        <ListViewItem Margin="0,0,5,0" Tag="{Binding}">
+						            <TextBlock Text="{Binding}" />
+						        </ListViewItem>
+						    </DataTemplate>
+						</ListView.ItemTemplate>
 						
-						<!--
-						<RadioButton Content="Gaussian" GroupName="DataType" IsChecked="{Binding ViewModel.DataType, 
-							Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={StaticResource Normal}}"/>
-						-->
-
-						<RadioButton Content="Normal" GroupName="DataType" />
-						<RadioButton Content="Exponental" GroupName="DataType" />
-						<RadioButton Content="Chi-Squared" GroupName="DataType"  />
-						<RadioButton Content="Log Normal" GroupName="DataType" />
-						
-					</VariableSizedWrapGrid>
+					</ListView>
 				</Grid>
 
 				<Grid Grid.Column="1">
@@ -96,12 +98,12 @@
 
 					<Slider
 						Grid.Row="1"
-						Value="{x:Bind ValuesPerFrame, Mode=TwoWay}" Minimum="5" Maximum="500"
+						Minimum="5" Maximum="500"
 						Orientation="Horizontal"
 						Width="200"
 						SmallChange="1" />
 
-					<TextBlock Grid.Row="0" Text="{x:Bind ValuesPerFrame}"/>
+					<TextBlock Grid.Row="0" />
 
 				</Grid>
 
