@@ -2,6 +2,8 @@
 #include "Distributions.xaml.h"
 #include "FinancialChart.xaml.h"
 
+#include "DistributionViewModel.h"
+
 using namespace Platform;
 using namespace Windows::Foundation;
 using namespace Windows::Foundation::Collections;
@@ -16,6 +18,8 @@ using namespace Windows::UI::Xaml::Navigation;
 using namespace RenderEngine::Views;
 using namespace RenderEngine::ViewModels;
 
+using namespace RenderEngine::ViewModels;
+
 Distributions::Distributions()
 {
 	InitializeComponent();
@@ -23,9 +27,23 @@ Distributions::Distributions()
 	this->viewModel = ref new DistributionViewModel();
 }
 
-void RenderEngine::Views::Distributions::DrawClick(Platform::Object ^ sender, Windows::UI::Xaml::RoutedEventArgs ^ e)
+void Distributions::DrawClick( Object ^ sender, RoutedEventArgs ^ e )
 {
 	auto points = viewModel->getDistribution( display->ActualWidth );
 
 	display->setPoints( points );
+}
+
+void Distributions::DistributionClick( Object ^ sender, ItemClickEventArgs ^ e )
+{
+	viewModel->DataType = (DistributionType)e->ClickedItem;
+}
+
+void Distributions::CommandBar_Opening(Platform::Object^ sender, Platform::Object^ e)
+{
+}
+
+
+void Distributions::CommandBar_Closed(Platform::Object^ sender, Platform::Object^ e)
+{
 }

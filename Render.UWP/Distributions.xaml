@@ -1,119 +1,125 @@
 ﻿<Page
-	x:Class="RenderEngine.Views.Distributions"
-	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-	xmlns:local="using:RenderEngine"
-	xmlns:c="using:RenderEngine.Controls"
-	xmlns:converters="using:RenderEngine.Converters"
-	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Class="RenderEngine.Views.Distributions"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RenderEngine"
+    xmlns:c="using:RenderEngine.Controls"
+    xmlns:converters="using:RenderEngine.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:model="using:RenderEngine.ViewModels.DistributionViewModel"
-	mc:Ignorable="d">
-	<Page.Resources>
+    mc:Ignorable="d">
+    <Page.Resources>
 
-	</Page.Resources>
-	
-	<Grid x:Name="LayoutRoot"
-		Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-		EntranceNavigationTransitionInfo.IsTargetElement="True"
-		Padding="24,0">
+    </Page.Resources>
 
-		<VisualStateManager.VisualStateGroups>
-			<VisualStateGroup>
-				<VisualState>
-					<VisualState.StateTriggers>
-						<AdaptiveTrigger MinWindowWidth="{StaticResource MediumWindowSnapPoint}" />
-					</VisualState.StateTriggers>
-					<VisualState.Setters>
-						<Setter Target="LayoutRoot.Margin" Value="24,0" />
-					</VisualState.Setters>
-				</VisualState>
-				<VisualState>
-					<VisualState.StateTriggers>
-						<AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowSnapPoint}" />
-					</VisualState.StateTriggers>
-					<VisualState.Setters>
-						<Setter Target="LayoutRoot.Margin" Value="12,0" />
-					</VisualState.Setters>
-				</VisualState>
-			</VisualStateGroup>
-		</VisualStateManager.VisualStateGroups>
+    <Grid x:Name="LayoutRoot"
+          Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+          EntranceNavigationTransitionInfo.IsTargetElement="True"
+          Padding="24,0">
 
-		<Grid.RowDefinitions>
-			<RowDefinition Height="Auto" />
-			<RowDefinition Height="Auto" />
-			<RowDefinition Height="*" />
-		</Grid.RowDefinitions>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource MediumWindowSnapPoint}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="LayoutRoot.Margin" Value="24,0" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowSnapPoint}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="LayoutRoot.Margin" Value="12,0" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
 
-		<c:PageHeader Grid.Row="0">
-			<c:PageHeader.HeaderContent>
-				<TextBlock x:Name="title" Style="{StaticResource PageTitleTextBlockStyle}" Text="Data Distributions" />
-			</c:PageHeader.HeaderContent>
-		</c:PageHeader>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-		<VariableSizedWrapGrid Grid.Row="1">
-			<Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+        <c:PageHeader Grid.Row="0">
+            <c:PageHeader.HeaderContent>
+                <TextBlock x:Name="title" Style="{StaticResource PageTitleTextBlockStyle}" Text="Data Distributions" />
+            </c:PageHeader.HeaderContent>
+        </c:PageHeader>
 
-                <Grid Grid.Column="0">
-					<Grid.RowDefinitions>
-						<RowDefinition Height="Auto" />
-						<RowDefinition Height="Auto" />
-					</Grid.RowDefinitions>
+        <c:FinancialChart x:Name="display" Grid.Row="1" />
 
-					<ListView
-						Grid.Row="0"
-						ItemsSource="{x:Bind ViewModel.DistributionTypes}">
-					    <ListView.ItemsPanel>
-					        <ItemsPanelTemplate>
-					            <StackPanel Orientation="Horizontal" />
-					        </ItemsPanelTemplate>
-					    </ListView.ItemsPanel>
+        <CommandBar
+            x:Name="cmdbar"
+            Grid.Row="2"
+            Margin="0,48,0,0"
+            HorizontalContentAlignment="Stretch"
+            Opening="CommandBar_Opening"
+            Closed="CommandBar_Closed"
+            IsOpen="False"
+            ClosedDisplayMode="Minimal">
+            <AppBarButton Icon="Clear" Label="Clear" />
+            <CommandBar.Content>
+                <Grid>
 
-						<ListView.ItemTemplate>
-						    <DataTemplate>
-						        <ListViewItem Margin="0,0,5,0" Tag="{Binding}">
-						            <TextBlock Text="{Binding}" />
-						        </ListViewItem>
-						    </DataTemplate>
-						</ListView.ItemTemplate>
-						
-					</ListView>
-				</Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
 
-				<Grid Grid.Column="1">
-					<Grid.RowDefinitions>
-						<RowDefinition Height="Auto" />
-						<RowDefinition Height="Auto" />
-					</Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
 
-					<TextBlock
-						Grid.Row="0" 
-                        Style="{StaticResource InfoTextBlockStyle}" 
-                        Text="Points Per Frame" />
+                        <AppBarButton Icon="Accept" Label="Clipped when Compact" />
 
-					<Slider
-						Grid.Row="1"
-						Minimum="5" Maximum="500"
-						Orientation="Horizontal"
-						Width="200"
-						SmallChange="1" />
+                        <TextBox PlaceholderText="This is a TextBox" MinWidth="196" Height="48" Margin="12,0"
+                                 VerticalAlignment="Top" />
 
-					<TextBlock Grid.Row="0" />
+                        <AppBarButton x:Name="appbarbutton" Icon="Add" Label="Only visible when opened"
+                                      IsCompact="True" />
 
-				</Grid>
+                        <Slider
+                            Grid.Row="1"
+                            Minimum="5" Maximum="500"
+                            Orientation="Horizontal"
+                            Width="200"
+                            SmallChange="1" />
 
-				<Button Grid.Column="3" Click="DrawClick">Draw</Button>
-			</Grid>
+                        <ListView
+                            Grid.Row="0"
+                            ItemsSource="{x:Bind ViewModel.DistributionTypes}"
+                            ItemClick="DistributionClick">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
 
-		</VariableSizedWrapGrid>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ListViewItem Margin="0,0,5,0" Tag="{Binding}">
+                                        <TextBlock Text="{Binding}" />
+                                    </ListViewItem>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
 
-		<c:FinancialChart x:Name="display" Grid.Row="2" />
+                    </StackPanel>
 
-	</Grid>
-	
+                    <Grid Grid.Column="1" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="3" Click="DrawClick">Draw</Button>
+                    </Grid>
+
+                </Grid>
+            </CommandBar.Content>
+        </CommandBar>
+    </Grid>
+
 </Page>

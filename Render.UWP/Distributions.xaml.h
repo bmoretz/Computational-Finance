@@ -29,6 +29,10 @@ namespace RenderEngine
 		protected:
 
 			void DrawClick(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+			void DistributionClick(Platform::Object^ sender, Windows::UI::Xaml::Controls::ItemClickEventArgs ^ e);
+
+			void CommandBar_Opening(Platform::Object^ sender, Platform::Object^ e);
+			void CommandBar_Closed(Platform::Object^ sender, Platform::Object^ e);
 		};
 	}
 }
