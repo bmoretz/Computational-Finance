@@ -5,16 +5,19 @@ using namespace std;
 
 namespace NumericalMethods
 {
-	BinomialPricer::BinomialPricer( double price, double up, double down, double rate ) 
+	BinomialPricer::BinomialPricer( double price, double up, double down, double rate )
 	{
 		ASSERT_WITH_MSG( price >= 0 || up <= -1.0 || down <= -1.0 || up <= down || rate <= -1.0, "Must have non-zero price, up/down interval, and non-negative rate." );
 
 		ASSERT_WITH_MSG( rate >= up || rate <= down, "Arbitrage situation detected." );
 
-		m_price = price; m_rate = rate; m_up = up; m_down = down;
+		m_price = price;
+		m_rate = rate;
+		m_up = up;
+		m_down = down;
 	}
-	
-	BinomialPricer &BinomialPricer::operator=( const BinomialPricer &p )
+
+	BinomialPricer& BinomialPricer::operator=( const BinomialPricer &p )
 	{
 		if( &p != this )
 		{
@@ -27,7 +30,9 @@ namespace NumericalMethods
 		return *this;
 	}
 
-	BinomialPricer::~BinomialPricer() { }
+	BinomialPricer::~BinomialPricer()
+	{
+	}
 
 	double BinomialPricer::RiskNeutProb() const
 	{

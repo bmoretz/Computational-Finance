@@ -37,10 +37,10 @@ MatrixOperations::~MatrixOperations()
 
 static Matrix fromMatrix( const matrix<double> &mp )
 {
-    int d1 = mp.size1();
-    int d2 = mp.size2();
+    auto d1 = mp.size1();
+    auto d2 = mp.size2();
 
-    Matrix res( d1, d2 );
+    Matrix res( static_cast<int>( d1 ), static_cast<int>( d2 ) );
 
     for( auto i = 0; i < d1; ++i )
     {
@@ -60,8 +60,8 @@ void MatrixOperations::addRow( const std::vector<double> &row )
 
 Matrix MatrixOperations::multiply( Matrix &m )
 {
-    int d1 = m_rows.size();
-    int d2 = m_rows[ 0 ].size();
+    auto d1 = m_rows.size();
+    auto d2 = m_rows[ 0 ].size();
 
     matrix<double> M1( d1, d2 );
 
@@ -90,8 +90,8 @@ Matrix MatrixOperations::multiply( Matrix &m )
 
 Matrix MatrixOperations::transpose()
 {
-    int d1 = m_rows.size();
-    int d2 = m_rows[ 0 ].size();
+	auto d1 = m_rows.size();
+	auto d2 = m_rows[ 0 ].size();
 
     matrix<double> M( d1, d2 );
 
@@ -110,8 +110,8 @@ Matrix MatrixOperations::transpose()
 
 Matrix MatrixOperations::elementwiseMultiply( Matrix &m )
 {
-    int d1 = m_rows.size();
-    int d2 = m_rows[ 0 ].size();
+	auto d1 = m_rows.size();
+	auto d2 = m_rows[ 0 ].size();
 
     matrix<double> M1( d1, d2 );
 
@@ -140,8 +140,8 @@ Matrix MatrixOperations::elementwiseMultiply( Matrix &m )
 
 Matrix MatrixOperations::scalarMultiply( double scalar )
 {
-    int d1 = m_rows.size();
-    int d2 = m_rows[ 0 ].size();
+	auto d1 = m_rows.size();
+	auto d2 = m_rows[ 0 ].size();
 
     matrix<double> M( d1, d2 );
 
@@ -164,8 +164,8 @@ std::vector<double> MatrixOperations::preMultiply( const std::vector<double> &v 
 
     copy( v.begin(), v.end(), vec.begin() );
 
-    int d1 = m_rows.size();
-    int d2 = m_rows[ 0 ].size();
+	auto d1 = m_rows.size();
+	auto d2 = m_rows[ 0 ].size();
 
     matrix<double> M( d1, d2 );
 
@@ -191,8 +191,8 @@ std::vector<double> MatrixOperations::postMultiply( const std::vector<double> &v
 
     copy( v.begin(), v.end(), vec.begin() );
 
-    int d1 = m_rows.size();
-    int d2 = m_rows[ 0 ].size();
+	auto d1 = m_rows.size();
+	auto d2 = m_rows[ 0 ].size();
 
     matrix<double> M( d1, d2 );
 

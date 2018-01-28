@@ -95,7 +95,13 @@
     <ClCompile Include="MatrixOperations.cpp">
       <Filter>Source Files\Numerical</Filter>
     </ClCompile>
-    <ClCompile Include="PolynomialInterpolation.cpp" />
+    <ClCompile Include="PolynomialInterpolation.cpp">
+      <Filter>Source Files\Numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="MathFunction.cpp">
+      <Filter>Source Files\Numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="BisectionSolver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
@@ -202,7 +208,13 @@
     <ClInclude Include="MatrixOperations.h">
       <Filter>Header Files\Numerical</Filter>
     </ClInclude>
-    <ClInclude Include="PolynomialInterpolation.h" />
+    <ClInclude Include="PolynomialInterpolation.h">
+      <Filter>Header Files\Numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="MathFunction.h">
+      <Filter>Header Files\Numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="BisectionSolver.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ComputationalFinance.rc" />

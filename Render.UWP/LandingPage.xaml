@@ -1,0 +1,69 @@
+﻿<Page
+    x:Class="RenderEngine.Views.LandingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="using:RenderEngine.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource MediumWindowSnapPoint}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ContentContainer.Margin" Value="12,0,24,0" />
+                        <Setter Target="title.Style" Value="{StaticResource PageTitleTextBlockStyle}" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowSnapPoint}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ContentContainer.Margin" Value="0,0,12,0" />
+                        <Setter Target="title.Style" Value="{StaticResource NarrowPageTitleTextBlockStyle}" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <c:PageHeader x:Name="pageHeader">
+            <c:PageHeader.HeaderContent>
+                <TextBlock x:Name="title" Style="{StaticResource PageTitleTextBlockStyle}" Text="App Overview" />
+            </c:PageHeader.HeaderContent>
+        </c:PageHeader>
+
+        <ScrollViewer
+            Grid.Row="1" 
+			EntranceNavigationTransitionInfo.IsTargetElement="True" 
+			IsTabStop="True"
+            Margin="12,4,0,0">
+            <StackPanel x:Name="ContentContainer" Margin="12,0,24,0">
+				
+                <TextBlock Style="{StaticResource SubtitleTextBlockStyle}">Computational Finance</TextBlock>
+
+                <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,12,0,4">Overview</TextBlock>
+                <TextBlock Style="{StaticResource BodyTextBlockStyle}" Margin="0,4">
+                  This application is a high-level container for various solutions in the computational finance domain.
+                </TextBlock>
+
+                <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,12,0,4">Things to see:</TextBlock>
+				<TextBlock Style="{StaticResource BodyTextBlockStyle}" Margin="0,8"> 1) Moving Average - Display calculating simple and exponential moving averages on the financial charting control.</TextBlock>
+				<TextBlock Style="{StaticResource BodyTextBlockStyle}" Margin="0,8"> 2) Interpolation - A visualization of linear and polynomial interpolation.</TextBlock>
+				
+			</StackPanel>
+			
+        </ScrollViewer>
+		
+    </Grid>
+
+</Page>
