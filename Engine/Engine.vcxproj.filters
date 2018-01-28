@@ -101,7 +101,12 @@
     <ClCompile Include="MathFunction.cpp">
       <Filter>Source Files\Numerical</Filter>
     </ClCompile>
-    <ClCompile Include="BisectionSolver.cpp" />
+    <ClCompile Include="BisectionSolver.cpp">
+      <Filter>Source Files\Numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="SecantSolver.cpp">
+      <Filter>Source Files\Numerical</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
@@ -214,7 +219,12 @@
     <ClInclude Include="MathFunction.h">
       <Filter>Header Files\Numerical</Filter>
     </ClInclude>
-    <ClInclude Include="BisectionSolver.h" />
+    <ClInclude Include="BisectionSolver.h">
+      <Filter>Header Files\Numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="SecantSolver.h">
+      <Filter>Header Files\Numerical</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ComputationalFinance.rc" />

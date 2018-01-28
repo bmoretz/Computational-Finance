@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 #include "Common.h"
 #include "MathFunction.h"
-#include "BisectionSolver.h"
+#include "SecantSolver.h"
 
 using namespace std;
 using namespace Common;
@@ -17,7 +17,7 @@ namespace NumericalTests
 		{
 		public:
 			virtual ~F1();
-			double operator()( double value ) override;
+			double operator()(double value) override;
 		};
 
 		F1::~F1()
@@ -25,13 +25,13 @@ namespace NumericalTests
 		}
 
 		// test method f(x) = (x - 1)^3
-		double F1::operator()( double x )
+		double F1::operator()(double x)
 		{
-			return ( x - 1 ) * ( x - 1 ) * ( x - 1 );
+			return (x - 1) * (x - 1) * (x - 1);
 		}
 	}
 
-	class BiseconSolverTests :
+	class SecantSolverTests :
 		public ::testing::Test
 	{
 	protected:
@@ -44,15 +44,15 @@ namespace NumericalTests
 		}
 	};
 
-	TEST_F(BiseconSolverTests, F1Bisecion)
+	TEST_F(SecantSolverTests, F1Bisecion)
 	{
 		F1 f;
 
-		auto expected_root = 0.99902;
+		auto expected_root = 1.00266;
 
-		BisectionSolver bm( f );
+		SecantSolver sm(f);
 
-		auto actual_root = bm.getRoot( -1, 3 );
+		auto actual_root = sm.getRoot(-10, 10);
 
 		EXPECT_NEAR(expected_root, actual_root, 6);
 	}

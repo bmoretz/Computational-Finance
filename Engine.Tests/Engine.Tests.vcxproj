@@ -180,6 +180,7 @@
     <ClCompile Include="OptionPricer_Tests.cpp" />
     <ClCompile Include="PolynomialInterpolation_tests.cpp" />
     <ClCompile Include="RecommendationProcessor_tests.cpp" />
+    <ClCompile Include="SecantSolver_tests.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
       </PrecompiledHeader>
