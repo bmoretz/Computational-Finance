@@ -7,10 +7,13 @@
     xmlns:converters="using:RenderEngine.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:model="using:RenderEngine.ViewModels.DistributionViewModel"
+    xmlns:viewmodels="using:RenderEngine.ViewModels"
     mc:Ignorable="d">
+	<Page.DataContext>
+		<viewmodels:DistributionViewModel />
+	</Page.DataContext>
     <Page.Resources>
-
+        
     </Page.Resources>
 
     <Grid x:Name="LayoutRoot"
@@ -63,6 +66,14 @@
             IsOpen="False"
             ClosedDisplayMode="Minimal">
             <AppBarButton Icon="Clear" Label="Clear" />
+
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="Menu Item 1" />
+                <AppBarButton Label="Menu Item 2" />
+                <AppBarButton Label="Menu Item 3" />
+                <AppBarButton Label="Menu Item 4" />
+            </CommandBar.SecondaryCommands>
+
             <CommandBar.Content>
                 <Grid>
 
@@ -75,11 +86,15 @@
 
                         <AppBarButton Icon="Accept" Label="Clipped when Compact" />
 
-                        <TextBox PlaceholderText="This is a TextBox" MinWidth="196" Height="48" Margin="12,0"
-                                 VerticalAlignment="Top" />
+                        <TextBox 
+							PlaceholderText="This is a TextBox" 
+							MinWidth="196" Height="48" Margin="12,0"
+							VerticalAlignment="Top" />
 
-                        <AppBarButton x:Name="appbarbutton" Icon="Add" Label="Only visible when opened"
-                                      IsCompact="True" />
+                        <AppBarButton 
+							x:Name="appbarbutton" Icon="Add"
+							Label="Only visible when opened"
+							IsCompact="True" />
 
                         <Slider
                             Grid.Row="1"
@@ -91,6 +106,8 @@
                         <ListView
                             Grid.Row="0"
                             ItemsSource="{x:Bind ViewModel.DistributionTypes}"
+                            SelectedItem="{Binding ViewModel.DataType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            IsItemClickEnabled="True"
                             ItemClick="DistributionClick">
                             <ListView.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -100,9 +117,7 @@
 
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <ListViewItem Margin="0,0,5,0" Tag="{Binding}">
-                                        <TextBlock Text="{Binding}" />
-                                    </ListViewItem>
+                                    <ListViewItem Content="{Binding}" />
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
@@ -114,7 +129,7 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="3" Click="DrawClick">Draw</Button>
+						<Button Grid.Column="3" Click="DrawClick">Draw</Button>
                     </Grid>
 
                 </Grid>

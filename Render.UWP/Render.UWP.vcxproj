@@ -7,8 +7,8 @@
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <AppContainerApplication>true</AppContainerApplication>
     <ApplicationType>Windows Store</ApplicationType>
-    <WindowsTargetPlatformVersion Condition=" '$(WindowsTargetPlatformVersion)' == '' ">10.0.15063.0</WindowsTargetPlatformVersion>
-    <WindowsTargetPlatformMinVersion>10.0.15063.0</WindowsTargetPlatformMinVersion>
+    <WindowsTargetPlatformVersion Condition=" '$(WindowsTargetPlatformVersion)' == '' ">10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.16299.0</WindowsTargetPlatformMinVersion>
     <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -158,12 +158,14 @@
       <DependentUpon>BasicPage.xaml</DependentUpon>
     </ClInclude>
     <ClInclude Include="BindableBase.h" />
+    <ClInclude Include="DelegateCommand.h" />
     <ClInclude Include="Distributions.xaml.h">
       <DependentUpon>Distributions.xaml</DependentUpon>
     </ClInclude>
     <ClInclude Include="DistributionViewModel.h" />
     <ClInclude Include="EnumDescriptionCoverter.h" />
     <ClInclude Include="EnumToBooleanConverter.h" />
+    <ClInclude Include="EnumToStringCoverter.h" />
     <ClInclude Include="FinancialChart.xaml.h">
       <DependentUpon>FinancialChart.xaml</DependentUpon>
     </ClInclude>
@@ -244,12 +246,14 @@
       <DependentUpon>BasicPage.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="BindableBase.cpp" />
+    <ClCompile Include="DelegateCommand.cpp" />
     <ClCompile Include="Distributions.xaml.cpp">
       <DependentUpon>Distributions.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="DistributionViewModel.cpp" />
     <ClCompile Include="EnumDescriptionCoverter.cpp" />
     <ClCompile Include="EnumToBooleanConverter.cpp" />
+    <ClCompile Include="EnumToStringCoverter.cpp" />
     <ClCompile Include="FinancialChart.xaml.cpp">
       <DependentUpon>FinancialChart.xaml</DependentUpon>
     </ClCompile>

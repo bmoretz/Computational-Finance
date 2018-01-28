@@ -4,19 +4,17 @@
 
 #include "../Engine/DistrubutionData.h"
 
-using namespace Platform::Metadata;
+using namespace Platform;
 using namespace Windows::UI::Xaml::Input;
 
 namespace RenderEngine
 {
-	[Flags]
 	public enum class DistributionType
-		: unsigned int
 	{
-		Normal = 0x1,
-		Log = 0x2,
-		Exponential = 0x3,
-		ChiSquared = 0x4,
+		Normal,
+		Log,
+		Exponential,
+		ChiSquared,
 	};
 
 	namespace ViewModels
@@ -24,6 +22,8 @@ namespace RenderEngine
 		public ref class DistributionViewModel sealed : 
 			public Common::BindableBase
 		{
+		internal:
+
 		public:
 			DistributionViewModel();
 
@@ -37,16 +37,24 @@ namespace RenderEngine
 					{
 						m_DistributionTypes = ref new Platform::Collections::Vector<Platform::String^>();
 
-						m_DistributionTypes->Append(DistributionType::Normal.ToString());
-						m_DistributionTypes->Append(DistributionType::Log.ToString());
-						m_DistributionTypes->Append(DistributionType::Exponential.ToString());
-						m_DistributionTypes->Append(DistributionType::ChiSquared.ToString());
+						m_DistributionTypes->Append( DistributionType::Normal.ToString() );
+						m_DistributionTypes->Append( DistributionType::Log.ToString() );
+						m_DistributionTypes->Append( DistributionType::Exponential.ToString() );
+						m_DistributionTypes->Append( DistributionType::ChiSquared.ToString() );
 					}
-
+					
 					return m_DistributionTypes;
 				}
 			}
 			
+			property Windows::UI::Xaml::Input::ICommand^ RenderCommand
+			{
+				Windows::UI::Xaml::Input::ICommand^ get()
+				{
+					return m_renderCommand;
+				};
+			}
+
 			Windows::Foundation::Collections::IVector<double>^ getDistribution( int points );
 
 		private:
@@ -54,6 +62,10 @@ namespace RenderEngine
 			DistributionType m_distributionType;
 
 			Platform::Collections::Vector<Platform::String^>^ m_DistributionTypes;
+
+			Windows::UI::Xaml::Input::ICommand^ m_renderCommand;
+
+			void Render( Platform:: Object^ parameter );
 		};
 	}
 }

@@ -58,6 +58,12 @@
     <ClCompile Include="EnumDescriptionCoverter.cpp">
       <Filter>Converters</Filter>
     </ClCompile>
+    <ClCompile Include="EnumToStringCoverter.cpp">
+      <Filter>Converters</Filter>
+    </ClCompile>
+    <ClCompile Include="DelegateCommand.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -88,6 +94,12 @@
     </ClInclude>
     <ClInclude Include="EnumDescriptionCoverter.h">
       <Filter>Converters</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumToStringCoverter.h">
+      <Filter>Converters</Filter>
+    </ClInclude>
+    <ClInclude Include="DelegateCommand.h">
+      <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
