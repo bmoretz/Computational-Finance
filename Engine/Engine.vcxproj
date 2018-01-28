@@ -185,6 +185,7 @@
     <ClInclude Include="MathFunction.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MatrixOperations.h" />
+    <ClInclude Include="NewtonSolver.h" />
     <ClInclude Include="NumVector.h" />
     <ClInclude Include="OptionPricer.h" />
     <ClInclude Include="PolynomialInterpolation.h" />
@@ -238,6 +239,7 @@
     <ClCompile Include="MathFunction.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="MatrixOperations.cpp" />
+    <ClCompile Include="NewtonSolver.cpp" />
     <ClCompile Include="NumVector.cpp" />
     <ClCompile Include="OptionPricer.cpp" />
     <ClCompile Include="PolynomialInterpolation.cpp" />

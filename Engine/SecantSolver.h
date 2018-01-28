@@ -13,7 +13,7 @@ namespace NumericalMethods
 		~SecantSolver();
 
 		SecantSolver& operator=( const SecantSolver &p );
-		double getRoot( double x1, double x2 ) const;
+		double getRoot( double a, double b ) const;
 
 	private:
 		MathFunction<double> &m_f;

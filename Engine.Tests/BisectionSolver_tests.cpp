@@ -54,6 +54,6 @@ namespace NumericalTests
 
 		auto actual_root = bm.getRoot( -1, 3 );
 
-		EXPECT_NEAR(expected_root, actual_root, 6);
+		EXPECT_NEAR(expected_root, actual_root, .00001);
 	}
 }

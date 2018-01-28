@@ -107,6 +107,9 @@
     <ClCompile Include="SecantSolver.cpp">
       <Filter>Source Files\Numerical</Filter>
     </ClCompile>
+    <ClCompile Include="NewtonSolver.cpp">
+      <Filter>Source Files\Numerical</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
@@ -223,6 +226,9 @@
       <Filter>Header Files\Numerical</Filter>
     </ClInclude>
     <ClInclude Include="SecantSolver.h">
+      <Filter>Header Files\Numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="NewtonSolver.h">
       <Filter>Header Files\Numerical</Filter>
     </ClInclude>
   </ItemGroup>

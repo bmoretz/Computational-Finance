@@ -89,6 +89,9 @@
     <ClCompile Include="SecantSolver_tests.cpp">
       <Filter>Numerical</Filter>
     </ClCompile>
+    <ClCompile Include="NewtonSolver_tests.cpp">
+      <Filter>Numerical</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
