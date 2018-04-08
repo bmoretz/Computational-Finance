@@ -25,10 +25,6 @@ namespace NumericalMethods
 	{
 	}
 
-	NewtonSolver::~NewtonSolver()
-	{
-	}
-
 	NewtonSolver& NewtonSolver::operator=( const NewtonSolver &p )
 	{
 		if( this != &p )

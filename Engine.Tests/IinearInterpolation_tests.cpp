@@ -29,16 +29,16 @@ namespace NumericalTests
 
 	TEST_F( LinearInterpolationTests, Example1 )
 	{
-		auto
-			expected_value = 0.803,
+		const auto
+			expected_value = 0.421379,
 			missing_point = 27.0;
 
 		LinearInterpolation li;
 
 		li.setPoints( m_x, m_y );
 
-		auto actual_value = li.getValue( missing_point );
+		const auto actual_value = li.getValue( missing_point );
 
-		EXPECT_EQ( expected_value, actual_value );
+		EXPECT_NEAR( expected_value, actual_value, .001 );
 	}
 }

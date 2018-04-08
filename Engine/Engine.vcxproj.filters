@@ -110,6 +110,15 @@
     <ClCompile Include="NewtonSolver.cpp">
       <Filter>Source Files\Numerical</Filter>
     </ClCompile>
+    <ClCompile Include="TrapezoidIntegration.cpp">
+      <Filter>Source Files\Numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="NumericalIntegration.cpp">
+      <Filter>Source Files\Numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpsonsIntegraion.cpp">
+      <Filter>Source Files\Numerical</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
@@ -229,6 +238,15 @@
       <Filter>Header Files\Numerical</Filter>
     </ClInclude>
     <ClInclude Include="NewtonSolver.h">
+      <Filter>Header Files\Numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="MidpointIntegration.h">
+      <Filter>Header Files\Numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="TrapezoidIntegration.h">
+      <Filter>Header Files\Numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpsonsIntegraion.h">
       <Filter>Header Files\Numerical</Filter>
     </ClInclude>
   </ItemGroup>

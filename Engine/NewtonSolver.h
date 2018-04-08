@@ -10,7 +10,7 @@ namespace NumericalMethods
 	public:
 		explicit NewtonSolver( MathFunction<double> &f, MathFunction<double> &d );
 		explicit NewtonSolver( const NewtonSolver &p );
-		~NewtonSolver();
+		~NewtonSolver() = default;
 
 		NewtonSolver& operator=( const NewtonSolver &p );
 		double getRoot( double x0 ) const;

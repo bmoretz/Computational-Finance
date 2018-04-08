@@ -16,18 +16,14 @@ namespace NumericalTests
 		class F1 : public MathFunction<double>
 		{
 		public:
-			virtual ~F1();
-			double operator()(double value) override;
+			virtual ~F1() = default;
+			double operator()( double x ) override;
 		};
 
-		F1::~F1()
-		{
-		}
-
 		// test method f(x) = (x - 1)^3
-		double F1::operator()(double x)
+		double F1::operator()( const double x )
 		{
-			return (x - 1) * (x - 1) * (x - 1);
+			return ( x - 1 ) * ( x - 1 ) * ( x - 1 );
 		}
 	}
 
@@ -48,12 +44,12 @@ namespace NumericalTests
 	{
 		F1 f;
 
-		auto expected_root = 1.00266;
+		const auto expected_root = 1.00266;
 
-		SecantSolver sm(f);
+		SecantSolver sm( f );
 
-		auto actual_root = sm.getRoot(-10, 10);
+		const auto actual_root = sm.getRoot( -10, 10 );
 
-		EXPECT_NEAR(expected_root, actual_root, .0001);
+		EXPECT_NEAR( expected_root, actual_root, .0001 );
 	}
 }
