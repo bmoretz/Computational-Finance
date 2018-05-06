@@ -154,11 +154,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
+    <ClInclude Include="RungeKuttaMethod.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BinomialPricer_tests.cpp" />
     <ClCompile Include="BisectionSolver_tests.cpp" />
+    <ClCompile Include="BlackScholesForwardMethod_tests.cpp" />
     <ClCompile Include="BondCalculator_tests.cpp" />
     <ClCompile Include="CalmarRatio_tests.cpp" />
     <ClCompile Include="CashFlowCalculator_tests.cpp" />
@@ -168,7 +170,7 @@
     <ClCompile Include="CreditRisk_Tests.cpp" />
     <ClCompile Include="Date_Tests.cpp" />
     <ClCompile Include="DistributionData_Tests.cpp" />
-    <ClCompile Include="EulersMethod_tests.cpp" />
+    <ClCompile Include="ODESolvers_tests.cpp" />
     <ClCompile Include="FinancialStatement_tests.cpp" />
     <ClCompile Include="FundamentalsCalculator_tests.cpp" />
     <ClCompile Include="IinearInterpolation_tests.cpp" />
@@ -183,6 +185,7 @@
     <ClCompile Include="OptionPricer_Tests.cpp" />
     <ClCompile Include="PolynomialInterpolation_tests.cpp" />
     <ClCompile Include="RecommendationProcessor_tests.cpp" />
+    <ClCompile Include="RungeKuttaMethod.cpp" />
     <ClCompile Include="SecantSolver_tests.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

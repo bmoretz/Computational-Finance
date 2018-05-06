@@ -163,6 +163,7 @@
     <ClInclude Include="..\Engine.Tests\targetver.h" />
     <ClInclude Include="BinomialPricer.h" />
     <ClInclude Include="BisectionSolver.h" />
+    <ClInclude Include="BlackScholesForwardMethod.h" />
     <ClInclude Include="BondCalculator.h" />
     <ClInclude Include="CalculationTemplate.h" />
     <ClInclude Include="CashFlowCalculator.h" />
@@ -209,6 +210,7 @@
   <ItemGroup>
     <ClCompile Include="BinomialPricer.cpp" />
     <ClCompile Include="BisectionSolver.cpp" />
+    <ClCompile Include="BlackScholesForwardMethod.cpp" />
     <ClCompile Include="BondCalculator.cpp" />
     <ClCompile Include="CashFlowCalculator.cpp" />
     <ClCompile Include="CorrelationCalculator.cpp" />

@@ -17,7 +17,7 @@ namespace NumericalTests
 		{
 		public:
 			virtual ~F3() = default;
-			double operator()( double value ) override;
+			double operator()( double x ) override;
 			double operator()( double x, double y ) override;
 		};
 
@@ -37,7 +37,7 @@ namespace NumericalTests
 		{
 		public:
 			virtual ~D3() = default;
-			double operator()( double value ) override;
+			double operator()( double x ) override;
 			double operator()( double x, double y ) override;
 		};
 
@@ -67,7 +67,7 @@ namespace NumericalTests
 		}
 	};
 
-	TEST_F(NewtonSolverTests, F1Bisecion)
+	GTEST_TEST_(NewtonSolverTests, F1Bisecion, NewtonSolverTests, ::testing::internal::GetTypeId<NewtonSolverTests>())
 	{
 		F3 f;
 		D3 d;

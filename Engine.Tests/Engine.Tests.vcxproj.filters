@@ -95,13 +95,18 @@
     <ClCompile Include="MidpointIntegraion_tests.cpp">
       <Filter>Numerical</Filter>
     </ClCompile>
-    <ClCompile Include="EulersMethod_tests.cpp">
+    <ClCompile Include="ODESolvers_tests.cpp">
+      <Filter>Numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="RungeKuttaMethod.cpp" />
+    <ClCompile Include="BlackScholesForwardMethod_tests.cpp">
       <Filter>Numerical</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="RungeKuttaMethod.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

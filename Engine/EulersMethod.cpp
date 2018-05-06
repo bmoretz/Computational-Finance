@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "EulersMethod.h"
-#include "MathFunction.h"
 
 namespace NumericalMethods
 {
