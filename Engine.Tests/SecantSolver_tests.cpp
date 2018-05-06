@@ -18,12 +18,19 @@ namespace NumericalTests
 		public:
 			virtual ~F1() = default;
 			double operator()( double x ) override;
+			double operator()( double x, double y ) override;
 		};
 
 		// test method f(x) = (x - 1)^3
 		double F1::operator()( const double x )
 		{
 			return ( x - 1 ) * ( x - 1 ) * ( x - 1 );
+		}
+		
+		// Not used.
+		double F1::operator()( double x, double y )
+		{
+			return 0;
 		}
 	}
 
@@ -40,7 +47,7 @@ namespace NumericalTests
 		}
 	};
 
-	TEST_F(SecantSolverTests, F1Bisecion)
+	GTEST_TEST_(SecantSolverTests, F1Bisecion, SecantSolverTests, ::testing::internal::GetTypeId<SecantSolverTests>())
 	{
 		F1 f;
 

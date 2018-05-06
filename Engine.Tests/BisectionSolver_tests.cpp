@@ -16,18 +16,21 @@ namespace NumericalTests
 		class F1 : public MathFunction<double>
 		{
 		public:
-			virtual ~F1();
+			virtual ~F1() = default;
 			double operator()( double value ) override;
+			double operator()( double x, double y ) override;
 		};
-
-		F1::~F1()
-		{
-		}
 
 		// test method f(x) = (x - 1)^3
 		double F1::operator()( double x )
 		{
 			return ( x - 1 ) * ( x - 1 ) * ( x - 1 );
+		}
+
+		// test method f(x) = (x - 1)^3
+		double F1::operator()( double x, double y )
+		{
+			return 0;
 		}
 	}
 
@@ -44,15 +47,15 @@ namespace NumericalTests
 		}
 	};
 
-	TEST_F(BiseconSolverTests, F1Bisecion)
+	GTEST_TEST_(BiseconSolverTests, F1Bisecion, BiseconSolverTests, ::testing::internal::GetTypeId<BiseconSolverTests>())
 	{
 		F1 f;
 
-		auto expected_root = 0.99902;
+		const auto expected_root = 0.99902;
 
 		BisectionSolver bm( f );
 
-		auto actual_root = bm.getRoot( -1, 3 );
+		const auto actual_root = bm.getRoot( -1, 3 );
 
 		EXPECT_NEAR(expected_root, actual_root, .00001);
 	}

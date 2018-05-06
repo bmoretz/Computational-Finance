@@ -20,6 +20,7 @@ namespace NumericalTests
 		public:
 			virtual ~F1() = default;
 			double operator()( double x ) override;
+			double operator()( double x, double y ) override;
 		};
 
 		// test method f(x) = x^2 + 1
@@ -27,6 +28,12 @@ namespace NumericalTests
 		double F1::operator()( const double x )
 		{
 			return x * x + 1;
+		}
+
+		// test method f(x) = (x - 1)^3
+		double F1::operator()( double x, double y )
+		{
+			return 0;
 		}
 	}
 
@@ -43,8 +50,8 @@ namespace NumericalTests
 		}
 	};
 
-	// Close
-	TEST_F(IntegrationTests, F1Midpoint)
+	// Close.
+	GTEST_TEST_(IntegrationTests, F1Midpoint, IntegrationTests, ::testing::internal::GetTypeId<IntegrationTests>())
 	{
 		F1 f;
 
@@ -57,8 +64,8 @@ namespace NumericalTests
 		EXPECT_NEAR( expected_area, actual_area, .0001 );
 	}
 
-	// Closer
-	TEST_F(IntegrationTests, F1Trapezoid)
+	// Closer.
+	GTEST_TEST_(IntegrationTests, F1Trapezoid, IntegrationTests, ::testing::internal::GetTypeId<IntegrationTests>())
 	{
 		F1 f;
 
@@ -72,7 +79,7 @@ namespace NumericalTests
 	}
 
 	// Money.
-	TEST_F(IntegrationTests, F1Simpson)
+	GTEST_TEST_(IntegrationTests, F1Simpson, IntegrationTests, ::testing::internal::GetTypeId<IntegrationTests>())
 	{
 		F1 f;
 

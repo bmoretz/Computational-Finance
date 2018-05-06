@@ -172,6 +172,7 @@
     <ClInclude Include="Date.h" />
     <ClInclude Include="Determinant.h" />
     <ClInclude Include="DistrubutionData.h" />
+    <ClInclude Include="EulersMethod.h" />
     <ClInclude Include="FileError.h" />
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="FinancialStatement.h" />
@@ -229,6 +230,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="EulersMethod.cpp" />
     <ClCompile Include="FileError.cpp" />
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="FinancialStatement.cpp" />

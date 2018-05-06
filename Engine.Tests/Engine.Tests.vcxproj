@@ -168,6 +168,7 @@
     <ClCompile Include="CreditRisk_Tests.cpp" />
     <ClCompile Include="Date_Tests.cpp" />
     <ClCompile Include="DistributionData_Tests.cpp" />
+    <ClCompile Include="EulersMethod_tests.cpp" />
     <ClCompile Include="FinancialStatement_tests.cpp" />
     <ClCompile Include="FundamentalsCalculator_tests.cpp" />
     <ClCompile Include="IinearInterpolation_tests.cpp" />
