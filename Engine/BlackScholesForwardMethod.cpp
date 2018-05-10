@@ -13,8 +13,8 @@ using std::setw;
 
 namespace NumericalMethods
 {
-	BlackScholesForwardMethod::BlackScholesForwardMethod( double expiration, double maxPrice, double strike,
-														double intRate )
+	BlackScholesForwardMethod::BlackScholesForwardMethod( const double expiration, const double maxPrice, const double strike,
+														const double intRate )
 		: m_expiration( expiration ),
 		m_maxPrice( maxPrice ),
 		m_strike( strike ),
@@ -35,7 +35,7 @@ namespace NumericalMethods
 		return *this;
 	}
 
-	vector<double> BlackScholesForwardMethod::solve( double volatility, const int nx, const int timeSteps ) const
+	vector<double> BlackScholesForwardMethod::solve( const double volatility, const int nx, const int timeSteps ) const
 	{
 		const auto dt = m_expiration / static_cast<double>( timeSteps );
 		const auto dx = m_maxPrice / static_cast<double>( nx );
@@ -74,7 +74,7 @@ namespace NumericalMethods
 		{
 			const auto t = static_cast<double>( j ) * m_expiration / static_cast<double>( timeSteps );
 
-			auto p = 0.5 * dt * ( nx - 1 ) * ( volatility * volatility * ( nx - 1 ) + m_intRate )
+			const auto p = 0.5 * dt * ( nx - 1 ) * ( volatility * volatility * ( nx - 1 ) + m_intRate )
 				* ( m_maxPrice - m_strike * exp( -m_intRate * t ) );
 
 			for( i = 0; i < nx - 1; i++ )

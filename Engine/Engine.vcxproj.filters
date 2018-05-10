@@ -122,7 +122,15 @@
     <ClCompile Include="EulersMethod.cpp">
       <Filter>Source Files\Numerical</Filter>
     </ClCompile>
-    <ClCompile Include="BlackScholesForwardMethod.cpp" />
+    <ClCompile Include="BlackScholesForwardMethod.cpp">
+      <Filter>Source Files\Numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="RungeKuttaMethod.cpp">
+      <Filter>Source Files\Numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="LPSolver.cpp">
+      <Filter>Source Files\Numerical</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
@@ -256,7 +264,15 @@
     <ClInclude Include="EulersMethod.h">
       <Filter>Header Files\Numerical</Filter>
     </ClInclude>
-    <ClInclude Include="BlackScholesForwardMethod.h" />
+    <ClInclude Include="BlackScholesForwardMethod.h">
+      <Filter>Header Files\Numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="RungeKuttaMethod.h">
+      <Filter>Header Files\Numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="LPSolver.h">
+      <Filter>Header Files\Numerical</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ComputationalFinance.rc" />

@@ -74,8 +74,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(BOOST_INC);$(IncludePath)</IncludePath>
-    <LibraryPath>$(BOOST_LIB);$(LibraryPath)</LibraryPath>
+    <IncludePath>$(BOOST_INC);$(GLPK_INC);$(IncludePath)</IncludePath>
+    <LibraryPath>$(BOOST_LIB);$(GLPK_LIB);$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\Engine\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\Engine\</IntDir>
   </PropertyGroup>
@@ -183,6 +183,7 @@
     <ClInclude Include="IntRateEngine.h" />
     <ClInclude Include="InvestmentInstrument.h" />
     <ClInclude Include="LinearInterpolation.h" />
+    <ClInclude Include="LPSolver.h" />
     <ClInclude Include="MACalculator.h" />
     <ClInclude Include="MathFunction.h" />
     <ClInclude Include="Matrix.h" />
@@ -197,6 +198,7 @@
     <ClInclude Include="RecommendationProcessor.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="RiskCalculator.h" />
+    <ClInclude Include="RungeKuttaMethod.h" />
     <ClInclude Include="SecantSolver.h" />
     <ClInclude Include="SimpsonsIntegraion.h" />
     <ClInclude Include="stdafx.h" />
@@ -242,6 +244,7 @@
     <ClCompile Include="IntRateEngine.cpp" />
     <ClCompile Include="InvestmentInstrument.cpp" />
     <ClCompile Include="LinearInterpolation.cpp" />
+    <ClCompile Include="LPSolver.cpp" />
     <ClCompile Include="MACalculator.cpp" />
     <ClCompile Include="MathFunction.cpp" />
     <ClCompile Include="Matrix.cpp" />
@@ -254,6 +257,7 @@
     <ClCompile Include="Recommendation.cpp" />
     <ClCompile Include="RecommendationProcessor.cpp" />
     <ClCompile Include="RiskCalculator.cpp" />
+    <ClCompile Include="RungeKuttaMethod.cpp" />
     <ClCompile Include="SecantSolver.cpp" />
     <ClCompile Include="SimpsonsIntegraion.cpp" />
     <ClCompile Include="stdafx.cpp">

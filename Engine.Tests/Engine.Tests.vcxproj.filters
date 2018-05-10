@@ -98,7 +98,6 @@
     <ClCompile Include="ODESolvers_tests.cpp">
       <Filter>Numerical</Filter>
     </ClCompile>
-    <ClCompile Include="RungeKuttaMethod.cpp" />
     <ClCompile Include="BlackScholesForwardMethod_tests.cpp">
       <Filter>Numerical</Filter>
     </ClCompile>
@@ -106,7 +105,6 @@
   <ItemGroup>
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="RungeKuttaMethod.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

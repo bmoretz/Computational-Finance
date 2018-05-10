@@ -154,7 +154,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
-    <ClInclude Include="RungeKuttaMethod.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -185,7 +184,6 @@
     <ClCompile Include="OptionPricer_Tests.cpp" />
     <ClCompile Include="PolynomialInterpolation_tests.cpp" />
     <ClCompile Include="RecommendationProcessor_tests.cpp" />
-    <ClCompile Include="RungeKuttaMethod.cpp" />
     <ClCompile Include="SecantSolver_tests.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

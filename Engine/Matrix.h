@@ -13,7 +13,7 @@ namespace NumericalMethods
         Matrix( const Matrix &m );
         explicit Matrix( std::vector<Row> rows );
         Matrix& operator=( const Matrix &m );
-        ~Matrix();
+        ~Matrix() = default;
 
         void transpose();
         double trace();
@@ -25,6 +25,8 @@ namespace NumericalMethods
 
         Row& operator[]( int pos );
         bool operator==( const Matrix &m ) const;
+
+		size_t numRows() const;
 
         size_t size1() const
         {
