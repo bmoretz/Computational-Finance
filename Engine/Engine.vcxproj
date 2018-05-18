@@ -107,10 +107,15 @@
     </Link>
     <Lib>
       <AdditionalOptions>/ignore:4221</AdditionalOptions>
+      <AdditionalDependencies>glpk_4_65.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(GLPK_LIB);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <Bscmake>
       <PreserveSbr>true</PreserveSbr>
     </Bscmake>
+    <CustomBuildStep>
+      <Inputs>glpk_4_65.dll;%(Inputs)</Inputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

@@ -20,7 +20,7 @@ namespace NumericalMethods
 		LPSolver( const LPSolver &p ) = default;
 		LPSolver& operator=( const LPSolver &p );
 
-		~LPSolver();
+		virtual ~LPSolver();
 
 		enum ResultType
 		{

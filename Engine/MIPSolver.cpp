@@ -16,12 +16,12 @@ namespace NumericalMethods
 		return *this;
 	}
 
-	void MIPSolver::setColInteger( int colNum )
+	void MIPSolver::setColInteger( const int colNum ) const
 	{
 		glp_set_col_kind( getLP(), colNum + 1, GLP_IV );
 	}
 
-	void MIPSolver::setColBinary( int colNum )
+	void MIPSolver::setColBinary( const int colNum ) const
 	{
 		glp_set_col_kind( getLP(), colNum + 1, GLP_BV );
 	}
@@ -42,7 +42,6 @@ namespace NumericalMethods
 		for( auto i = 0; i < getNumCols(); ++i )
 		{
 			result[ i ] = glp_mip_col_val( getLP(), i + 1 );
-
 		}
 
 		return LPSolver::FEASIBLE;

@@ -16,8 +16,8 @@ namespace NumericalMethods
 		~MIPSolver() = default;
 		MIPSolver& operator=( const MIPSolver &p );
 
-		void setColInteger( int colNum );
-		void setColBinary( int colNum );
+		void setColInteger( int colNum ) const;
+		void setColBinary( int colNum ) const;
 		virtual ResultType solve( std::vector<double> &result, double &objValue );
 	};
 }

@@ -73,7 +73,7 @@ namespace NumericalMethods
 			result[ j ] = glp_get_col_prim( m_lp, j + 1 );
 		}
 
-		return ResultType::INFEASIBLE;
+		return ResultType::FEASIBLE;
 	}
 
 	void LPSolver::initProblem( const size_t M, const size_t N )

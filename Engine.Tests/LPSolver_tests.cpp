@@ -28,7 +28,6 @@ namespace NumericalTests
 
 	GTEST_TEST_(LPSolverTests, LP_Problem_1, LPSolverTests, ::testing::internal::GetTypeId<LPSolverTests>())
 	{
-		/*
 		Matrix A(3);
 
 		A[0][0] = 1;	A[0][1] = 1;	A[0][2] = 1;
@@ -51,11 +50,10 @@ namespace NumericalTests
 
 		EXPECT_EQ(results.size(), 3);
 
-		EXPECT_NEAR(results.at(0), 52.1939, 0.0001);
+		EXPECT_NEAR(results.at(0), 52.1739, 0.0001);
 		EXPECT_NEAR(results.at(1), 39.1304, 0.0001);
 		EXPECT_NEAR(results.at(2), 0, 0.0001);
 
 		EXPECT_NEAR(objVal, 756.522, 0.001);
-		*/
 	}
 }
