@@ -24,7 +24,7 @@ namespace CommonTests
 
     TEST_F(CorrelationCalculatorTests, BookExample_1)
     {
-        auto expected_correl = -0.05060099;
+		const auto expected_correl = -0.05060099;
 
         TimeSeries a, b;
 
@@ -50,15 +50,15 @@ namespace CommonTests
                     2.9,
                     3.2,
                     } );
-    
-        auto actual_correl = CorrelationCalculator( a, b ).correlation();
+
+		const auto actual_correl = CorrelationCalculator( a, b ).correlation();
 
         EXPECT_DOUBLE_EQ( expected_correl, round_digits( actual_correl, 8 ) );
     }
 
     TEST_F(CorrelationCalculatorTests, BookExample_2)
     {
-        auto expected_correl = -1;
+		const auto expected_correl = -1;
 
         TimeSeries a, b;
 
@@ -77,19 +77,19 @@ namespace CommonTests
                     6,
                     5,
                     4 } );
-    
-        auto actual_correl = CorrelationCalculator( a, b ).correlation();
+
+		const auto actual_correl = CorrelationCalculator( a, b ).correlation();
 
         EXPECT_DOUBLE_EQ( expected_correl, round_digits( actual_correl, 2 ) );
     }
 
     TEST_F(CorrelationCalculatorTests, BSE_SPX)
     {
-        auto
+		const auto
             expected_correl = .6305;
 
         // BSE500, 2-Jun-17 - 21-Apr-17
-        vector<double> bseClose = 
+		const vector<double> bseClose = 
         {
             13290.23,
             13221.57,
@@ -130,7 +130,7 @@ namespace CommonTests
         EXPECT_NE( Zero, ts_bse.size() );
 
         // SPX, 2-Jun-17 - 21-Apr-17
-        vector<double> spxClose = 
+		const vector<double> spxClose = 
         {
             2439.07,
             2430.06,

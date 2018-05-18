@@ -18,19 +18,19 @@ namespace EquityTests
 
         void SetUp() override
         {
-            Recommendation r1( "aapl", BUY, 45.50 );
+			const Recommendation r1( "aapl", BUY, 45.50 );
             m_processor.addRecommendation( r1 );
 
-            Recommendation r2( "aapl", SELL, 50.09 );
+			const Recommendation r2( "aapl", SELL, 50.09 );
             m_processor.addRecommendation( r2 );
 
-            Recommendation r3( "aapl", BUY, 39.90 );
+			const Recommendation r3( "aapl", BUY, 39.90 );
             m_processor.addRecommendation( r3 );
 
-            Recommendation r4( "aapl", BUY, 35.50 );
+			const Recommendation r4( "aapl", BUY, 35.50 );
             m_processor.addRecommendation( r4 );
 
-            Recommendation r5( "aapl", BUY, 50.50 );
+			const Recommendation r5( "aapl", BUY, 50.50 );
             m_processor.addRecommendation( r5 );
         }
 
@@ -41,7 +41,7 @@ namespace EquityTests
 
     TEST_F(RecommendationProcessorTests, TestTargets)
     {
-        auto actual_avg = m_processor.averageTargetPrice( "aapl" );
+		const auto actual_avg = m_processor.averageTargetPrice( "aapl" );
 
         EXPECT_DOUBLE_EQ( round_digits( actual_avg, 1 ), 44.3 );
     }
