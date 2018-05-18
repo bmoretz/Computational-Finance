@@ -6,6 +6,7 @@
 #include "LPSolver.h"
 
 #include <glpk.h>
+#include "TwoDimensionalLPSolver.h"
 
 using namespace std;
 using namespace Common;
@@ -55,5 +56,28 @@ namespace NumericalTests
 		EXPECT_NEAR(results.at(2), 0, 0.0001);
 
 		EXPECT_NEAR(objVal, 756.522, 0.001);
+	}
+
+	GTEST_TEST_(LPSolverTests, LP_Problem_2, LPSolverTests, ::testing::internal::GetTypeId<LPSolverTests>())
+	{
+		const vector<double> A1 = { -2.1, 3.1, 7.9 };
+		const vector<double> A2 = { 1, 1, 1 };
+		const vector<double> c = { 5.3, 7.1 };
+		const vector<double> b = { 3.4, 4.3, 6 };
+
+		TwoDimensionalLPSolver solver(c, A1, A2, b);
+		vector<double> results;
+		double objVal;
+
+		auto res = solver.solveProblem(results, objVal);
+
+		EXPECT_EQ(res, LPSolver::ResultType::FEASIBLE);
+
+		EXPECT_EQ(results.size(), 2);
+
+		EXPECT_NEAR(results.at(0), 0.173077, 0.0001);
+		EXPECT_NEAR(results.at(1), 3.76346, 0.0001);
+		
+		EXPECT_NEAR(objVal, 27.6379, 0.001);
 	}
 }
