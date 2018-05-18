@@ -189,6 +189,7 @@
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MatrixOperations.h" />
     <ClInclude Include="MidpointIntegration.h" />
+    <ClInclude Include="MIPSolver.h" />
     <ClInclude Include="NewtonSolver.h" />
     <ClInclude Include="NumVector.h" />
     <ClInclude Include="OptionPricer.h" />
@@ -206,6 +207,7 @@
     <ClInclude Include="TimeSeriesTransformations.h" />
     <ClInclude Include="TransactionHandler.h" />
     <ClInclude Include="TrapezoidIntegration.h" />
+    <ClInclude Include="TwoDimensionalLPSolver.h" />
     <ClInclude Include="VectorOperations.h" />
     <ClInclude Include="VolatilityCalculator.h" />
   </ItemGroup>
@@ -249,6 +251,7 @@
     <ClCompile Include="MathFunction.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="MatrixOperations.cpp" />
+    <ClCompile Include="MIPSolver.cpp" />
     <ClCompile Include="NumericalIntegration.cpp" />
     <ClCompile Include="NewtonSolver.cpp" />
     <ClCompile Include="NumVector.cpp" />
@@ -270,6 +273,7 @@
     <ClCompile Include="TimeSeriesTransformations.cpp" />
     <ClCompile Include="TransactionHandler.cpp" />
     <ClCompile Include="TrapezoidIntegration.cpp" />
+    <ClCompile Include="TwoDimensionalLPSolver.cpp" />
     <ClCompile Include="VectorOperations.cpp" />
     <ClCompile Include="VolatilityCalculator.cpp" />
   </ItemGroup>

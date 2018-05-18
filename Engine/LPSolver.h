@@ -18,8 +18,9 @@ namespace NumericalMethods
 	public:
 		explicit LPSolver( const Matrix &m, std::vector<double> b, std::vector<double> c );
 		LPSolver( const LPSolver &p ) = default;
-		~LPSolver();
 		LPSolver& operator=( const LPSolver &p );
+
+		~LPSolver();
 
 		enum ResultType
 		{
@@ -51,7 +52,7 @@ namespace NumericalMethods
 		void setColumnCoefs();
 
 	protected:
-		glp_prob * getGLP() const;
+		glp_prob* getLP() const;
 		int getNumCols() const;
 		int getNumRows() const;
 	};

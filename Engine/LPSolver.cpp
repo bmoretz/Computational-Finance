@@ -124,7 +124,7 @@ namespace NumericalMethods
 		}
 	}
 
-	glp_prob* LPSolver::getGLP() const
+	glp_prob* LPSolver::getLP() const
 	{
 		return m_lp;
 	}

@@ -73,8 +73,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(GTEST_INC);$(SolutionDir)Engine;$(GMOCK_INC);$(GMOCK);$(BOOST_INC);$(IncludePath)</IncludePath>
-    <LibraryPath>$(BOOST_LIB);$(SolutionDir)Engine;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(GTEST_INC);$(SolutionDir)Engine;$(GMOCK_INC);$(GMOCK);$(BOOST_INC);$(GLPK_INC);$(IncludePath)</IncludePath>
+    <LibraryPath>$(BOOST_LIB);$(SolutionDir)Engine;$(GLPK_LIB);$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\Engine.Tests\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\Engine.Tests\</IntDir>
   </PropertyGroup>
@@ -169,6 +169,7 @@
     <ClCompile Include="CreditRisk_Tests.cpp" />
     <ClCompile Include="Date_Tests.cpp" />
     <ClCompile Include="DistributionData_Tests.cpp" />
+    <ClCompile Include="LPSolver_tests.cpp" />
     <ClCompile Include="ODESolvers_tests.cpp" />
     <ClCompile Include="FinancialStatement_tests.cpp" />
     <ClCompile Include="FundamentalsCalculator_tests.cpp" />
