@@ -200,6 +200,7 @@
     <ClInclude Include="NumVector.h" />
     <ClInclude Include="OptionPricer.h" />
     <ClInclude Include="PolynomialInterpolation.h" />
+    <ClInclude Include="RandomWalk.h" />
     <ClInclude Include="Ratios.h" />
     <ClInclude Include="Recommendation.h" />
     <ClInclude Include="RecommendationProcessor.h" />
@@ -264,6 +265,7 @@
     <ClCompile Include="NumVector.cpp" />
     <ClCompile Include="OptionPricer.cpp" />
     <ClCompile Include="PolynomialInterpolation.cpp" />
+    <ClCompile Include="RandomWalk.cpp" />
     <ClCompile Include="Recommendation.cpp" />
     <ClCompile Include="RecommendationProcessor.cpp" />
     <ClCompile Include="RiskCalculator.cpp" />
