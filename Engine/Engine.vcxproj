@@ -199,6 +199,7 @@
     <ClInclude Include="NewtonSolver.h" />
     <ClInclude Include="NumVector.h" />
     <ClInclude Include="OptionPricer.h" />
+    <ClInclude Include="OptionProbabilities.h" />
     <ClInclude Include="PolynomialInterpolation.h" />
     <ClInclude Include="RandomWalk.h" />
     <ClInclude Include="Ratios.h" />
@@ -264,6 +265,7 @@
     <ClCompile Include="NewtonSolver.cpp" />
     <ClCompile Include="NumVector.cpp" />
     <ClCompile Include="OptionPricer.cpp" />
+    <ClCompile Include="OptionProbabilities.cpp" />
     <ClCompile Include="PolynomialInterpolation.cpp" />
     <ClCompile Include="RandomWalk.cpp" />
     <ClCompile Include="Recommendation.cpp" />

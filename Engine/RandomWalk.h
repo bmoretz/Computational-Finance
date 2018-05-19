@@ -13,7 +13,7 @@ namespace NumericalMethods
 		~RandomWalk() = default;
 		RandomWalk& operator=( const RandomWalk &p );
 
-		std::vector<double> getWalk();
+		std::vector<double> getWalk() const;
 
 	private:
 		int m_size;

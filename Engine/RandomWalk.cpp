@@ -24,7 +24,7 @@ namespace NumericalMethods
 		return *this;
 	}
 
-	vector<double> RandomWalk::getWalk()
+	vector<double> RandomWalk::getWalk() const
 	{
 		vector<double> walk;
 		auto prev = m_start;
@@ -41,5 +41,7 @@ namespace NumericalMethods
 			walk.push_back( val );
 			prev = val;
 		}
+
+		return walk;
 	}
 }
