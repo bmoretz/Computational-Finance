@@ -172,6 +172,7 @@
     <ClCompile Include="Date_Tests.cpp" />
     <ClCompile Include="DistributionData_Tests.cpp" />
     <ClCompile Include="LPSolver_tests.cpp" />
+    <ClCompile Include="MIPSolver.cpp" />
     <ClCompile Include="ODESolvers_tests.cpp" />
     <ClCompile Include="FinancialStatement_tests.cpp" />
     <ClCompile Include="FundamentalsCalculator_tests.cpp" />
