@@ -14,22 +14,22 @@ namespace NumericalTests
 {
 	namespace
 	{
-		class SampleF : public MathFunction<double>
+		class FSin : public MathFunction<double>
 		{
 		public:
-			virtual ~SampleF() = default;
+			virtual ~FSin() = default;
 			double operator()( double value ) override;
 			double operator()( double x, double y ) override;
 		};
 
 		// Not used.
-		double SampleF::operator()( const double x )
+		double FSin::operator()( const double x )
 		{
 			return 0;
 		}
 
 		// test method f(x) = 3x + 2y + 1
-		double SampleF::operator()( const double x, const double y )
+		double FSin::operator()( const double x, const double y )
 		{
 			return 3 * x + 2 * y + 1;
 		}
@@ -50,7 +50,7 @@ namespace NumericalTests
 
 	TEST_F(ODESolverTests, EulerMethod, EulerMethod_1, ::testing::internal::GetTypeId<EulerMethodTests>())
 	{
-		SampleF f;
+		FSin f;
 
 		const auto expected_res = 77.5625;
 
@@ -63,7 +63,7 @@ namespace NumericalTests
 
 	TEST_F(ODESolverTests, RugeKuttaMethod, RugeKuttaMethod_1, ::testing::internal::GetTypeId<EulerMethodTests>())
 	{
-		SampleF f;
+		FSin f;
 
 		const auto expected_res = 77.6472;
 

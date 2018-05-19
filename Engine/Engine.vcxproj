@@ -195,6 +195,7 @@
     <ClInclude Include="MatrixOperations.h" />
     <ClInclude Include="MidpointIntegration.h" />
     <ClInclude Include="MIPSolver.h" />
+    <ClInclude Include="MonteCarloIntegration.h" />
     <ClInclude Include="NewtonSolver.h" />
     <ClInclude Include="NumVector.h" />
     <ClInclude Include="OptionPricer.h" />
@@ -257,6 +258,7 @@
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="MatrixOperations.cpp" />
     <ClCompile Include="MIPSolver.cpp" />
+    <ClCompile Include="MonteCarloIntegration.cpp" />
     <ClCompile Include="NumericalIntegration.cpp" />
     <ClCompile Include="NewtonSolver.cpp" />
     <ClCompile Include="NumVector.cpp" />

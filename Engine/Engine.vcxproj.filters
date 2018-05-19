@@ -137,6 +137,9 @@
     <ClCompile Include="MIPSolver.cpp">
       <Filter>Source Files\Numerical</Filter>
     </ClCompile>
+    <ClCompile Include="MonteCarloIntegration.cpp">
+      <Filter>Source Files\Numerical</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
@@ -283,6 +286,9 @@
       <Filter>Header Files\Numerical</Filter>
     </ClInclude>
     <ClInclude Include="MIPSolver.h">
+      <Filter>Header Files\Numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="MonteCarloIntegration.h">
       <Filter>Header Files\Numerical</Filter>
     </ClInclude>
   </ItemGroup>
