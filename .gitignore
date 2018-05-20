@@ -8,3 +8,8 @@ TestResults/
 /Data
 
 Render\.UWP/Generated Files/
+/Engine.Py/Debug
+/Engine/Win32/Debug/Engine
+/Engine/Debug
+/obj/Win32/Debug
+/bin/Win32/Debug/Engine.Py

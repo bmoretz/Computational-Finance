@@ -107,7 +107,8 @@ namespace NumericalMethods
 	void LPSolver::setRowBounds()
 	{
 		glp_add_rows( m_lp, m_M );
-		for( auto i = 0; i < m_N; ++i )
+
+		for( auto i = 0; i < static_cast<int>( m_N ); ++i )
 		{
 			glp_set_row_bnds( m_lp, i + 1, GLP_UP, 0.0, m_b[ i ] );
 		}

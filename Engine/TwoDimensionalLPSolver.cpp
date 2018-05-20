@@ -5,8 +5,6 @@
 #include "LPSolver.h"
 #include <utility>
 
-using std::vector;
-
 namespace NumericalMethods
 {
 	TwoDimensionalLPSolver::
@@ -33,7 +31,7 @@ namespace NumericalMethods
 
 	bool TwoDimensionalLPSolver::solveProblem( Vector &results, double &objValue )
 	{
-		const auto size = m_b.size();
+		const auto size = static_cast<int>( m_b.size() );
 		Matrix A( size, 2 );
 
 		for( auto j = 0; j < size; ++j )
@@ -43,7 +41,7 @@ namespace NumericalMethods
 		}
 
 		LPSolver solver( A, m_b, m_c );
-		
+
 		solver.setMaximization();
 
 		return solver.solve( results, objValue ) == LPSolver::ResultType::FEASIBLE;
