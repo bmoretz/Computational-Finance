@@ -58,7 +58,7 @@ namespace NumericalMethods
     vector<double> MACalculator::calculateEMA()
     {
         vector<double> ema;
-        auto multiplier = m_emaFactor / ( m_numPeriods + 1 );
+		const auto multiplier = m_emaFactor / ( m_numPeriods + 1 );
         auto sum = 0.0;
 
         for( auto index = 0; index < m_prices.size(); index++ )

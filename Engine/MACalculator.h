@@ -12,7 +12,7 @@ namespace NumericalMethods
         MACalculator& operator=( const MACalculator &v );
         ~MACalculator();
 
-        void addPriceQuote( double quote )
+        void addPriceQuote( const double quote )
         {
             m_prices.push_back( quote );
         }

@@ -8,18 +8,12 @@ namespace NumericalMethods
     #pragma region Constructor / Deconstructor
 
     LinearInterpolation::LinearInterpolation()
-        : m_x( 0 ),
-          m_y( 0 )
+        : m_y( 0 ),
+          m_x( 0 )
     {
     }
 
-    LinearInterpolation::LinearInterpolation( const LinearInterpolation &l )
-        : m_x( l.m_x ),
-          m_y( l.m_y )
-    {
-    }
-
-    LinearInterpolation& LinearInterpolation::operator=( const LinearInterpolation &l )
+	LinearInterpolation& LinearInterpolation::operator=( const LinearInterpolation &l )
     {
         if( this != &l )
         {
@@ -30,14 +24,9 @@ namespace NumericalMethods
         return *this;
     }
 
-
-    LinearInterpolation::~LinearInterpolation()
-    {
-    }
-
     #pragma endregion
 
-    void LinearInterpolation::setPoints( const std::vector<double> &x_vals, const std::vector<double> y_vals )
+    void LinearInterpolation::setPoints( const std::vector<double> &x_vals, const std::vector<double> &y_vals )
     {
         m_x = x_vals;
         m_y = y_vals;
@@ -58,7 +47,7 @@ namespace NumericalMethods
         }
     }
 
-    double LinearInterpolation::getValue( double x )
+    double LinearInterpolation::getValue( const double x )
     {
         auto x0 = 0.0, x1 = 0.0, y0 = 0.0, y1 = 0.0;
 

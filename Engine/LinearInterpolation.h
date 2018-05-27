@@ -7,11 +7,11 @@ namespace NumericalMethods
     {
     public:
         LinearInterpolation();
-        LinearInterpolation( const LinearInterpolation &l );
+        LinearInterpolation( const LinearInterpolation &l ) = default;
         LinearInterpolation& operator=( const LinearInterpolation &l );
-        ~LinearInterpolation();
+        ~LinearInterpolation() = default;
 
-        void setPoints( const std::vector<double> & x_vals, const std::vector<double> y_vals);
+        void setPoints( const std::vector<double> & x_vals, const std::vector<double> &y_vals);
         double getValue( double x );
 
     private:

@@ -43,8 +43,8 @@ namespace NumericalMethods
 		do
 		{
 			x0 = x1;
-			auto d = m_derivative( x0 );
-			auto y = m_f( x0 );
+			const auto d = m_derivative( x0 );
+			const auto y = m_f( x0 );
 
 			x1 = x0 - y / d;
 		} while( abs( x0 - x1 ) > m_error );

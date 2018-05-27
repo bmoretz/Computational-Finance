@@ -21,7 +21,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Analytics\Market\GBM_Analysis.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Analytics\Market\inner_value_plot.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Analytics\Market\_scratch.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Shell.Py.py" />

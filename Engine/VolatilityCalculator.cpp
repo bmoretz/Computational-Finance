@@ -55,7 +55,7 @@ namespace Common
 
         for( auto index = 1; index < m_prices.size(); index++ )
         {
-            auto current = m_prices[ index ];
+			const auto current = m_prices[ index ];
 
             sum += abs( current - previous );
             previous = current;
