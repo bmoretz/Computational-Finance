@@ -17,8 +17,8 @@ trading_days = 252
 symbols = { "SPX":"^GSPC", "DAX":"^GDAXI" }
 
 symbol = "DAX"
-start = datetime.datetime( 2004, 9, 1 )
-end = datetime.datetime( 2004, 9, 30 )
+start = datetime.datetime( 2004, 9, 30 )
+end = datetime.datetime( 2014, 9, 30 )
 
 index = pdr.get_data_yahoo(symbols[ symbol ], 
 						start,
@@ -32,6 +32,8 @@ index[ 'Return' ] = np.log( index[ 'Close' ] / index[ 'Close'].shift( 1 ) )
 # Realized Volatility ( eg. as defined for variance swaps )
 index[ 'Rea_Var' ] = trading_days * np.cumsum( index[ 'Return' ] ** 2 ) / np.arange( len( index ) )
 index[ 'Rea_Vol' ] = np.sqrt( index[ 'Rea_Var' ] )
+
+# Remove Holidays/Market Closes
 index = index.dropna()
 
 store.append( symbol, index, format='table', data_columns = True )

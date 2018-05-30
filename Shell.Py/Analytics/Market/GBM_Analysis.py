@@ -180,5 +180,5 @@ def rolling_statistics( data ):
 	plt.axis([vx[0], vx[1], cx[2], cx[3]])
 	plt.axhline( co.mean(), color = 'r', ls = 'dashed', lw = 1.5 )
 
-rolling_statistics( simulate_gbm() )
+quotes_returns( simulate_gbm() )
 plt.show()
