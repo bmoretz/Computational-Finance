@@ -30,6 +30,7 @@
     <Compile Include="Analytics\Market\_scratch.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Market\index_data.py" />
     <Compile Include="Shell.Py.py" />
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +43,12 @@
   <ItemGroup>
     <Folder Include="Analytics\" />
     <Folder Include="Analytics\Market\" />
+    <Folder Include="data\" />
+    <Folder Include="Market\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\index.h5" />
+    <Content Include="data\index.h5" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
