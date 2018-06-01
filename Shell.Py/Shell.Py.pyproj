@@ -31,6 +31,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Market\index_data.py" />
+    <Compile Include="Models\bsm_mcs_eur.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Shell.Py.py" />
   </ItemGroup>
   <ItemGroup>
@@ -45,6 +48,7 @@
     <Folder Include="Analytics\Market\" />
     <Folder Include="data\" />
     <Folder Include="Market\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\index.h5" />
