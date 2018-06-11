@@ -21,6 +21,16 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Algorithmic\pseudo_tick_data.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Algorithmic\tick_client_csv.py" />
+    <Compile Include="Algorithmic\tick_client.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Market\index_data.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Analytics\Market\GBM_Analysis.py">
       <SubType>Code</SubType>
     </Compile>
@@ -42,6 +52,9 @@
   <ItemGroup>
     <Folder Include="Analytics\" />
     <Folder Include="Analytics\Market\" />
+    <Folder Include="data\" />
+    <Folder Include="Market\" />
+    <Folder Include="Algorithmic\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
