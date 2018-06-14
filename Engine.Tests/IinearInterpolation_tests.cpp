@@ -27,7 +27,8 @@ namespace NumericalTests
 		vector<double> m_x, m_y;
 	};
 
-	TEST_F( LinearInterpolationTests, Example1 )
+	GTEST_TEST_(LinearInterpolationTests, Example1, LinearInterpolationTests, 
+		::testing::internal::GetTypeId<LinearInterpolationTests>())
 	{
 		const auto
 			expected_value = 0.421379,

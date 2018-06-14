@@ -10,7 +10,7 @@ namespace NumericalMethods
 	public:
 		explicit BisectionSolver( MathFunction<double> &f );
 		explicit BisectionSolver( const BisectionSolver &p );
-		~BisectionSolver();
+		~BisectionSolver() = default;
 
 		BisectionSolver& operator=( const BisectionSolver &p );
 		double getRoot( double x1, double x2 ) const;

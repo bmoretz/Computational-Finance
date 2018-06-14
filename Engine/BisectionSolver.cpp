@@ -23,10 +23,6 @@ namespace NumericalMethods
 	{
 	}
 
-	BisectionSolver::~BisectionSolver()
-	{
-	}
-
 	BisectionSolver& BisectionSolver::operator=( const BisectionSolver &p )
 	{
 		if( this != &p )
@@ -44,7 +40,7 @@ namespace NumericalMethods
 
 		while( abs( x1 - x2 ) > m_error )
 		{
-			auto x3 = root = ( x1 + x2 ) / 2.0;
+			const auto x3 = root = ( x1 + x2 ) / 2.0;
 
 			if( m_f( x1 ) * m_f( x2 ) < 0 )
 			{
