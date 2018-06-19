@@ -13,3 +13,5 @@ Render\.UWP/Generated Files/
 /Engine/Debug
 /obj/Win32/Debug
 /bin/Win32/Debug/Engine.Py
+/Shell.Py/Misc/__pycache__
+/Shell.Py/__pycache__

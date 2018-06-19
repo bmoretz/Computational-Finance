@@ -28,6 +28,9 @@
     <Compile Include="Algorithmic\tick_client.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Misc\Fibonacci.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Market\index_data.py">
       <SubType>Code</SubType>
     </Compile>
@@ -54,11 +57,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Algorithmic\" />
     <Folder Include="Analytics\" />
     <Folder Include="Analytics\Market\" />
     <Folder Include="data\" />
     <Folder Include="Market\" />
     <Folder Include="Models\" />
+    <Folder Include="Misc\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\index.h5" />
