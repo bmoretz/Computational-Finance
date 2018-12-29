@@ -23,7 +23,7 @@
     <ProjectGuid>{41E944E1-9A00-491A-9DF9-6100DDF0D91B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>RenderDirect2D</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
