@@ -151,8 +151,8 @@
   <ItemGroup>
     <ClCompile Include="D:\Libraries\googletest\googlemock\src\gmock-all.cc" />
     <ClCompile Include="D:\Libraries\googletest\googlemock\src\gmock_main.cc" />
-    <ClCompile Include="D:\Libraries\googletest\googletest\src\gtest-all.cc" />
-    <ClCompile Include="D:\Libraries\googletest\googletest\src\gtest_main.cc" />
+    <ClCompile Include="D:\Libraries\googletest\src\gtest-all.cc" />
+    <ClCompile Include="D:\Libraries\googletest\src\gtest_main.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Engine\targetver.h" />

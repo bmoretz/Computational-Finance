@@ -15,3 +15,5 @@ Render\.UWP/Generated Files/
 /bin/Win32/Debug/Engine.Py
 /Shell.Py/Misc/__pycache__
 /Shell.Py/__pycache__
+/bin/Win32/Debug/GTest
+/.vs/ComputationalFinance/v16/Preview
