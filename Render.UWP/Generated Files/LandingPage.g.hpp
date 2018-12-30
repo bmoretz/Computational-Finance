@@ -31,17 +31,17 @@ void ::RenderEngine::Views::LandingPage::Connect(int __connectionId, ::Platform:
 {
     switch (__connectionId)
     {
-    case 1:
+    case 2:
         {
             this->pageHeader = safe_cast<::RenderEngine::Controls::PageHeader^>(__target);
         }
         break;
-    case 2:
+    case 3:
         {
             this->ContentContainer = safe_cast<::Windows::UI::Xaml::Controls::StackPanel^>(__target);
         }
         break;
-    case 3:
+    case 4:
         {
             this->title = safe_cast<::Windows::UI::Xaml::Controls::TextBlock^>(__target);
         }

@@ -30,7 +30,7 @@ void ::RenderEngine::Views::MovingAverage::Connect(int __connectionId, ::Platfor
 {
     switch (__connectionId)
     {
-    case 1:
+    case 2:
         {
             this->LayoutRoot = safe_cast<::Windows::UI::Xaml::Controls::Grid^>(__target);
         }

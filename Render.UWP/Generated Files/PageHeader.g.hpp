@@ -51,15 +51,56 @@ public:
         }
     }
 
+    void Disable(int lineNumber, int columnNumber)
+    {
+        if (lineNumber == 11 && columnNumber == 25)
+        {
+            isobj2BackgroundDisabled = true;
+        }
+        else if (lineNumber == 15 && columnNumber == 17)
+        {
+            isobj4VerticalAlignmentDisabled = true;
+        }
+        else if (lineNumber == 16 && columnNumber == 17)
+        {
+            isobj4HorizontalAlignmentDisabled = true;
+        }
+        else if (lineNumber == 17 && columnNumber == 17)
+        {
+            isobj4MarginDisabled = true;
+        }
+        else if (lineNumber == 18 && columnNumber == 17)
+        {
+            isobj4ContentDisabled = true;
+        }
+    }
+
     void DisconnectUnloadedObject(int connectionId)
     {
         throw ref new ::Platform::InvalidArgumentException("No unloadable elements to disconnect.");
+    }
+
+    void Recycle()
+    {
+        throw ref new ::Platform::NotImplementedException();
+    }
+
+    void ProcessBindings(::Platform::Object^ item, int itemIndex, int phase, int* nextPhase)
+    {
+        throw ref new ::Platform::NotImplementedException();
     }
 
 private:
     // Fields for each control that has bindings.
     ::Windows::UI::Xaml::Controls::Grid^ obj2;
     ::Windows::UI::Xaml::Controls::ContentPresenter^ obj4;
+
+    // Static fields for each binding's enabled/disabled state
+    static bool isobj2BackgroundDisabled;
+    static bool isobj4VerticalAlignmentDisabled;
+    static bool isobj4HorizontalAlignmentDisabled;
+    static bool isobj4MarginDisabled;
+    static bool isobj4ContentDisabled;
 
     // Update methods for each path node used in binding steps.
     void Update_(::RenderEngine::Controls::PageHeader^ obj, int phase)
@@ -78,42 +119,57 @@ private:
     }
     void Update_Background(::Windows::UI::Xaml::Media::Brush^ obj, int phase)
     {
-        if((phase & ((1 << 0) | NOT_PHASED )) != 0)
+        if ((phase & ((1 << 0) | NOT_PHASED )) != 0)
         {
             // PageHeader.xaml line 11
-            Set_Windows_UI_Xaml_Controls_Panel_Background(this->obj2, obj, nullptr);
+            if (!isobj2BackgroundDisabled)
+            {
+                Set_Windows_UI_Xaml_Controls_Panel_Background(this->obj2, obj, nullptr);
+            }
         }
     }
     void Update_VerticalContentAlignment(::Windows::UI::Xaml::VerticalAlignment obj, int phase)
     {
-        if((phase & ((1 << 0) | NOT_PHASED )) != 0)
+        if ((phase & ((1 << 0) | NOT_PHASED )) != 0)
         {
             // PageHeader.xaml line 13
-            Set_Windows_UI_Xaml_FrameworkElement_VerticalAlignment(this->obj4, obj);
+            if (!isobj4VerticalAlignmentDisabled)
+            {
+                Set_Windows_UI_Xaml_FrameworkElement_VerticalAlignment(this->obj4, obj);
+            }
         }
     }
     void Update_HorizontalContentAlignment(::Windows::UI::Xaml::HorizontalAlignment obj, int phase)
     {
-        if((phase & ((1 << 0) | NOT_PHASED )) != 0)
+        if ((phase & ((1 << 0) | NOT_PHASED )) != 0)
         {
             // PageHeader.xaml line 13
-            Set_Windows_UI_Xaml_FrameworkElement_HorizontalAlignment(this->obj4, obj);
+            if (!isobj4HorizontalAlignmentDisabled)
+            {
+                Set_Windows_UI_Xaml_FrameworkElement_HorizontalAlignment(this->obj4, obj);
+            }
         }
     }
     void Update_Padding(::Windows::UI::Xaml::Thickness obj, int phase)
     {
-        if((phase & ((1 << 0) | NOT_PHASED )) != 0)
+        if ((phase & ((1 << 0) | NOT_PHASED )) != 0)
         {
             // PageHeader.xaml line 13
-            Set_Windows_UI_Xaml_FrameworkElement_Margin(this->obj4, obj);
+            if (!isobj4MarginDisabled)
+            {
+                Set_Windows_UI_Xaml_FrameworkElement_Margin(this->obj4, obj);
+            }
         }
     }
     void Update_HeaderContent(::Windows::UI::Xaml::UIElement^ obj, int phase)
     {
-        if((phase & ((1 << 0) | NOT_PHASED )) != 0)
+        if ((phase & ((1 << 0) | NOT_PHASED )) != 0)
         {
             // PageHeader.xaml line 13
-            Set_Windows_UI_Xaml_Controls_ContentPresenter_Content(this->obj4, obj, nullptr);
+            if (!isobj4ContentDisabled)
+            {
+                Set_Windows_UI_Xaml_Controls_ContentPresenter_Content(this->obj4, obj, nullptr);
+            }
         }
     }
     static void Set_Windows_UI_Xaml_Controls_Panel_Background(::Windows::UI::Xaml::Controls::Panel^ obj, ::Windows::UI::Xaml::Media::Brush^ value, ::Platform::String^ targetNullValue)
@@ -145,6 +201,13 @@ private:
         obj->Content = value;
     }
 };
+
+    // Initializing static fields for each binding's enabled/disabled state
+bool RenderEngine::Controls::PageHeader::PageHeader_obj1_Bindings::isobj2BackgroundDisabled = false;
+bool RenderEngine::Controls::PageHeader::PageHeader_obj1_Bindings::isobj4VerticalAlignmentDisabled = false;
+bool RenderEngine::Controls::PageHeader::PageHeader_obj1_Bindings::isobj4HorizontalAlignmentDisabled = false;
+bool RenderEngine::Controls::PageHeader::PageHeader_obj1_Bindings::isobj4MarginDisabled = false;
+bool RenderEngine::Controls::PageHeader::PageHeader_obj1_Bindings::isobj4ContentDisabled = false;
 
 void ::RenderEngine::Controls::PageHeader::Connect(int __connectionId, ::Platform::Object^ __target)
 {
@@ -182,6 +245,7 @@ void ::RenderEngine::Controls::PageHeader::Connect(int __connectionId, ::Platfor
                 bindings = ref new ::XamlBindingInfo::XamlBindings(objBindings);
                 this->Bindings = bindings;
                 element1->Loading += ref new ::Windows::Foundation::TypedEventHandler<::Windows::UI::Xaml::FrameworkElement^, ::Platform::Object^>(bindings, &::XamlBindingInfo::XamlBindings::Loading);
+                ::Windows::UI::Xaml::Markup::XamlBindingHelper::SetDataTemplateComponent(element1, bindings);
             }
             break;
     }

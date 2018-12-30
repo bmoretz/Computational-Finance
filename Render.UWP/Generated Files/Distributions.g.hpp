@@ -88,14 +88,35 @@ public:
         }
     }
 
+    void Disable(int lineNumber, int columnNumber)
+    {
+        if (lineNumber == 108 && columnNumber == 29)
+        {
+            isobj7ItemsSourceDisabled = true;
+        }
+    }
+
     void DisconnectUnloadedObject(int connectionId)
     {
         throw ref new ::Platform::InvalidArgumentException("No unloadable elements to disconnect.");
     }
 
+    void Recycle()
+    {
+        throw ref new ::Platform::NotImplementedException();
+    }
+
+    void ProcessBindings(::Platform::Object^ item, int itemIndex, int phase, int* nextPhase)
+    {
+        throw ref new ::Platform::NotImplementedException();
+    }
+
 private:
     // Fields for each control that has bindings.
     ::Windows::UI::Xaml::Controls::ListView^ obj7;
+
+    // Static fields for each binding's enabled/disabled state
+    static bool isobj7ItemsSourceDisabled;
 
     // Update methods for each path node used in binding steps.
     void Update_(::RenderEngine::Views::Distributions^ obj, int phase)
@@ -120,10 +141,13 @@ private:
     }
     void Update_ViewModel_DistributionTypes(::Windows::Foundation::Collections::IObservableVector<::Platform::String^>^ obj, int phase)
     {
-        if((phase & ((1 << 0) | NOT_PHASED )) != 0)
+        if ((phase & ((1 << 0) | NOT_PHASED )) != 0)
         {
             // Distributions.xaml line 106
-            Set_Windows_UI_Xaml_Controls_ItemsControl_ItemsSource(this->obj7, obj, nullptr);
+            if (!isobj7ItemsSourceDisabled)
+            {
+                Set_Windows_UI_Xaml_Controls_ItemsControl_ItemsSource(this->obj7, obj, nullptr);
+            }
         }
     }
     static void Set_Windows_UI_Xaml_Controls_ItemsControl_ItemsSource(::Windows::UI::Xaml::Controls::ItemsControl^ obj, ::Platform::Object^ value, ::Platform::String^ targetNullValue)
@@ -135,6 +159,9 @@ private:
         obj->ItemsSource = value;
     }
 };
+
+    // Initializing static fields for each binding's enabled/disabled state
+bool RenderEngine::Views::Distributions::Distributions_obj1_Bindings::isobj7ItemsSourceDisabled = false;
 
 void ::RenderEngine::Views::Distributions::Connect(int __connectionId, ::Platform::Object^ __target)
 {
@@ -178,7 +205,7 @@ void ::RenderEngine::Views::Distributions::Connect(int __connectionId, ::Platfor
                 (::Platform::Object^, ::Windows::UI::Xaml::Controls::ItemClickEventArgs^))&Distributions::DistributionClick);
         }
         break;
-    case 8:
+    case 9:
         {
             this->title = safe_cast<::Windows::UI::Xaml::Controls::TextBlock^>(__target);
         }
@@ -200,6 +227,7 @@ void ::RenderEngine::Views::Distributions::Connect(int __connectionId, ::Platfor
                 bindings = ref new ::XamlBindingInfo::XamlBindings(objBindings);
                 this->Bindings = bindings;
                 element1->Loading += ref new ::Windows::Foundation::TypedEventHandler<::Windows::UI::Xaml::FrameworkElement^, ::Platform::Object^>(bindings, &::XamlBindingInfo::XamlBindings::Loading);
+                ::Windows::UI::Xaml::Markup::XamlBindingHelper::SetDataTemplateComponent(element1, bindings);
             }
             break;
     }

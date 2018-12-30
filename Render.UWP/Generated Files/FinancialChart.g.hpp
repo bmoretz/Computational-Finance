@@ -48,14 +48,35 @@ public:
         }
     }
 
+    void Disable(int lineNumber, int columnNumber)
+    {
+        if (lineNumber == 12 && columnNumber == 22)
+        {
+            isobj2BackgroundDisabled = true;
+        }
+    }
+
     void DisconnectUnloadedObject(int connectionId)
     {
         throw ref new ::Platform::InvalidArgumentException("No unloadable elements to disconnect.");
     }
 
+    void Recycle()
+    {
+        throw ref new ::Platform::NotImplementedException();
+    }
+
+    void ProcessBindings(::Platform::Object^ item, int itemIndex, int phase, int* nextPhase)
+    {
+        throw ref new ::Platform::NotImplementedException();
+    }
+
 private:
     // Fields for each control that has bindings.
     ::Windows::UI::Xaml::Controls::Grid^ obj2;
+
+    // Static fields for each binding's enabled/disabled state
+    static bool isobj2BackgroundDisabled;
 
     // Update methods for each path node used in binding steps.
     void Update_(::RenderEngine::Controls::FinancialChart^ obj, int phase)
@@ -70,10 +91,13 @@ private:
     }
     void Update_Background(::Windows::UI::Xaml::Media::Brush^ obj, int phase)
     {
-        if((phase & ((1 << 0) | NOT_PHASED )) != 0)
+        if ((phase & ((1 << 0) | NOT_PHASED )) != 0)
         {
             // FinancialChart.xaml line 12
-            Set_Windows_UI_Xaml_Controls_Panel_Background(this->obj2, obj, nullptr);
+            if (!isobj2BackgroundDisabled)
+            {
+                Set_Windows_UI_Xaml_Controls_Panel_Background(this->obj2, obj, nullptr);
+            }
         }
     }
     static void Set_Windows_UI_Xaml_Controls_Panel_Background(::Windows::UI::Xaml::Controls::Panel^ obj, ::Windows::UI::Xaml::Media::Brush^ value, ::Platform::String^ targetNullValue)
@@ -85,6 +109,9 @@ private:
         obj->Background = value;
     }
 };
+
+    // Initializing static fields for each binding's enabled/disabled state
+bool RenderEngine::Controls::FinancialChart::FinancialChart_obj1_Bindings::isobj2BackgroundDisabled = false;
 
 void ::RenderEngine::Controls::FinancialChart::Connect(int __connectionId, ::Platform::Object^ __target)
 {
@@ -119,6 +146,7 @@ void ::RenderEngine::Controls::FinancialChart::Connect(int __connectionId, ::Pla
                 bindings = ref new ::XamlBindingInfo::XamlBindings(objBindings);
                 this->Bindings = bindings;
                 element1->Loading += ref new ::Windows::Foundation::TypedEventHandler<::Windows::UI::Xaml::FrameworkElement^, ::Platform::Object^>(bindings, &::XamlBindingInfo::XamlBindings::Loading);
+                ::Windows::UI::Xaml::Markup::XamlBindingHelper::SetDataTemplateComponent(element1, bindings);
             }
             break;
     }

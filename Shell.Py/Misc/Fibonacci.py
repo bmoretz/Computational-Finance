@@ -34,6 +34,8 @@ def fibonacci( n ):
 
 	return a
 
+
+
 class TestFibonacci( unittest.TestCase ):
 
 	def test_single( self ):

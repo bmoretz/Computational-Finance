@@ -64,7 +64,10 @@ public:
                             if (this->IsInitialized())
                             {
                                 // Update Two Way binding
-                                this->GetDataRoot()->SelectedVis = this->obj3->Visibility;
+                                if (this->GetDataRoot() != nullptr)
+                                {
+                                    this->GetDataRoot()->SelectedVis = this->obj3->Visibility;
+                                }
                             }
                         }));
                 break;
@@ -74,6 +77,26 @@ public:
             case 5: // AppShell.xaml line 41
                 this->obj5 = safe_cast<::Windows::UI::Xaml::Controls::TextBlock^>(__target);
                 break;
+        }
+    }
+
+    void Disable(int lineNumber, int columnNumber)
+    {
+        if (lineNumber == 30 && columnNumber == 21)
+        {
+            isobj3VisibilityDisabled = true;
+        }
+        else if (lineNumber == 39 && columnNumber == 50)
+        {
+            isobj4GlyphDisabled = true;
+        }
+        else if (lineNumber == 40 && columnNumber == 50)
+        {
+            isobj4ToolTipDisabled = true;
+        }
+        else if (lineNumber == 42 && columnNumber == 51)
+        {
+            isobj5TextDisabled = true;
         }
     }
 
@@ -114,6 +137,12 @@ private:
     ::Windows::UI::Xaml::Shapes::Rectangle^ obj3;
     ::Windows::UI::Xaml::Controls::FontIcon^ obj4;
     ::Windows::UI::Xaml::Controls::TextBlock^ obj5;
+
+    // Static fields for each binding's enabled/disabled state
+    static bool isobj3VisibilityDisabled;
+    static bool isobj4GlyphDisabled;
+    static bool isobj4ToolTipDisabled;
+    static bool isobj5TextDisabled;
     
     // Fields for binding tracking.
     ::Platform::WeakReference cachePC_;
@@ -138,28 +167,40 @@ private:
     }
     void Update_SelectedVis(::Windows::UI::Xaml::Visibility obj, int phase)
     {
-        if((phase & ((1 << 0) | NOT_PHASED | DATA_CHANGED)) != 0)
+        if ((phase & ((1 << 0) | NOT_PHASED | DATA_CHANGED)) != 0)
         {
             // AppShell.xaml line 24
-            Set_Windows_UI_Xaml_UIElement_Visibility(this->obj3, obj);
+            if (!isobj3VisibilityDisabled)
+            {
+                Set_Windows_UI_Xaml_UIElement_Visibility(this->obj3, obj);
+            }
         }
     }
     void Update_SymbolAsChar(::Platform::String^ obj, int phase)
     {
-        if((phase & ((1 << 0) | NOT_PHASED )) != 0)
+        if ((phase & ((1 << 0) | NOT_PHASED )) != 0)
         {
             // AppShell.xaml line 38
-            Set_Windows_UI_Xaml_Controls_FontIcon_Glyph(this->obj4, obj, nullptr);
+            if (!isobj4GlyphDisabled)
+            {
+                Set_Windows_UI_Xaml_Controls_FontIcon_Glyph(this->obj4, obj, nullptr);
+            }
         }
     }
     void Update_Label(::Platform::String^ obj, int phase)
     {
-        if((phase & ((1 << 0) | NOT_PHASED )) != 0)
+        if ((phase & ((1 << 0) | NOT_PHASED )) != 0)
         {
             // AppShell.xaml line 38
-            Set_Windows_UI_Xaml_Controls_ToolTipService_ToolTip(this->obj4, obj, nullptr);
+            if (!isobj4ToolTipDisabled)
+            {
+                Set_Windows_UI_Xaml_Controls_ToolTipService_ToolTip(this->obj4, obj, nullptr);
+            }
             // AppShell.xaml line 41
-            Set_Windows_UI_Xaml_Controls_TextBlock_Text(this->obj5, obj, nullptr);
+            if (!isobj5TextDisabled)
+            {
+                Set_Windows_UI_Xaml_Controls_TextBlock_Text(this->obj5, obj, nullptr);
+            }
         }
     }
 
@@ -209,6 +250,7 @@ private:
         {
         }
     }
+
     static void Set_Windows_UI_Xaml_UIElement_Visibility(::Windows::UI::Xaml::UIElement^ obj, ::Windows::UI::Xaml::Visibility value)
     {
         obj->Visibility = value;
@@ -221,7 +263,7 @@ private:
         }
         obj->Glyph = value;
     }
-    static void Set_Windows_UI_Xaml_Controls_ToolTipService_ToolTip(::Windows::UI::Xaml::FrameworkElement^ obj, ::Platform::Object^ value, ::Platform::String^ targetNullValue)
+    static void Set_Windows_UI_Xaml_Controls_ToolTipService_ToolTip(::Windows::UI::Xaml::DependencyObject^ obj, ::Platform::Object^ value, ::Platform::String^ targetNullValue)
     {
         if (value == nullptr && targetNullValue != nullptr)
         {
@@ -238,6 +280,12 @@ private:
         obj->Text = value;
     }
 };
+
+    // Initializing static fields for each binding's enabled/disabled state
+bool RenderEngine::AppShell::AppShell_obj2_Bindings::isobj3VisibilityDisabled = false;
+bool RenderEngine::AppShell::AppShell_obj2_Bindings::isobj4GlyphDisabled = false;
+bool RenderEngine::AppShell::AppShell_obj2_Bindings::isobj4ToolTipDisabled = false;
+bool RenderEngine::AppShell::AppShell_obj2_Bindings::isobj5TextDisabled = false;
 
 void ::RenderEngine::AppShell::Connect(int __connectionId, ::Platform::Object^ __target)
 {

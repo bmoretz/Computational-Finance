@@ -68,7 +68,7 @@ namespace NumericalTests
 		MonteCarloIntegration mci( f );
 		const auto actual_integral = mci.getIntegral( 0.5, 2.5 );
 
-		EXPECT_NEAR(expected_integral, actual_integral, 0.001);
+		EXPECT_NEAR(expected_integral, actual_integral, 0.001 );
 	}
 
 	TEST_F(MonteCarloIntegraionTests, SinIntegraion_2, SinIntegraion,
